@@ -1,0 +1,2886 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>RAAZ AUTO | Premium Reconditioned Vehicles Kathmandu</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "on-primary": "#050508",
+              "on-background": "#e2e1eb",
+              "primary-container": "#ff571a",
+              "on-primary-container": "#fffaf7",
+              "background": "#0a0b10",
+              "surface": "#12131a",
+              "surface-container-low": "#161722",
+              "surface-container": "#1a1b28",
+              "surface-container-high": "#222332",
+              "surface-container-highest": "#2c2e3f",
+              "primary": "#ff7c4d",
+              "on-surface": "#e2e1eb",
+              "on-surface-variant": "#a7a6b2",
+              "outline": "#ad897e",
+              "outline-variant": "#3f2820",
+              "secondary": "#ff3b30",
+              "tertiary": "#a5c8ff",
+              "success": "#25D366"
+            },
+            "borderRadius": {
+              "sm": "0.125rem",
+              "DEFAULT": "0.25rem",
+              "md": "0.375rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "2xl": "1rem",
+              "3xl": "1.5rem",
+              "full": "9999px"
+            },
+            "fontFamily": {
+              "display": ["Montserrat", "sans-serif"],
+              "sans": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(18, 19, 26, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card {
+            background: rgba(22, 23, 34, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 124, 77, 0.3);
+            box-shadow: 0 16px 48px 0 rgba(255, 87, 26, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+            transform: translateY(-4px);
+        }
+        .turbo-btn {
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .turbo-btn:active {
+            transform: scale(0.96);
+            opacity: 0.9;
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 124, 77, 0.35);
+        }
+        .text-glow-red {
+            text-shadow: 0 0 20px rgba(255, 59, 48, 0.35);
+        }
+        .page-view {
+            animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Language Support */
+        body.lang-ne {
+            line-height: 1.8;
+        }
+        body.lang-ne h1, body.lang-ne h2, body.lang-ne h3, body.lang-ne h4, body.lang-ne p, body.lang-ne span, body.lang-ne label {
+            line-height: 1.8 !important;
+        }
+
+        /* Custom slider styles */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #ff571a;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 87, 26, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-sans selection:bg-primary-container selection:text-on-primary-container lang-en transition-colors duration-300">
+
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-background/60 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-black/80">
+    <div class="flex justify-between items-center w-full px-6 md:px-12 max-w-7xl mx-auto h-20">
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-primary cursor-pointer lg:hidden hover:text-white transition-colors" data-icon="menu" onclick="toggleMobileNav(true)">menu</span>
+            <a class="flex items-center gap-2 select-none" href="#home">
+                <svg class="h-10 w-auto" viewBox="0 0 500 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Speedometer dashes -->
+                  <g fill="#ff571a">
+                    <path d="M190 77C191.5 73.5 193.5 70.5 196 68L202 73.5C200.5 75.5 199 77.5 198 80L190 77Z" />
+                    <path d="M201 64C203.5 61 206.5 58.5 210 56.5L215.5 63C213 64.5 210.5 66.5 208.5 69L201 64Z" />
+                    <path d="M216 52.5C219.5 50 223.5 48.5 228 47.5L232 54.5C228.5 55.5 225 56.5 222 58.5L216 52.5Z" />
+                    <path d="M234 45.5C238.5 44.5 243.5 44 248.5 44.5L250.5 52C246.5 51.5 242.5 52 238.5 52.5L234 45.5Z" />
+                    <path d="M255 45.5C260 46 265 47.5 269.5 49.5L269.5 57C265.5 55 261.5 54 257 53.5L255 45.5Z" />
+                    <path d="M276.5 51C281.5 53.5 286 57 289.5 61L287.5 68.5C284.5 65.5 281 62.5 277 60.5L276.5 51Z" />
+                    <path d="M295.5 63C299.5 67 302.5 72 305 77L301 83C299 79 296.5 75 293 71.5L295.5 63Z" />
+                  </g>
+                  <!-- Silver Car Silhouette (Roof) -->
+                  <path d="M145 92C230 45 350 78 455 88C410 81 330 65 240 78C195 84.5 160 90.5 145 92Z" fill="url(#silver-grad-nav)" />
+                  <!-- Orange Car Silhouette (Shoulder) -->
+                  <path d="M25 125C130 90 280 92 375 105C415 109 460 120 478 135C450 115 390 102 345 99C250 93 115 103 25 125Z" fill="url(#orange-grad-nav)" />
+                  <!-- Front Hood Highlight -->
+                  <path d="M85 106C75 110 50 120 28 127C45 120 70 112 85 106Z" fill="url(#silver-grad-nav)" />
+                  <!-- Text -->
+                  <text x="95" y="165" font-family="Montserrat, sans-serif" font-size="52" font-weight="900" font-style="italic" fill="url(#silver-text-grad-nav)" letter-spacing="1">RAAZ</text>
+                  <text x="285" y="165" font-family="Montserrat, sans-serif" font-size="52" font-weight="950" font-style="italic" fill="url(#orange-text-grad-nav)">Auto</text>
+                  <text x="200" y="202" font-family="Inter, sans-serif" font-size="24" font-weight="600" font-style="italic" fill="#ff571a" letter-spacing="2">Center</text>
+                  <defs>
+                    <linearGradient id="silver-grad-nav" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#b0b0b0" />
+                      <stop offset="50%" stop-color="#ffffff" />
+                      <stop offset="100%" stop-color="#808080" />
+                    </linearGradient>
+                    <linearGradient id="silver-text-grad-nav" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#ffffff" />
+                      <stop offset="50%" stop-color="#cccccc" />
+                      <stop offset="100%" stop-color="#8c8c8c" />
+                    </linearGradient>
+                    <linearGradient id="orange-grad-nav" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#ff7c4d" />
+                      <stop offset="100%" stop-color="#ff3b30" />
+                    </linearGradient>
+                    <linearGradient id="orange-text-grad-nav" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#ff9500" />
+                      <stop offset="100%" stop-color="#ff3b30" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+            </a>
+        </div>
+        <div class="hidden lg:flex gap-8 items-center">
+            <a class="font-display text-xs font-bold tracking-widest text-on-surface-variant hover:text-primary transition-colors uppercase" href="#home" data-translate-key="nav-home">Home</a>
+            <a class="font-display text-xs font-bold tracking-widest text-on-surface-variant hover:text-primary transition-colors uppercase" href="#listings" data-translate-key="nav-browse">Browse</a>
+            <a class="font-display text-xs font-bold tracking-widest text-on-surface-variant hover:text-primary transition-colors uppercase" href="#sell" data-translate-key="nav-sell">Sell</a>
+            <a class="font-display text-xs font-bold tracking-widest text-on-surface-variant hover:text-primary transition-colors uppercase" href="#finance" data-translate-key="nav-finance">Finance</a>
+            <a class="font-display text-xs font-bold tracking-widest text-on-surface-variant hover:text-primary transition-colors uppercase" href="#about" data-translate-key="nav-about">About Us</a>
+            <a class="font-display text-xs font-bold tracking-widest text-on-surface-variant hover:text-primary transition-colors uppercase" href="#contact" data-translate-key="nav-contact">Contact</a>
+            <a class="font-display text-xs font-bold tracking-widest text-secondary hover:text-primary transition-colors uppercase border border-secondary/35 px-2.5 py-1 rounded" href="admin.html" data-translate-key="nav-admin">Admin Portal</a>
+        </div>
+        <div class="flex items-center gap-4 md:gap-6">
+            <button onclick="toggleLanguage()" id="lang-toggle-btn" class="px-2.5 py-1 text-[10px] font-bold rounded border border-primary-container/40 text-primary hover:bg-primary-container hover:text-on-primary transition-all duration-300 tracking-wider select-none font-display">नेपाली</button>
+            <span class="material-symbols-outlined text-primary cursor-pointer hover:text-white transition-colors" data-icon="search" onclick="focusSearch()">search</span>
+            <a href="admin.html" class="flex items-center"><span class="material-symbols-outlined text-primary cursor-pointer hover:text-white transition-colors" data-icon="person">person</span></a>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-nav-drawer" class="fixed inset-0 z-[60] bg-black/85 backdrop-blur-md hidden transition-opacity duration-300 opacity-0">
+    <div class="fixed top-0 left-0 bottom-0 w-3/4 max-w-xs bg-surface-container-low border-r border-white/5 p-6 flex flex-col justify-between shadow-2xl">
+        <div>
+            <div class="flex justify-between items-center mb-8">
+                <span class="flex items-center gap-2 select-none">
+                <svg class="h-8 w-auto" viewBox="0 0 500 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="#ff571a">
+                    <path d="M190 77C191.5 73.5 193.5 70.5 196 68L202 73.5C200.5 75.5 199 77.5 198 80L190 77Z" />
+                    <path d="M201 64C203.5 61 206.5 58.5 210 56.5L215.5 63C213 64.5 210.5 66.5 208.5 69L201 64Z" />
+                    <path d="M216 52.5C219.5 50 223.5 48.5 228 47.5L232 54.5C228.5 55.5 225 56.5 222 58.5L216 52.5Z" />
+                    <path d="M234 45.5C238.5 44.5 243.5 44 248.5 44.5L250.5 52C246.5 51.5 242.5 52 238.5 52.5L234 45.5Z" />
+                    <path d="M255 45.5C260 46 265 47.5 269.5 49.5L269.5 57C265.5 55 261.5 54 257 53.5L255 45.5Z" />
+                    <path d="M276.5 51C281.5 53.5 286 57 289.5 61L287.5 68.5C284.5 65.5 281 62.5 277 60.5L276.5 51Z" />
+                    <path d="M295.5 63C299.5 67 302.5 72 305 77L301 83C299 79 296.5 75 293 71.5L295.5 63Z" />
+                  </g>
+                  <path d="M145 92C230 45 350 78 455 88C410 81 330 65 240 78C195 84.5 160 90.5 145 92Z" fill="url(#silver-grad-mob)" />
+                  <path d="M25 125C130 90 280 92 375 105C415 109 460 120 478 135C450 115 390 102 345 99C250 93 115 103 25 125Z" fill="url(#orange-grad-mob)" />
+                  <path d="M85 106C75 110 50 120 28 127C45 120 70 112 85 106Z" fill="url(#silver-grad-mob)" />
+                  <text x="95" y="165" font-family="Montserrat, sans-serif" font-size="52" font-weight="900" font-style="italic" fill="url(#silver-text-grad-mob)" letter-spacing="1">RAAZ</text>
+                  <text x="285" y="165" font-family="Montserrat, sans-serif" font-size="52" font-weight="950" font-style="italic" fill="url(#orange-text-grad-mob)">Auto</text>
+                  <text x="200" y="202" font-family="Inter, sans-serif" font-size="24" font-weight="600" font-style="italic" fill="#ff571a" letter-spacing="2">Center</text>
+                  <defs>
+                    <linearGradient id="silver-grad-mob" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#b0b0b0" />
+                      <stop offset="50%" stop-color="#ffffff" />
+                      <stop offset="100%" stop-color="#808080" />
+                    </linearGradient>
+                    <linearGradient id="silver-text-grad-mob" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#ffffff" />
+                      <stop offset="50%" stop-color="#cccccc" />
+                      <stop offset="100%" stop-color="#8c8c8c" />
+                    </linearGradient>
+                    <linearGradient id="orange-grad-mob" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#ff7c4d" />
+                      <stop offset="100%" stop-color="#ff3b30" />
+                    </linearGradient>
+                    <linearGradient id="orange-text-grad-mob" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#ff9500" />
+                      <stop offset="100%" stop-color="#ff3b30" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+            </span>
+                <span class="material-symbols-outlined text-primary cursor-pointer hover:text-white" data-icon="close" onclick="toggleMobileNav(false)">close</span>
+            </div>
+            <div class="flex flex-col gap-5">
+                <a class="font-display text-sm font-bold tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#home" onclick="toggleMobileNav(false)" data-translate-key="nav-home">Home</a>
+                <a class="font-display text-sm font-bold tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#listings" onclick="toggleMobileNav(false)" data-translate-key="nav-browse">Browse</a>
+                <a class="font-display text-sm font-bold tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#sell" onclick="toggleMobileNav(false)" data-translate-key="nav-sell">Sell</a>
+                <a class="font-display text-sm font-bold tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#finance" onclick="toggleMobileNav(false)" data-translate-key="nav-finance">Finance</a>
+                <a class="font-display text-sm font-bold tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#about" onclick="toggleMobileNav(false)" data-translate-key="nav-about">About Us</a>
+                <a class="font-display text-sm font-bold tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#contact" onclick="toggleMobileNav(false)" data-translate-key="nav-contact">Contact</a>
+                <a class="font-display text-sm font-bold tracking-wider text-secondary border border-secondary/30 px-3 py-1.5 rounded w-max" href="admin.html" onclick="toggleMobileNav(false)" data-translate-key="nav-admin">Admin Portal</a>
+            </div>
+        </div>
+        <div class="border-t border-white/5 pt-6 flex items-center gap-4 text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary" data-icon="support_agent">support_agent</span>
+            <div>
+                <p class="text-[10px] font-bold text-primary tracking-widest uppercase">Kathmandu Showroom</p>
+                <p class="text-sm font-bold text-white font-mono">+977 1 4400000</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================== -->
+<!-- PAGE VIEWS CONTAINER                           -->
+<!-- ============================================== -->
+<main class="min-h-screen pt-20 pb-20">
+
+    <!-- 1. HOMEPAGE VIEW -->
+    <div id="view-home" class="page-view">
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center justify-start overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10"></div>
+                <img alt="Hero Banner SUV" class="w-full h-full object-cover object-center scale-105" src="bright_luxury_car.png"/>
+            </div>
+            <div class="relative z-20 max-w-7xl mx-auto px-6 md:px-12 w-full">
+                <div class="max-w-2xl mt-12 md:mt-0">
+                    <div class="inline-flex items-center gap-2 bg-primary-container/10 border border-primary-container/20 text-primary-container text-[10px] font-bold tracking-widest px-3.5 py-1.5 rounded-full mb-6 font-display uppercase">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span>
+                        </span>
+                        Kathmandu's #1 Luxury Dealership
+                    </div>
+                    <h1 class="font-display text-4xl md:text-6xl font-extrabold leading-tight text-white mb-6" data-translate-key="home-hero-title">
+                        Find Trusted <span class="text-primary-container text-glow">Reconditioned</span> Vehicles in Kathmandu
+                    </h1>
+                    <p class="font-sans text-base md:text-lg text-on-surface-variant mb-10 border-l-4 border-primary-container pl-5 max-w-xl" data-translate-key="home-hero-desc">
+                        Drive your dream with complete peace of mind. Every vehicle in our showroom passes a certified 150-point inspection and carries an ironclad mechanical warranty.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#listings" class="turbo-btn bg-primary-container text-on-primary-container hover:bg-primary transition-all px-8 py-4 font-display text-sm font-bold flex items-center gap-2.5 rounded-lg shadow-lg shadow-primary-container/20">
+                            <span data-translate-key="btn-browse">Browse Collection</span> <span class="material-symbols-outlined text-sm font-bold" data-icon="arrow_forward">arrow_forward</span>
+                        </a>
+                        <a href="#sell" class="turbo-btn glass-panel text-white hover:bg-white/10 transition-all px-8 py-4 font-display text-sm font-bold rounded-lg border border-white/10">
+                            <span data-translate-key="btn-sell">Sell Your Car</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Search Filters -->
+        <section class="relative z-30 max-w-7xl mx-auto px-6 md:px-12 -mt-16 mb-16">
+            <div class="glass-panel p-6 md:p-8 rounded-2xl shadow-2xl border border-white/5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-end">
+                    <div>
+                        <label class="font-display text-[10px] font-bold tracking-widest text-primary uppercase mb-2 block" data-translate-key="filter-brand">Brand</label>
+                        <select id="home-brand" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-3 text-sm focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-shadow">
+                            <option data-translate-key="filter-all-brands">All Brands</option>
+                            <option>Toyota</option>
+                            <option>Hyundai</option>
+                            <option>Tesla</option>
+                            <option>Kia</option>
+                            <option>Suzuki</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-display text-[10px] font-bold tracking-widest text-primary uppercase mb-2 block" data-translate-key="filter-price">Price Range</label>
+                        <select id="home-price" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-3 text-sm focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-shadow">
+                            <option data-translate-key="filter-any-price">Any Price</option>
+                            <option>Rs. 20L - 50L</option>
+                            <option>Rs. 50L - 1Cr</option>
+                            <option>Above 1Cr</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-display text-[10px] font-bold tracking-widest text-primary uppercase mb-2 block" data-translate-key="filter-fuel">Fuel Type</label>
+                        <select id="home-fuel" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-3 text-sm focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-shadow">
+                            <option data-translate-key="filter-all-fuels">All Fuels</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Electric">Electric</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button onclick="executeHomeFilter()" class="turbo-btn bg-primary-container hover:bg-primary text-on-primary px-8 w-full h-[48px] rounded-lg font-display text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 shadow-md shadow-primary-container/10">
+                            <span class="material-symbols-outlined text-base font-bold" data-icon="search">search</span> <span data-translate-key="btn-search">Search</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Collection -->
+        <section class="py-12 max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+                <div>
+                    <h2 class="font-display text-2xl md:text-3xl font-extrabold text-white mb-2" data-translate-key="featured-title">Featured Collection</h2>
+                    <p class="text-on-surface-variant text-sm" data-translate-key="featured-sub">Hand-selected luxury for the discerning driver</p>
+                </div>
+                <a class="text-primary font-display text-xs font-bold tracking-widest flex items-center gap-2 hover:underline uppercase" href="#listings">
+                    <span data-translate-key="view-all">View All Listings</span> <span class="material-symbols-outlined text-base font-bold" data-icon="arrow_right_alt">arrow_right_alt</span>
+                </a>
+            </div>
+            <!-- Featured Grid -->
+            <div id="home-featured-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamically populated from JS -->
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="py-16 bg-surface-container-low border-y border-white/5">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <h2 class="font-display text-2xl md:text-3xl font-extrabold text-white text-center mb-16" data-translate-key="why-title">Uncompromising <span class="text-primary-container text-glow">Standards</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div onclick="window.location.hash='#about'" class="flex flex-col items-center text-center cursor-pointer p-6 rounded-xl hover:bg-white/5 transition-all">
+                        <div class="w-16 h-16 rounded-full bg-primary-container/10 border border-primary-container/20 flex items-center justify-center mb-6 shadow-lg shadow-primary-container/10">
+                            <span class="material-symbols-outlined text-primary text-3xl" data-icon="verified">verified</span>
+                        </div>
+                        <h3 class="font-display text-base font-bold text-white mb-3" data-translate-key="why-1-title">150-Point Certified Audit</h3>
+                        <p class="text-on-surface-variant text-sm" data-translate-key="why-1-desc">Every vehicle undergoes a rigorous mechanical and aesthetics audit by our master technicians.</p>
+                    </div>
+                    <div onclick="window.location.hash='#finance'" class="flex flex-col items-center text-center cursor-pointer p-6 rounded-xl hover:bg-white/5 transition-all">
+                        <div class="w-16 h-16 rounded-full bg-primary-container/10 border border-primary-container/20 flex items-center justify-center mb-6 shadow-lg shadow-primary-container/10">
+                            <span class="material-symbols-outlined text-primary text-3xl" data-icon="payments">payments</span>
+                        </div>
+                        <h3 class="font-display text-base font-bold text-white mb-3" data-translate-key="why-2-title">Flexible Financing</h3>
+                        <p class="text-on-surface-variant text-sm" data-translate-key="why-2-desc">Seamless loan processing through our partner banks with competitive interest rates for premium vehicles.</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-6 rounded-xl">
+                        <div class="w-16 h-16 rounded-full bg-primary-container/10 border border-primary-container/20 flex items-center justify-center mb-6 shadow-lg shadow-primary-container/10">
+                            <span class="material-symbols-outlined text-primary text-3xl" data-icon="security_update_good">security_update_good</span>
+                        </div>
+                        <h3 class="font-display text-base font-bold text-white mb-3" data-translate-key="why-3-title">Full Service Warranty</h3>
+                        <p class="text-on-surface-variant text-sm" data-translate-key="why-3-desc">Drive with total peace of mind with our exclusive 1-year comprehensive mechanical warranty.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Finance/EMI Preview Widget -->
+        <section class="py-16 max-w-7xl mx-auto px-6 md:px-12">
+            <div class="glass-panel p-8 md:p-12 rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div>
+                    <span class="font-display text-[10px] font-bold tracking-widest text-primary uppercase mb-2 block" data-translate-key="nav-finance">Finance Portal</span>
+                    <h2 class="font-display text-2xl md:text-4xl font-extrabold text-white mb-4" data-translate-key="home-finance-title">Instant EMI Estimates & Flexible Bank Loans</h2>
+                    <p class="text-on-surface-variant text-sm md:text-base mb-8 leading-relaxed" data-translate-key="home-finance-desc">
+                        Our partner banks provide competitive interest rates starting from 9.5% for pre-owned SUVs and luxury cars. Use our real-time slider calculator to find a monthly layout that matches your budget.
+                    </p>
+                    <a href="#finance" class="turbo-btn bg-primary-container text-on-primary hover:bg-primary transition-colors px-6 py-3.5 font-display text-xs font-bold tracking-widest uppercase rounded-lg w-max flex items-center gap-2">
+                        <span data-translate-key="footer-calc">Calculate Real EMI</span> <span class="material-symbols-outlined text-sm font-bold" data-icon="calculate">calculate</span>
+                    </a>
+                </div>
+                <div class="bg-surface-container p-6 rounded-2xl border border-white/5 shadow-inner">
+                    <!-- Calculator Inputs -->
+                    <div class="space-y-6 mb-6">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-primary mb-2">
+                                <span data-translate-key="calc-loan">Loan Amount</span>
+                                <span id="home-loan-val" class="font-mono text-white">Rs. 50,00,000</span>
+                            </div>
+                            <input id="home-loan-slider" type="range" min="1000000" max="15000000" step="250000" value="5000000" oninput="calculateHomeEMI()" class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container"/>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-primary mb-2">
+                                <span data-translate-key="calc-tenure">Tenure</span>
+                                <span id="home-tenure-val" class="font-mono text-white">5 Years</span>
+                            </div>
+                            <input id="home-tenure-slider" type="range" min="1" max="7" step="1" value="5" oninput="calculateHomeEMI()" class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container"/>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-primary mb-2">
+                                <span data-translate-key="calc-interest">Interest Rate</span>
+                                <span id="home-interest-val" class="font-mono text-white">11.5%</span>
+                            </div>
+                            <input id="home-interest-slider" type="range" min="8" max="18" step="0.5" value="11.5" oninput="calculateHomeEMI()" class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container"/>
+                        </div>
+                    </div>
+                    <div class="border-t border-white/5 pt-6 text-center">
+                        <p class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1" data-translate-key="calc-monthly">Estimated Monthly EMI</p>
+                        <p id="home-emi-val" class="text-primary-container font-display text-2xl md:text-3xl font-extrabold text-glow">Rs. 1,09,963</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sell / Exchange Teaser -->
+        <section class="py-16 bg-surface-container-low border-t border-white/5 relative overflow-hidden">
+            <div class="absolute right-0 bottom-0 top-0 opacity-15 hidden lg:block w-1/2">
+                <img alt="Exchange Background" class="w-full h-full object-cover object-right" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDavJilN8zHGnQqjw8Jsjj8bqynuNRQCz5K4uIOUHVNZgD7rmOSWyLFQREJ7l_Lu7uWp5Gv317kn0BTv9K0h_n31Fz3Sv5oLFl34KGOw2doBfcRI3ZODJmVJs8Ssx4F7t-8r8B7P8BDE9oEwlZCO_6f_8BWuxkiv4Df9nGp3ewQsvJZWDt6tuY5MNkwtN8ZeGwo89Y8Yxb6yHq2lvcU6s1IPFYCvPpUP4iMjJjeRCtChsoseO1RZhaknMRgAtCAJIHxOdCtVjzqrrfu"/>
+            </div>
+            <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+                <div class="max-w-2xl">
+                    <span class="font-display text-[10px] font-bold tracking-widest text-primary uppercase mb-2 block" data-translate-key="home-sell-badge">Instant Valuation</span>
+                    <h2 class="font-display text-2xl md:text-3xl font-extrabold text-white mb-4" data-translate-key="home-sell-title">Looking to Sell or Exchange Your Car?</h2>
+                    <p class="text-on-surface-variant text-sm md:text-base mb-8 leading-relaxed" data-translate-key="home-sell-desc">
+                        Get a fair market valuation in Kathmandu. Bring your vehicle to Tinkune, get it audited in 30 minutes, and either walk away with instant cash or exchange it for a certified premium SUV from our lot.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#sell" class="turbo-btn bg-primary-container text-on-primary hover:bg-primary transition-colors px-6 py-3 font-display text-xs font-bold tracking-widest uppercase rounded-lg">
+                            <span data-translate-key="home-sell-cta1">Get Valuation Report</span>
+                        </a>
+                        <a href="#contact" class="turbo-btn glass-panel text-white hover:bg-white/10 transition-all px-6 py-3 font-display text-xs font-bold tracking-widest uppercase rounded-lg border border-white/10">
+                            <span data-translate-key="home-sell-cta2">Book Evaluation</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Testimonials -->
+        <section class="py-16 max-w-7xl mx-auto px-6 md:px-12">
+            <h2 class="font-display text-2xl md:text-3xl font-extrabold text-white text-center mb-12" data-translate-key="home-testimonial-title">What Our Clients Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="flex text-[#FFD700] gap-1 mb-4 select-none">
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                    </div>
+                    <p class="text-on-surface-variant text-sm italic mb-6 leading-relaxed">
+                        "Bought a pre-owned Toyota Land Cruiser from RAAZ Auto. The transparency of the inspection sheet was amazing. No hidden faults, and the loan processor handled everything in 3 days."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center font-bold text-primary font-display text-sm">SP</div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Sanjiv Pokharel</p>
+                            <p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Kathmandu Valley</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="flex text-[#FFD700] gap-1 mb-4 select-none">
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                    </div>
+                    <p class="text-on-surface-variant text-sm italic mb-6 leading-relaxed">
+                        "Highly recommend their exchange service. Exchanged my 2017 Tucson for a Tesla Model Y. They valued my old car fairly and and handled all bluebook transfer paperwork hassle-free."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center font-bold text-primary font-display text-sm">RB</div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Ritu Basnet</p>
+                            <p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Lalitpur</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="flex text-[#FFD700] gap-1 mb-4 select-none">
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                        <span class="material-symbols-outlined" data-icon="star">star</span>
+                    </div>
+                    <p class="text-on-surface-variant text-sm italic mb-6 leading-relaxed">
+                        "A truly professional dealership in Tinkune. The 1-year warranty is real. Had a small suspension issue after 4 months and their Lalitpur workshop replaced the part for free under warranty."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center font-bold text-primary font-display text-sm">KS</div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Kiran Shrestha</p>
+                            <p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Baneshwor, Ktm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog/Tips Section -->
+        <section class="py-16 border-t border-white/5 max-w-7xl mx-auto px-6 md:px-12">
+            <h2 class="font-display text-2xl md:text-3xl font-extrabold text-white mb-10" data-translate-key="home-blog-title">Expert Car Tips & Market Trends</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <article class="glass-card rounded-xl overflow-hidden flex flex-col justify-between h-full">
+                    <div class="relative h-48 overflow-hidden select-none">
+                        <img alt="Blog 1" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwbx4wQVJ5uzm0neWc8lC9SP-Di2vhPdLqaXCqfm5iAPyup3LMc0MGxCFnuriYxU1_FN4o_mW78gWZCFlXM3Nc2BnjKKX1EIU9SVEDKHvOv3eyOJiBujEN22XssBq7lnrdCeOe7UVpO4euP9fG9JbADze5VNSEf5-ZQ69_assWYlTddG81rjf727c35YNr9g_Ny9Gmxmq9fVnU1fD-dOccs8mTLJnHvHONORczo8F-5ZAKTwI6xT8UjKz6guMxGNuRebIi6-F2GqgR"/>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-primary text-[10px] font-bold tracking-widest uppercase mb-2 block">Buying Guide</span>
+                            <h3 class="text-base font-bold text-white mb-3 hover:text-primary transition-colors cursor-pointer">Reconditioned Cars: 5 Red Flags to Watch for in Nepal</h3>
+                            <p class="text-on-surface-variant text-xs mb-4 line-clamp-3">Before purchasing any pre-owned SUV in Kathmandu, check the odometer seal, examine the chassis rails for collision damage, and request a detailed diagnostic log.</p>
+                        </div>
+                        <span class="text-xs text-primary font-bold hover:underline cursor-pointer">Read Article &rarr;</span>
+                    </div>
+                </article>
+                <article class="glass-card rounded-xl overflow-hidden flex flex-col justify-between h-full">
+                    <div class="relative h-48 overflow-hidden select-none">
+                        <img alt="Blog 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoPmWpqhKP1TMCMbnn1WfUfsfGTjQggmQ6oT-ORRyF21lCBbGIjqUyWLnVPVLGrjLo0_C9KybFyU33oi5O5aqiUUBGrKlKOgQNQUAVH36jH1ArsHO2btSsB10ba8RUZlcwXR-e5aQsY6M6rAHYtGrTW4bqVjooTSdYN34XHi0XSDEdpB6Rm8wOjQ61HyDAxInymFRjplJ2QxMVzJP6_C0tAXTKNiTJpu0Ngz3h5OaWeHD_llfmWbDhoCAdMqXy9xNumxI5l14lKe57"/>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-primary text-[10px] font-bold tracking-widest uppercase mb-2 block">Electric Vehicles</span>
+                            <h3 class="text-base font-bold text-white mb-3 hover:text-primary transition-colors cursor-pointer">EV vs Petrol: The True Fuel Savings Analysis in Kathmandu</h3>
+                            <p class="text-on-surface-variant text-xs mb-4 line-clamp-3">With Nepal's hydro-power infrastructure expanding, find out how much you save monthly on operation costs by switching from a petrol engine to a reconditioned Tesla Y.</p>
+                        </div>
+                        <span class="text-xs text-primary font-bold hover:underline cursor-pointer">Read Article &rarr;</span>
+                    </div>
+                </article>
+                <article class="glass-card rounded-xl overflow-hidden flex flex-col justify-between h-full">
+                    <div class="relative h-48 overflow-hidden select-none">
+                        <img alt="Blog 3" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDavJilN8zHGnQqjw8Jsjj8bqynuNRQCz5K4uIOUHVNZgD7rmOSWyLFQREJ7l_Lu7uWp5Gv317kn0BTv9K0h_n31Fz3Sv5oLFl34KGOw2doBfcRI3ZODJmVJs8Ssx4F7t-8r8B7P8BDE9oEwlZCO_6f_8BWuxkiv4Df9nGp3ewQsvJZWDt6tuY5MNkwtN8ZeGwo89Y8Yxb6yHq2lvcU6s1IPFYCvPpUP4iMjJjeRCtChsoseO1RZhaknMRgAtCAJIHxOdCtVjzqrrfu"/>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-primary text-[10px] font-bold tracking-widest uppercase mb-2 block">Maintenance</span>
+                            <h3 class="text-base font-bold text-white mb-3 hover:text-primary transition-colors cursor-pointer">Monsoon Car Care Tips for High-Altitude Drives</h3>
+                            <p class="text-on-surface-variant text-xs mb-4 line-clamp-3">Heavy rain and mud slides in Kathmandu Valley can affect suspension components and underbody wiring. Learn how to prepare your 4x4 pickup for safe rainy-season driving.</p>
+                        </div>
+                        <span class="text-xs text-primary font-bold hover:underline cursor-pointer">Read Article &rarr;</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <!-- 2. VEHICLE LISTINGS VIEW -->
+    <div id="view-listings" class="page-view hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-8">
+            <h1 class="font-display text-3xl font-extrabold text-white mb-2" data-translate-key="listings-heading">Browse Pre-Owned Vehicles</h1>
+            <p class="text-on-surface-variant text-sm mb-8" data-translate-key="listings-sub">Filter and search our current inventory in Kathmandu</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Filters Sidebar -->
+                <aside class="col-span-1 glass-panel p-6 rounded-xl h-max border border-white/5">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-display text-sm font-bold text-white uppercase tracking-widest" data-translate-key="filter-brand">Filters</h3>
+                        <button onclick="resetListingsFilters()" class="text-xs text-primary hover:underline font-bold" data-translate-key="btn-reset">Reset All</button>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <!-- Search Box -->
+                        <div>
+                            <label class="font-display text-[10px] font-bold text-primary tracking-widest uppercase mb-2 block" data-translate-key="search-label">Keyword Search</label>
+                            <div class="relative">
+                                <input id="listings-search-input" type="text" oninput="applyFilters()" placeholder="e.g., Hilux, Tucson" class="w-full bg-background border-white/10 text-on-surface text-sm rounded-lg py-2.5 pl-3 pr-10 focus:ring-1 focus:ring-primary-container focus:border-primary-container"/>
+                                <span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant" data-icon="search">search</span>
+                            </div>
+                        </div>
+
+                        <!-- Brand checkboxes -->
+                        <div>
+                            <label class="font-display text-[10px] font-bold text-primary tracking-widest uppercase mb-2 block" data-translate-key="filter-brand">Brand</label>
+                            <div id="brand-filters-container" class="space-y-2 max-h-40 overflow-y-auto pr-2">
+                                <!-- Dynamic check boxes from JS -->
+                            </div>
+                        </div>
+
+                        <!-- Price category select -->
+                        <div>
+                            <label class="font-display text-[10px] font-bold text-primary tracking-widest uppercase mb-2 block" data-translate-key="filter-price">Price Bracket</label>
+                            <select id="listings-price-bracket" onchange="applyFilters()" class="w-full bg-background border-white/10 text-on-surface text-sm rounded-lg py-2 focus:ring-primary-container focus:border-primary-container">
+                                <option data-translate-key="filter-any-price">Any Price</option>
+                                <option value="under50">Under Rs. 50 Lakhs</option>
+                                <option value="50to1">Rs. 50L - 1 Crore</option>
+                                <option value="above1">Above Rs. 1 Crore</option>
+                            </select>
+                        </div>
+
+                        <!-- Category -->
+                        <div>
+                            <label class="font-display text-[10px] font-bold text-primary tracking-widest uppercase mb-2 block">Category</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer select-none">
+                                    <input type="checkbox" name="category" value="SUV" onchange="applyFilters()" class="rounded bg-background border-white/10 text-primary-container focus:ring-0 focus:ring-offset-0"/>
+                                    <span>SUV</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer select-none">
+                                    <input type="checkbox" name="category" value="Sedan" onchange="applyFilters()" class="rounded bg-background border-white/10 text-primary-container focus:ring-0 focus:ring-offset-0"/>
+                                    <span>Sedan</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer select-none">
+                                    <input type="checkbox" name="category" value="EV" onchange="applyFilters()" class="rounded bg-background border-white/10 text-primary-container focus:ring-0 focus:ring-offset-0"/>
+                                    <span>EV</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer select-none">
+                                    <input type="checkbox" name="category" value="Pickup" onchange="applyFilters()" class="rounded bg-background border-white/10 text-primary-container focus:ring-0 focus:ring-offset-0"/>
+                                    <span>Pickup</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Fuel -->
+                        <div>
+                            <label class="font-display text-[10px] font-bold text-primary tracking-widest uppercase mb-2 block" data-translate-key="filter-fuel">Fuel Type</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer select-none">
+                                    <input type="checkbox" name="fuel" value="Petrol" onchange="applyFilters()" class="rounded bg-background border-white/10 text-primary-container focus:ring-0 focus:ring-offset-0"/>
+                                    <span>Petrol</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer select-none">
+                                    <input type="checkbox" name="fuel" value="Diesel" onchange="applyFilters()" class="rounded bg-background border-white/10 text-primary-container focus:ring-0 focus:ring-offset-0"/>
+                                    <span>Diesel</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer select-none">
+                                    <input type="checkbox" name="fuel" value="Electric" onchange="applyFilters()" class="rounded bg-background border-white/10 text-primary-container focus:ring-0 focus:ring-offset-0"/>
+                                    <span>Electric</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Transmission -->
+                        <div>
+                            <label class="font-display text-[10px] font-bold text-primary tracking-widest uppercase mb-2 block">Transmission</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer select-none">
+                                    <input type="checkbox" name="trans" value="Automatic" onchange="applyFilters()" class="rounded bg-background border-white/10 text-primary-container focus:ring-0 focus:ring-offset-0"/>
+                                    <span>Automatic</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer select-none">
+                                    <input type="checkbox" name="trans" value="Manual" onchange="applyFilters()" class="rounded bg-background border-white/10 text-primary-container focus:ring-0 focus:ring-offset-0"/>
+                                    <span>Manual</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer select-none">
+                                    <input type="checkbox" name="trans" value="AWD" onchange="applyFilters()" class="rounded bg-background border-white/10 text-primary-container focus:ring-0 focus:ring-offset-0"/>
+                                    <span>AWD</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Grid/List and Main List Area -->
+                <div class="col-span-1 lg:col-span-3">
+                    <div class="flex justify-between items-center mb-6 bg-surface-container-low p-4 rounded-xl border border-white/5 select-none">
+                        <!-- Total count indicator -->
+                        <span id="listings-count" class="text-xs text-on-surface-variant font-medium">Showing 6 Vehicles</span>
+                        
+                        <div class="flex items-center gap-4">
+                            <!-- Sort Dropdown -->
+                            <select id="listings-sort" onchange="applyFilters()" class="bg-background border-white/10 text-on-surface text-xs rounded-lg py-1.5 focus:ring-primary-container focus:border-primary-container">
+                                <option value="default">Sort by: Featured</option>
+                                <option value="priceAsc">Price: Low to High</option>
+                                <option value="priceDesc">Price: High to Low</option>
+                                <option value="yearDesc">Year: Newest First</option>
+                                <option value="kmAsc">KM: Lowest First</option>
+                            </select>
+                            
+                            <!-- Layout selector -->
+                            <div class="flex items-center gap-1 bg-background border border-white/5 p-1 rounded-md">
+                                <button onclick="toggleListingsLayout('grid')" id="layout-grid-btn" class="p-1 rounded bg-surface-container text-primary flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-sm font-bold" data-icon="grid_view">grid_view</span>
+                                </button>
+                                <button onclick="toggleListingsLayout('list')" id="layout-list-btn" class="p-1 rounded text-on-surface-variant flex items-center justify-center hover:text-white">
+                                    <span class="material-symbols-outlined text-sm font-bold" data-icon="view_list">view_list</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vehicles Container -->
+                    <div id="listings-grid-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Dynamically populated from JS -->
+                    </div>
+                    
+                    <!-- No Results -->
+                    <div id="listings-no-results" class="hidden glass-panel p-16 rounded-xl text-center border border-white/5 my-8">
+                        <span class="material-symbols-outlined text-primary text-5xl mb-4" data-icon="search_off">search_off</span>
+                        <p class="text-base font-bold text-white mb-2" data-translate-key="no-results">No vehicles match your filters.</p>
+                        <p class="text-xs text-on-surface-variant mb-6">Try resetting filters to view full inventory.</p>
+                        <button onclick="resetListingsFilters()" class="turbo-btn bg-primary-container hover:bg-primary text-on-primary-container px-6 py-2.5 rounded-lg text-xs font-bold font-display uppercase">
+                            Reset Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. VEHICLE DETAIL VIEW -->
+    <div id="view-detail" class="page-view hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-8">
+            <!-- Back button -->
+            <a href="#listings" class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline mb-8 uppercase tracking-widest font-display">
+                <span class="material-symbols-outlined text-sm font-bold" data-icon="arrow_back">arrow_back</span> Back to Listings
+            </a>
+            
+            <div id="detail-page-content" class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Dynamically populated by JS based on ID parameter -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. SELL YOUR VEHICLE VIEW -->
+    <div id="view-sell" class="page-view hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-8">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h1 class="font-display text-3xl md:text-4xl font-extrabold text-white mb-4" data-translate-key="home-sell-title">Sell Your Car in Kathmandu</h1>
+                <p class="text-on-surface-variant text-sm md:text-base leading-relaxed" data-translate-key="sell-page-sub">
+                    Get an instant estimate, schedule an appraisal, or list your vehicle on our showroom floor. Fill out our multi-step valuation form below.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto">
+                <!-- Valuation Wizard -->
+                <div class="lg:col-span-7 glass-panel p-6 md:p-8 rounded-2xl border border-white/5 shadow-2xl">
+                    <!-- Progress Bar -->
+                    <div class="flex items-center justify-between mb-8 text-xs font-bold uppercase tracking-wider font-display text-primary">
+                        <span id="wizard-step-label">Step 1: Basic Specifications</span>
+                        <span id="wizard-step-number">33%</span>
+                    </div>
+                    <div class="w-full h-1 bg-surface-container-highest rounded-full mb-8 overflow-hidden">
+                        <div id="wizard-progress-bar" class="w-1/3 h-full bg-primary-container transition-all duration-300"></div>
+                    </div>
+                    
+                    <!-- Wizard Forms -->
+                    <form id="valuation-wizard-form" onsubmit="event.preventDefault(); submitAppraisalForm();">
+                        <!-- Step 1: Specs -->
+                        <div id="wizard-step-1" class="space-y-6">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Brand Name</label>
+                                    <input type="text" id="sell-brand" required placeholder="e.g., Hyundai" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                                </div>
+                                <div>
+                                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Model Name</label>
+                                    <input type="text" id="sell-model" required placeholder="e.g., Tucson" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Model Year</label>
+                                    <input type="number" id="sell-year" required min="2000" max="2027" placeholder="e.g., 2021" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                                </div>
+                                <div>
+                                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">KM Driven</label>
+                                    <input type="number" id="sell-km" required min="0" placeholder="e.g., 24000" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Fuel Type</label>
+                                    <select id="sell-fuel" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container">
+                                        <option>Petrol</option>
+                                        <option>Diesel</option>
+                                        <option>Electric</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Transmission</label>
+                                    <select id="sell-trans" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container">
+                                        <option>Automatic</option>
+                                        <option>Manual</option>
+                                        <option>AWD</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="pt-4">
+                                <button type="button" onclick="navigateWizard(2)" class="turbo-btn bg-primary-container text-on-primary-container hover:bg-primary px-6 py-3 rounded-lg font-display text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 ml-auto">
+                                    Next Step <span class="material-symbols-outlined text-sm font-bold" data-icon="arrow_forward">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Quality & Valuation -->
+                        <div id="wizard-step-2" class="space-y-6 hidden">
+                            <div>
+                                <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Condition Rating (1-10)</label>
+                                <div class="flex justify-between text-xs font-mono text-primary mb-1">
+                                    <span>Poor</span>
+                                    <span id="sell-cond-val" class="font-bold text-white">8/10</span>
+                                    <span>Pristine</span>
+                                </div>
+                                <input id="sell-cond-slider" type="range" min="1" max="10" step="1" value="8" oninput="document.getElementById('sell-cond-val').innerText = this.value + '/10'; calculateEstimateValuation();" class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container"/>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Asking Price (NPR)</label>
+                                <input type="number" id="sell-price" required placeholder="e.g., 7500000" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Any modifications or repairs needed?</label>
+                                <textarea id="sell-notes" rows="3" placeholder="Describe mechanical changes or paint scratches" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2 text-sm focus:ring-primary-container focus:border-primary-container"></textarea>
+                            </div>
+                            <div class="flex justify-between pt-4">
+                                <button type="button" onclick="navigateWizard(1)" class="turbo-btn glass-panel text-white hover:bg-white/5 px-6 py-3 rounded-lg font-display text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm font-bold" data-icon="arrow_back">arrow_back</span> Back
+                                </button>
+                                <button type="button" onclick="navigateWizard(3)" class="turbo-btn bg-primary-container text-on-primary-container hover:bg-primary px-6 py-3 rounded-lg font-display text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                                    Next Step <span class="material-symbols-outlined text-sm font-bold" data-icon="arrow_forward">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Contact Info & Upload -->
+                        <div id="wizard-step-3" class="space-y-6 hidden">
+                            <div>
+                                <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Seller Name</label>
+                                <input type="text" id="sell-owner" required placeholder="e.g., Aayush Karki" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Mobile Number</label>
+                                    <input type="tel" id="sell-phone" required placeholder="e.g., 9800000000" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                                </div>
+                                <div>
+                                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Photos Attachment</label>
+                                    <div class="border border-dashed border-white/10 rounded-lg p-2.5 text-center flex items-center justify-center gap-2 bg-background hover:bg-white/5 cursor-pointer">
+                                        <span class="material-symbols-outlined text-primary text-lg" data-icon="upload_file">upload_file</span>
+                                        <span class="text-xs text-on-surface-variant font-bold">Simulator: Drag & Drop files</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between pt-4">
+                                <button type="button" onclick="navigateWizard(2)" class="turbo-btn glass-panel text-white hover:bg-white/5 px-6 py-3 rounded-lg font-display text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm font-bold" data-icon="arrow_back">arrow_back</span> Back
+                                </button>
+                                <button type="submit" class="turbo-btn bg-primary-container text-on-primary hover:bg-primary px-8 py-3 rounded-lg font-display text-xs font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-primary-container/20">
+                                    <span class="material-symbols-outlined text-sm font-bold" data-icon="send">send</span> Submit Appraisal
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Estimate Calculator Right Column -->
+                <div class="lg:col-span-5 bg-surface-container p-6 md:p-8 rounded-2xl border border-white/5 h-max flex flex-col justify-between shadow-inner">
+                    <div>
+                        <h3 class="font-display text-base font-bold text-primary mb-4" data-translate-key="home-sell-badge">Instant Valuation Range</h3>
+                        <p class="text-xs text-on-surface-variant mb-6 leading-relaxed">
+                            Based on Kathmandu dealership historical listings, this automated calculator yields an approximate market resale valuation of your vehicle.
+                        </p>
+                        
+                        <div class="bg-background/50 border border-white/5 rounded-xl p-5 text-center mb-8">
+                            <p class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">Resale Estimate Range</p>
+                            <p id="valuation-result-display" class="text-white font-mono text-xl md:text-2xl font-bold tracking-wide">Rs. 0</p>
+                            <p class="text-[10px] text-primary mt-2">*Requires technical inspection in Tinkune showroom</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t border-white/5 pt-6 select-none">
+                        <div class="flex gap-4 items-center">
+                            <span class="material-symbols-outlined text-primary text-3xl" data-icon="support_agent">support_agent</span>
+                            <div>
+                                <p class="text-xs font-bold text-white">Need an urgent home appraisal?</p>
+                                <p class="text-xs text-on-surface-variant mt-1">Our technician can visit your location in Kathmandu Valley. Chat with us.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. FINANCE & EMI PAGE -->
+    <div id="view-finance" class="page-view hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-8">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h1 class="font-display text-3xl md:text-4xl font-extrabold text-white mb-4" data-translate-key="footer-calc">Finance & Amortization Calculator</h1>
+                <p class="text-on-surface-variant text-sm md:text-base leading-relaxed" data-translate-key="finance-page-sub">
+                    Compare loan tenures, calculate monthly payments, and explore vehicle financing terms with Nepal's leading commercial banks.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+                <!-- Advanced Calculator -->
+                <div class="lg:col-span-6 glass-panel p-6 md:p-8 rounded-2xl border border-white/5 shadow-2xl">
+                    <h3 class="font-display text-sm font-bold text-primary uppercase tracking-widest mb-6" data-translate-key="nav-finance">Adjust Loan Parameters</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Vehicle Price -->
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-white mb-2">
+                                <span>Vehicle Price (NPR)</span>
+                                <span id="adv-price-val" class="font-mono text-primary-container">Rs. 85,50,000</span>
+                            </div>
+                            <input id="adv-price-slider" type="range" min="1500000" max="25000000" step="250000" value="8550000" oninput="calculateAdvancedEMI()" class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container"/>
+                        </div>
+                        
+                        <!-- Down Payment -->
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-white mb-2">
+                                <span>Down Payment (%)</span>
+                                <span id="adv-down-val" class="font-mono text-primary-container">30% (Rs. 25,65,000)</span>
+                            </div>
+                            <input id="adv-down-slider" type="range" min="10" max="90" step="5" value="30" oninput="calculateAdvancedEMI()" class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container"/>
+                        </div>
+
+                        <!-- Tenure -->
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-white mb-2">
+                                <span>Tenure</span>
+                                <span id="adv-tenure-val" class="font-mono text-primary-container">5 Years</span>
+                            </div>
+                            <input id="adv-tenure-slider" type="range" min="1" max="7" step="1" value="5" oninput="calculateAdvancedEMI()" class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container"/>
+                        </div>
+
+                        <!-- Interest Rate -->
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-white mb-2">
+                                <span>Interest Rate (Per Annum)</span>
+                                <span id="adv-interest-val" class="font-mono text-primary-container">11.5%</span>
+                            </div>
+                            <input id="adv-interest-slider" type="range" min="8" max="18" step="0.5" value="11.5" oninput="calculateAdvancedEMI()" class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container"/>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Result & Graph -->
+                <div class="lg:col-span-6 bg-surface-container p-6 md:p-8 rounded-2xl border border-white/5 flex flex-col justify-between shadow-inner">
+                    <div>
+                        <h3 class="font-display text-sm font-bold text-primary uppercase tracking-widest mb-6">Payment Overview</h3>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-background/40 p-4 rounded-xl border border-white/5">
+                                <p class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">Monthly Payment</p>
+                                <p id="adv-emi-display" class="text-primary-container font-mono text-lg md:text-xl font-bold">Rs. 0</p>
+                            </div>
+                            <div class="bg-background/40 p-4 rounded-xl border border-white/5">
+                                <p class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">Principal Amount</p>
+                                <p id="adv-principal-display" class="text-white font-mono text-sm md:text-base font-bold">Rs. 0</p>
+                            </div>
+                            <div class="bg-background/40 p-4 rounded-xl border border-white/5">
+                                <p class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">Interest Payable</p>
+                                <p id="adv-interest-display" class="text-white font-mono text-sm md:text-base font-bold">Rs. 0</p>
+                            </div>
+                            <div class="bg-background/40 p-4 rounded-xl border border-white/5">
+                                <p class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">Total Cost of Loan</p>
+                                <p id="adv-total-display" class="text-white font-mono text-sm md:text-base font-bold">Rs. 0</p>
+                            </div>
+                        </div>
+
+                        <!-- Graphical Split Visualizer -->
+                        <div class="mb-6">
+                            <p class="text-xs font-bold text-white mb-2">Loan Breakup (Principal vs Interest)</p>
+                            <div class="w-full h-4 bg-red-500 rounded-full overflow-hidden flex shadow-inner">
+                                <div id="bar-principal" class="h-full bg-primary-container transition-all duration-300" style="width: 70%"></div>
+                                <div id="bar-interest" class="h-full bg-white/20 transition-all duration-300" style="width: 30%"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] font-bold text-on-surface-variant mt-2">
+                                <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-primary-container rounded-sm inline-block"></span> Principal</span>
+                                <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-white/20 rounded-sm inline-block"></span> Interest</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="alert('Loan inquiry submitted! One of our bank partnership officers will reach out shortly.');" class="turbo-btn bg-primary-container text-on-primary-container hover:bg-primary px-8 py-3.5 rounded-lg font-display text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-sm font-bold" data-icon="verified_user">verified_user</span> Apply for Pre-Approved Finance
+                    </button>
+                </div>
+            </div>
+
+            <!-- Partner Banks -->
+            <div class="mt-16 max-w-5xl mx-auto select-none">
+                <h3 class="font-display text-lg font-extrabold text-white mb-6 text-center">Our Banking Partners</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="glass-card p-4 rounded-xl border border-white/5 text-center flex flex-col items-center justify-center">
+                        <span class="font-display font-extrabold text-primary text-sm tracking-wider">NABIL BANK</span>
+                        <p class="text-xs text-on-surface-variant mt-2 font-bold font-mono">Rates from 9.5%</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl border border-white/5 text-center flex flex-col items-center justify-center">
+                        <span class="font-display font-extrabold text-primary text-sm tracking-wider">NIC ASIA</span>
+                        <p class="text-xs text-on-surface-variant mt-2 font-bold font-mono">Rates from 9.8%</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl border border-white/5 text-center flex flex-col items-center justify-center">
+                        <span class="font-display font-extrabold text-primary text-sm tracking-wider">GLOBAL IME</span>
+                        <p class="text-xs text-on-surface-variant mt-2 font-bold font-mono">Rates from 10.2%</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl border border-white/5 text-center flex flex-col items-center justify-center">
+                        <span class="font-display font-extrabold text-primary text-sm tracking-wider">KTM BANK</span>
+                        <p class="text-xs text-on-surface-variant mt-2 font-bold font-mono">Rates from 10.5%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. ABOUT US PAGE -->
+    <div id="view-about" class="page-view hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <span class="font-display text-[10px] font-bold tracking-widest text-primary uppercase mb-2 block">Our Story</span>
+                    <h1 class="font-display text-3xl md:text-5xl font-extrabold text-white mb-6">Redefining Reconditioned Luxury in Nepal</h1>
+                    <p class="text-on-surface-variant text-sm md:text-base leading-relaxed mb-6">
+                        Founded in Tinkune, Kathmandu, RAAZ Auto was established to fill a crucial void in the Nepalese pre-owned automotive market: **trust and transparency**.
+                    </p>
+                    <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">
+                        We specialize in high-end SUVs, premium pickups, and electric vehicles. By combining mechanical inspection workflows with customer care, we ensure that buying a reconditioned car feels exactly like buying brand-new.
+                    </p>
+                </div>
+                <div class="relative h-96 overflow-hidden rounded-2xl border border-white/5">
+                    <img alt="Our Showroom" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_7EWzxvyhDGavjNbBujjzmtzFJ5d6hE4XSY4pkmXJjMlbwFKL-6JLfqmax5PyAoW5C9dn7EzRn1kRrIUokg6w84JnEjcRcjZq_PSGmZNpwrJ1SPe5-tAvzEjfQcRkrit515yQbokX0dwO2qVDJSatLFxrtqeX6niX8X8NDiKBwc2z_dTFRDhgy88k9h1KIhcvfmunaYhrFuUCS2kEYPe4s8X7OVFXP9YiEH2Srn7HCo3aA-xMurZGQ6G9G2e9DeOPr7n1WSD_G0tr"/>
+                </div>
+            </div>
+            
+            <!-- Milestones Timeline -->
+            <div class="max-w-4xl mx-auto mb-16 select-none">
+                <h2 class="font-display text-2xl font-extrabold text-white mb-10 text-center">Company Milestones</h2>
+                <div class="border-l-2 border-primary-container/20 pl-6 space-y-8">
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-primary-container border-4 border-background"></span>
+                        <h4 class="font-display text-sm font-bold text-white uppercase tracking-wider mb-1">2021 — Operations Launched</h4>
+                        <p class="text-xs text-on-surface-variant leading-relaxed">RAAZ Auto opened its main showroom doors in Tinkune with a curation of 5 premium diesel SUVs.</p>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-primary-container border-4 border-background"></span>
+                        <h4 class="font-display text-sm font-bold text-white uppercase tracking-wider mb-1">2023 — Certified Workshop Hub</h4>
+                        <p class="text-xs text-on-surface-variant leading-relaxed">Built the Lalitpur service hub equipped with advanced diagnostics scanners, introducing the 150-Point Certified Audit.</p>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-primary-container border-4 border-background"></span>
+                        <h4 class="font-display text-sm font-bold text-white uppercase tracking-wider mb-1">2025 — EV Dealership Pioneer</h4>
+                        <p class="text-xs text-on-surface-variant leading-relaxed">Imported and certified the first batch of pre-owned electric SUVs, helping Nepali drivers adopt green vehicle models.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meet the Team -->
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-display text-2xl font-extrabold text-white text-center mb-10">Our Leadership Team</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card p-6 rounded-xl border border-white/5 text-center">
+                        <div class="w-20 h-20 rounded-full bg-primary-container/20 flex items-center justify-center font-bold text-primary font-display text-xl mx-auto mb-4">RA</div>
+                        <h3 class="font-display text-sm font-bold text-white">Rabi Adhikari</h3>
+                        <p class="text-[10px] text-primary uppercase font-bold tracking-widest mt-1">Founder & CEO</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl border border-white/5 text-center">
+                        <div class="w-20 h-20 rounded-full bg-primary-container/20 flex items-center justify-center font-bold text-primary font-display text-xl mx-auto mb-4">SA</div>
+                        <h3 class="font-display text-sm font-bold text-white">S. Adhikari</h3>
+                        <p class="text-[10px] text-primary uppercase font-bold tracking-widest mt-1">Chief Inspection Engineer</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl border border-white/5 text-center">
+                        <div class="w-20 h-20 rounded-full bg-primary-container/20 flex items-center justify-center font-bold text-primary font-display text-xl mx-auto mb-4">NK</div>
+                        <h3 class="font-display text-sm font-bold text-white">Niranjan Karki</h3>
+                        <p class="text-[10px] text-primary uppercase font-bold tracking-widest mt-1">Customer Sales Lead</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. CONTACT PAGE VIEW -->
+    <div id="view-contact" class="page-view hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-8">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h1 class="font-display text-3xl md:text-4xl font-extrabold text-white mb-4" data-translate-key="nav-contact">Contact RAAZ Auto</h1>
+                <p class="text-on-surface-variant text-sm md:text-base leading-relaxed" data-translate-key="contact-page-sub">
+                    Visit our main showroom in Tinkune, schedule a technical valuation at Lalitpur workshops, or drop us a message below.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto">
+                <!-- Contact Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-panel p-6 rounded-xl border border-white/5 flex gap-4 items-start">
+                        <span class="material-symbols-outlined text-primary text-2xl" data-icon="location_on">location_on</span>
+                        <div>
+                            <h4 class="font-display text-sm font-bold text-white uppercase tracking-wider mb-1">Tinkune Showroom</h4>
+                            <p class="text-xs text-on-surface-variant">Main Showroom, Tinkune, Kathmandu, Nepal</p>
+                            <p class="text-[10px] text-primary mt-1 font-bold">Open Daily: 9:00 AM - 7:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-panel p-6 rounded-xl border border-white/5 flex gap-4 items-start">
+                        <span class="material-symbols-outlined text-primary text-2xl" data-icon="build">build</span>
+                        <div>
+                            <h4 class="font-display text-sm font-bold text-white uppercase tracking-wider mb-1">Lalitpur Service Hub</h4>
+                            <p class="text-xs text-on-surface-variant">Service Center, Kumaripati, Lalitpur, Nepal</p>
+                            <p class="text-[10px] text-primary mt-1 font-bold">Open Sun-Fri: 9:30 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-xl border border-white/5 flex gap-4 items-start">
+                        <span class="material-symbols-outlined text-primary text-2xl" data-icon="phone">phone</span>
+                        <div>
+                            <h4 class="font-display text-sm font-bold text-white uppercase tracking-wider mb-1">Call & Email</h4>
+                            <p class="text-xs text-on-surface-variant font-mono">+977 1 4400000</p>
+                            <p class="text-xs text-on-surface-variant">info@raazauto.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form Column -->
+                <div class="lg:col-span-7 glass-panel p-6 md:p-8 rounded-xl border border-white/5 shadow-2xl">
+                    <h3 class="font-display text-sm font-bold text-primary uppercase tracking-widest mb-6">Send Us a Message</h3>
+                    
+                    <form id="contact-page-form" onsubmit="event.preventDefault(); submitContactForm();" class="space-y-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Full Name</label>
+                                <input type="text" id="contact-name" required placeholder="e.g., Aayush Karki" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Email Address</label>
+                                <input type="email" id="contact-email" required placeholder="e.g., aayush@gmail.com" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Subject</label>
+                            <input type="text" id="contact-subject" required placeholder="e.g., Inquiring about Tucson" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 block">Message Details</label>
+                            <textarea id="contact-msg" required rows="4" placeholder="Detail your inquiries here..." class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2.5 text-sm focus:ring-primary-container focus:border-primary-container"></textarea>
+                        </div>
+                        <button type="submit" class="turbo-btn bg-primary-container text-on-primary-container hover:bg-primary px-8 py-3.5 rounded-lg font-display text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 w-full">
+                            <span class="material-symbols-outlined text-sm font-bold" data-icon="send">send</span> Submit Inquiries
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Map Placeholder -->
+            <div class="mt-16 max-w-5xl mx-auto select-none">
+                <h3 class="font-display text-lg font-extrabold text-white mb-6 text-center">Interactive Showroom Map</h3>
+                <div class="relative w-full h-80 rounded-2xl overflow-hidden border border-white/5 bg-surface-container flex items-center justify-center">
+                    <div class="absolute inset-0 bg-background/40"></div>
+                    <div class="relative z-10 text-center p-6">
+                        <span class="material-symbols-outlined text-primary text-5xl mb-4" data-icon="map">map</span>
+                        <p class="font-display text-sm font-bold text-white">Tinkune Showroom & Valuation Hub</p>
+                        <p class="text-xs text-on-surface-variant mt-2 max-w-xs mx-auto">Kumaripati lalitpur workshops listed. Tap to open in Google Maps.</p>
+                        <a href="https://maps.google.com" target="_blank" class="turbo-btn bg-primary-container/20 border border-primary-container/40 text-primary px-4 py-2 mt-4 rounded-lg inline-block text-xs font-bold uppercase font-display tracking-wider">Open Map View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. ADMIN DASHBOARD VIEW DELETED (REDIRECTED TO SECURE admin.html) -->
+
+</main>
+
+<!-- ============================================== -->
+<!-- FLOATING LAYOUT MODALS & OVERLAYS             -->
+<!-- ============================================== -->
+
+<!-- 1. Comparison Bar Overlay -->
+<div id="compare-bar" class="fixed bottom-20 md:bottom-6 left-1/2 -translate-x-1/2 z-40 bg-surface/90 backdrop-blur-xl border border-white/10 p-4 rounded-xl shadow-2xl flex items-center justify-between gap-6 max-w-2xl w-[90%] hidden transform translate-y-24 transition-all duration-300">
+    <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-primary text-xl hidden sm:block" data-icon="compare">compare</span>
+        <div>
+            <p class="text-xs font-bold text-white font-display uppercase tracking-wider">Compare Queue</p>
+            <p id="compare-slots-info" class="text-[10px] text-on-surface-variant mt-0.5">0 of 3 vehicles queued</p>
+        </div>
+    </div>
+    <div class="flex items-center gap-3">
+        <button onclick="resetComparison()" class="text-xs text-on-surface-variant hover:text-white font-bold select-none" data-translate-key="btn-reset">Reset</button>
+        <button onclick="openComparisonModal()" class="turbo-btn bg-primary-container hover:bg-primary text-on-primary-container px-4 py-2 rounded-lg font-display text-[10px] font-bold tracking-widest uppercase">Compare Now</button>
+    </div>
+</div>
+
+<!-- 2. Vehicle Comparison Matrix Modal -->
+<div id="compare-modal" class="fixed inset-0 z-[150] bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+    <div class="glass-panel w-full max-w-4xl rounded-2xl p-6 border border-white/5 relative shadow-2xl max-h-[85vh] overflow-y-auto animate-scale-up">
+        <button onclick="closeComparisonModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-white transition-colors">
+            <span class="material-symbols-outlined" data-icon="close">close</span>
+        </button>
+        
+        <h3 class="font-display text-xl font-extrabold text-primary mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-xl" data-icon="compare">compare</span> Side-by-Side Comparison
+        </h3>
+        
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs select-none">
+                <tbody id="compare-matrix-body" class="divide-y divide-white/5 text-on-surface">
+                    <!-- Dynamically populated comparison rows -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- 3. Add Vehicle Modal (Admin) -->
+<div id="add-vehicle-modal" class="fixed inset-0 z-[150] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+    <div class="glass-panel w-full max-w-2xl rounded-2xl p-6 border border-white/5 relative shadow-2xl max-h-[90vh] overflow-y-auto animate-scale-up">
+        <button onclick="closeAddVehicleModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-white transition-colors z-10">
+            <span class="material-symbols-outlined" data-icon="close">close</span>
+        </button>
+        
+        <h3 class="font-display text-lg font-extrabold text-primary mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined" data-icon="directions_car">directions_car</span> Add Showroom Listing
+        </h3>
+        
+        <form onsubmit="event.preventDefault(); submitAddVehicleForm();" class="space-y-5">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1.5 block">Vehicle Name</label>
+                    <input type="text" id="admin-add-name" required placeholder="e.g., Hyundai Tucson" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1.5 block">Brand</label>
+                    <input type="text" id="admin-add-brand" required placeholder="e.g., Hyundai" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+                <div>
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1.5 block">Price (NPR)</label>
+                    <input type="number" id="admin-add-price" required placeholder="e.g., 8550000" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1.5 block">Year</label>
+                    <input type="number" id="admin-add-year" required placeholder="e.g., 2021" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1.5 block">KM Driven</label>
+                    <input type="number" id="admin-add-km" required placeholder="e.g., 24000" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+                <div>
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1.5 block">Category</label>
+                    <select id="admin-add-cat" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2 text-sm focus:ring-primary-container focus:border-primary-container">
+                        <option>SUV</option>
+                        <option>Sedan</option>
+                        <option>EV</option>
+                        <option>Pickup</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1.5 block">Fuel Type</label>
+                    <select id="admin-add-fuel" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2 text-sm focus:ring-primary-container focus:border-primary-container">
+                        <option>Petrol</option>
+                        <option>Diesel</option>
+                        <option>Electric</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1.5 block">Transmission</label>
+                    <select id="admin-add-trans" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2 text-sm focus:ring-primary-container focus:border-primary-container">
+                        <option>Automatic</option>
+                        <option>Manual</option>
+                        <option>AWD</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1.5 block">Visual Image Asset</label>
+                    <select id="admin-add-img" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2 text-sm focus:ring-primary-container focus:border-primary-container">
+                        <option value="https://lh3.googleusercontent.com/aida-public/AB6AXuBwbx4wQVJ5uzm0neWc8lC9SP-Di2vhPdLqaXCqfm5iAPyup3LMc0MGxCFnuriYxU1_FN4o_mW78gWZCFlXM3Nc2BnjKKX1EIU9SVEDKHvOv3eyOJiBujEN22XssBq7lnrdCeOe7UVpO4euP9fG9JbADze5VNSEf5-ZQ69_assWYlTddG81rjf727c35YNr9g_Ny9Gmxmq9fVnU1fD-dOccs8mTLJnHvHONORczo8F-5ZAKTwI6xT8UjKz6guMxGNuRebIi6-F2GqgR">Tucson SUV (White)</option>
+                        <option value="https://lh3.googleusercontent.com/aida-public/AB6AXuDavJilN8zHGnQqjw8Jsjj8bqynuNRQCz5K4uIOUHVNZgD7rmOSWyLFQREJ7l_Lu7uWp5Gv317kn0BTv9K0h_n31Fz3Sv5oLFl34KGOw2doBfcRI3ZODJmVJs8Ssx4F7t-8r8B7P8BDE9oEwlZCO_6f_8BWuxkiv4Df9nGp3ewQsvJZWDt6tuY5MNkwtN8ZeGwo89Y8Yxb6yHq2lvcU6s1IPFYCvPpUP4iMjJjeRCtChsoseO1RZhaknMRgAtCAJIHxOdCtVjzqrrfu">Hilux Pickup (Black)</option>
+                        <option value="https://lh3.googleusercontent.com/aida-public/AB6AXuCoPmWpqhKP1TMCMbnn1WfUfsfGTjQggmQ6oT-ORRyF21lCBbGIjqUyWLnVPVLGrjLo0_C9KybFyU33oi5O5aqiUUBGrKlKOgQNQUAVH36jH1ArsHO2btSsB10ba8RUZlcwXR-e5aQsY6M6rAHYtGrTW4bqVjooTSdYN34XHi0XSDEdpB6Rm8wOjQ61HyDAxInymFRjplJ2QxMVzJP6_C0tAXTKNiTJpu0Ngz3h5OaWeHD_llfmWbDhoCAdMqXy9xNumxI5l14lKe57">Tesla SUV (Gray)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1.5 block">Ground Clearance (mm)</label>
+                    <input type="number" id="admin-add-gc" required placeholder="e.g., 225" class="w-full bg-background border-white/10 text-on-surface rounded-lg py-2 text-sm focus:ring-primary-container focus:border-primary-container"/>
+                </div>
+            </div>
+            
+            <button type="submit" class="turbo-btn bg-primary-container text-on-primary-container hover:bg-primary w-full py-3.5 rounded-lg font-display text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-sm font-bold" data-icon="save">save</span> Add To Inventory List
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- WhatsApp Float FAB -->
+<a class="fixed bottom-20 right-6 z-[100] bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group" href="https://wa.me/9779800000000" aria-label="WhatsApp lead center">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12.012 2C6.48 2 2 6.48 2 12.012c0 1.918.52 3.71 1.4 5.273L2 22l4.902-1.316a9.89 9.89 0 0 0 5.11 1.328c5.533 0 10.012-4.48 10.012-10.012S17.545 2 12.012 2zm6.2 13.914c-.26.74-1.272 1.348-1.745 1.413-.472.065-.968.106-2.9-.684-2.477-1.01-4.077-3.524-4.2-3.686-.124-.163-.984-1.307-.984-2.494 0-1.187.62-1.77.842-2.008.222-.238.486-.3.648-.3h.466c.162 0 .373.01.53.385.176.417.6 1.468.653 1.577.054.11.09.237.018.384-.07.148-.108.238-.217.367-.11.128-.228.286-.325.385-.108.11-.223.23-.096.448.127.218.566.93 1.21 1.503.832.74 1.53.968 1.748 1.077.218.11.346.09.475-.054.127-.144.55-.644.697-.863.147-.218.293-.18.498-.105.205.074 1.3.613 1.523.725.223.11.37.165.425.26.054.095.054.55-.205 1.29z"/>
+    </svg>
+</a>
+
+<!-- ============================================== -->
+<!-- FOOTER                                         -->
+<!-- ============================================== -->
+<footer class="bg-surface py-16 border-t border-white/5 z-25 relative">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div class="col-span-1">
+            <div class="mb-4">
+                <svg class="h-12 w-auto" viewBox="0 0 500 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="#ff571a">
+                    <path d="M190 77C191.5 73.5 193.5 70.5 196 68L202 73.5C200.5 75.5 199 77.5 198 80L190 77Z" />
+                    <path d="M201 64C203.5 61 206.5 58.5 210 56.5L215.5 63C213 64.5 210.5 66.5 208.5 69L201 64Z" />
+                    <path d="M216 52.5C219.5 50 223.5 48.5 228 47.5L232 54.5C228.5 55.5 225 56.5 222 58.5L216 52.5Z" />
+                    <path d="M234 45.5C238.5 44.5 243.5 44 248.5 44.5L250.5 52C246.5 51.5 242.5 52 238.5 52.5L234 45.5Z" />
+                    <path d="M255 45.5C260 46 265 47.5 269.5 49.5L269.5 57C265.5 55 261.5 54 257 53.5L255 45.5Z" />
+                    <path d="M276.5 51C281.5 53.5 286 57 289.5 61L287.5 68.5C284.5 65.5 281 62.5 277 60.5L276.5 51Z" />
+                    <path d="M295.5 63C299.5 67 302.5 72 305 77L301 83C299 79 296.5 75 293 71.5L295.5 63Z" />
+                  </g>
+                  <path d="M145 92C230 45 350 78 455 88C410 81 330 65 240 78C195 84.5 160 90.5 145 92Z" fill="url(#silver-grad-foot)" />
+                  <path d="M25 125C130 90 280 92 375 105C415 109 460 120 478 135C450 115 390 102 345 99C250 93 115 103 25 125Z" fill="url(#orange-grad-foot)" />
+                  <path d="M85 106C75 110 50 120 28 127C45 120 70 112 85 106Z" fill="url(#silver-grad-foot)" />
+                  <text x="95" y="165" font-family="Montserrat, sans-serif" font-size="52" font-weight="900" font-style="italic" fill="url(#silver-text-grad-foot)" letter-spacing="1">RAAZ</text>
+                  <text x="285" y="165" font-family="Montserrat, sans-serif" font-size="52" font-weight="950" font-style="italic" fill="url(#orange-text-grad-foot)">Auto</text>
+                  <text x="200" y="202" font-family="Inter, sans-serif" font-size="24" font-weight="600" font-style="italic" fill="#ff571a" letter-spacing="2">Center</text>
+                  <defs>
+                    <linearGradient id="silver-grad-foot" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#b0b0b0" />
+                      <stop offset="50%" stop-color="#ffffff" />
+                      <stop offset="100%" stop-color="#808080" />
+                    </linearGradient>
+                    <linearGradient id="silver-text-grad-foot" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#ffffff" />
+                      <stop offset="50%" stop-color="#cccccc" />
+                      <stop offset="100%" stop-color="#8c8c8c" />
+                    </linearGradient>
+                    <linearGradient id="orange-grad-foot" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#ff7c4d" />
+                      <stop offset="100%" stop-color="#ff3b30" />
+                    </linearGradient>
+                    <linearGradient id="orange-text-grad-foot" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#ff9500" />
+                      <stop offset="100%" stop-color="#ff3b30" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+            </div>
+            <p class="text-on-surface-variant text-sm mb-6" data-translate-key="footer-desc">Redefining pre-owned luxury and reconditioned trust across Kathmandu and Nepal.</p>
+            <div class="flex gap-4">
+                <a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-container group hover:shadow-lg transition-all" href="#">
+                    <svg class="w-5 h-5 text-on-surface-variant group-hover:text-on-primary transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 8H7v3h2v9h3v-9h2.72l.42-3H12V6.5A1 1 0 0 1 13 5.5h2.5V2H13c-2.76 0-5 2.24-5 5v1z"/>
+                    </svg>
+                </a>
+                <a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-container group hover:shadow-lg transition-all" href="#">
+                    <svg class="w-5 h-5 text-on-surface-variant group-hover:text-on-primary transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div>
+            <h4 class="font-display text-xs font-bold tracking-widest text-primary mb-6 uppercase" data-translate-key="footer-collection">THE COLLECTION</h4>
+            <ul class="space-y-4 text-sm">
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#listings" onclick="filterByCategory('SUV')" data-translate-key="footer-suv">Luxury SUVs</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#listings" onclick="filterByCategory('Sedan')" data-translate-key="footer-sedan">Premium Sedans</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#listings" onclick="filterByCategory('EV')" data-translate-key="footer-ev">Electric Vehicles</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#listings" onclick="filterByCategory('Pickup')" data-translate-key="footer-offroad">Off-Road Specialists</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4 class="font-display text-xs font-bold tracking-widest text-primary mb-6 uppercase" data-translate-key="footer-services">SERVICES</h4>
+            <ul class="space-y-4 text-sm">
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#sell" data-translate-key="footer-val">Valuation Service</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#finance" data-translate-key="footer-calc">Finance Calculator</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#sell" data-translate-key="footer-sell">Sell Your Vehicle</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#contact" data-translate-key="footer-centers">Service Centers</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4 class="font-display text-xs font-bold tracking-widest text-primary mb-6 uppercase" data-translate-key="footer-locations">LOCATIONS</h4>
+            <ul class="space-y-4 text-sm">
+                <li class="text-on-surface-variant" data-translate-key="footer-loc1">Main Showroom, Tinkune, Kathmandu</li>
+                <li class="text-on-surface-variant" data-translate-key="footer-loc2">Service Center, Lalitpur</li>
+                <li class="text-on-surface-variant font-mono">+977 1 4400000</li>
+                <li class="text-on-surface-variant font-mono">info@raazauto.com</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-white/5 text-center">
+        <p class="font-display text-[10px] font-bold text-on-surface-variant/40 tracking-widest uppercase" data-translate-key="footer-copyright">© 2026 RAAZ AUTO. PRECISION ENGINEERED IN KATHMANDU.</p>
+    </div>
+</footer>
+
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 w-full z-50 bg-background/90 backdrop-blur-md border-t border-white/5 shadow-2xl h-16 flex justify-around items-center px-4 rounded-t-xl select-none">
+    <a class="flex flex-col items-center justify-center text-primary-container" href="#home">
+        <span class="material-symbols-outlined text-lg" data-icon="home">home</span>
+        <span class="text-[9px] font-bold tracking-wide font-display mt-0.5">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors" href="#listings">
+        <span class="material-symbols-outlined text-lg" data-icon="directions_car">directions_car</span>
+        <span class="text-[9px] font-bold tracking-wide font-display mt-0.5">Browse</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors" href="#sell">
+        <span class="material-symbols-outlined text-lg" data-icon="add_box">add_box</span>
+        <span class="text-[9px] font-bold tracking-wide font-display mt-0.5">Sell</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors" href="#finance">
+        <span class="material-symbols-outlined text-lg" data-icon="calculate">calculate</span>
+        <span class="text-[9px] font-bold tracking-wide font-display mt-0.5">Loans</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors" href="admin.html">
+        <span class="material-symbols-outlined text-lg" data-icon="person">person</span>
+        <span class="text-[9px] font-bold tracking-wide font-display mt-0.5">Admin</span>
+    </a>
+</nav>
+
+<!-- ============================================== -->
+<!-- JAVASCRIPT APP LOGIC & STATE STORE            -->
+<!-- ============================================== -->
+<script>
+    // Global Application State Store
+    const state = {
+        // Initial inventory list
+        vehicles: [
+            {
+                id: 1,
+                name: "2021 Hyundai Tucson",
+                brand: "Hyundai",
+                category: "SUV",
+                price: 8550000,
+                year: 2021,
+                km: 24000,
+                fuel: "Diesel",
+                transmission: "Automatic",
+                color: "Polar White",
+                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBwbx4wQVJ5uzm0neWc8lC9SP-Di2vhPdLqaXCqfm5iAPyup3LMc0MGxCFnuriYxU1_FN4o_mW78gWZCFlXM3Nc2BnjKKX1EIU9SVEDKHvOv3eyOJiBujEN22XssBq7lnrdCeOe7UVpO4euP9fG9JbADze5VNSEf5-ZQ69_assWYlTddG81rjf727c35YNr9g_Ny9Gmxmq9fVnU1fD-dOccs8mTLJnHvHONORczo8F-5ZAKTwI6xT8UjKz6guMxGNuRebIi6-F2GqgR",
+                specs: { engine: "1997 cc", power: "182 bhp", torque: "400 Nm", groundClearance: "172 mm", seats: 5, gearBox: "8-Speed Auto" },
+                features: ["Panoramic Sunroof", "6 Airbags", "ADAS Lane Assist", "Heated Seats", "360 Camera", "Wireless Charge"],
+                emi: 120000,
+                featured: true
+            },
+            {
+                id: 2,
+                name: "2019 Toyota Hilux",
+                brand: "Toyota",
+                category: "Pickup",
+                price: 9200000,
+                year: 2019,
+                km: 42000,
+                fuel: "Diesel",
+                transmission: "Manual",
+                color: "Attitude Black Metallic",
+                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDavJilN8zHGnQqjw8Jsjj8bqynuNRQCz5K4uIOUHVNZgD7rmOSWyLFQREJ7l_Lu7uWp5Gv317kn0BTv9K0h_n31Fz3Sv5oLFl34KGOw2doBfcRI3ZODJmVJs8Ssx4F7t-8r8B7P8BDE9oEwlZCO_6f_8BWuxkiv4Df9nGp3ewQsvJZWDt6tuY5MNkwtN8ZeGwo89Y8Yxb6yHq2lvcU6s1IPFYCvPpUP4iMjJjeRCtChsoseO1RZhaknMRgAtCAJIHxOdCtVjzqrrfu",
+                specs: { engine: "2755 cc", power: "201 bhp", torque: "420 Nm", groundClearance: "293 mm", seats: 5, gearBox: "6-Speed Manual" },
+                features: ["Active Traction Control", "7 Airbags", "Differential Lock", "Dual-Zone climate control", "Rear View Camera", "Underbody Armor"],
+                emi: 145000,
+                featured: true
+            },
+            {
+                id: 3,
+                name: "2023 Tesla Model Y",
+                brand: "Tesla",
+                category: "EV",
+                price: 14500000,
+                year: 2023,
+                km: 3500,
+                fuel: "Electric",
+                transmission: "AWD",
+                color: "Midnight Silver Metallic",
+                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCoPmWpqhKP1TMCMbnn1WfUfsfGTjQggmQ6oT-ORRyF21lCBbGIjqUyWLnVPVLGrjLo0_C9KybFyU33oi5O5aqiUUBGrKlKOgQNQUAVH36jH1ArsHO2btSsB10ba8RUZlcwXR-e5aQsY6M6rAHYtGrTW4bqVjooTSdYN34XHi0XSDEdpB6Rm8wOjQ61HyDAxInymFRjplJ2QxMVzJP6_C0tAXTKNiTJpu0Ngz3h5OaWeHD_llfmWbDhoCAdMqXy9xNumxI5l14lKe57",
+                specs: { engine: "Dual Electric Motor", power: "384 bhp", torque: "510 Nm", groundClearance: "167 mm", seats: 5, gearBox: "Single Speed" },
+                features: ["Autopilot Capability", "Full Glass Roof", "15-inch Touchscreen", "Sentry Security Mode", "HEPA cabin filter", "Premium Audio"],
+                emi: 210000,
+                featured: true
+            },
+            {
+                id: 4,
+                name: "2020 Kia Sportage",
+                brand: "Kia",
+                category: "SUV",
+                price: 6800000,
+                year: 2020,
+                km: 31000,
+                fuel: "Petrol",
+                transmission: "Automatic",
+                color: "Fiery Red",
+                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBwbx4wQVJ5uzm0neWc8lC9SP-Di2vhPdLqaXCqfm5iAPyup3LMc0MGxCFnuriYxU1_FN4o_mW78gWZCFlXM3Nc2BnjKKX1EIU9SVEDKHvOv3eyOJiBujEN22XssBq7lnrdCeOe7UVpO4euP9fG9JbADze5VNSEf5-ZQ69_assWYlTddG81rjf727c35YNr9g_Ny9Gmxmq9fVnU1fD-dOccs8mTLJnHvHONORczo8F-5ZAKTwI6xT8UjKz6guMxGNuRebIi6-F2GqgR",
+                specs: { engine: "1999 cc", power: "154 bhp", torque: "192 Nm", groundClearance: "172 mm", seats: 5, gearBox: "6-Speed Automatic" },
+                features: ["Panoramic Sunroof", "Blindspot Collision warning", "Smart Power Tailgate", "8-inch touchscreen", "Harman Kardon speaker"],
+                emi: 95000,
+                featured: false
+            },
+            {
+                id: 5,
+                name: "2022 Suzuki Jimny",
+                brand: "Suzuki",
+                category: "Pickup",
+                price: 4800000,
+                year: 2022,
+                km: 12000,
+                fuel: "Petrol",
+                transmission: "Manual",
+                color: "Kinetic Yellow",
+                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDavJilN8zHGnQqjw8Jsjj8bqynuNRQCz5K4uIOUHVNZgD7rmOSWyLFQREJ7l_Lu7uWp5Gv317kn0BTv9K0h_n31Fz3Sv5oLFl34KGOw2doBfcRI3ZODJmVJs8Ssx4F7t-8r8B7P8BDE9oEwlZCO_6f_8BWuxkiv4Df9nGp3ewQsvJZWDt6tuY5MNkwtN8ZeGwo89Y8Yxb6yHq2lvcU6s1IPFYCvPpUP4iMjJjeRCtChsoseO1RZhaknMRgAtCAJIHxOdCtVjzqrrfu",
+                specs: { engine: "1462 cc", power: "101 bhp", torque: "130 Nm", groundClearance: "210 mm", seats: 4, gearBox: "5-Speed Manual" },
+                features: ["AllGrip Pro 4WD system", "Hill descent control", "High-beam assist", "Retro body styling", "Washable cargo zone"],
+                emi: 72000,
+                featured: false
+            },
+            {
+                id: 6,
+                name: "2021 Toyota Land Cruiser",
+                brand: "Toyota",
+                category: "SUV",
+                price: 29500000,
+                year: 2021,
+                km: 15000,
+                fuel: "Diesel",
+                transmission: "Automatic",
+                color: "Attitude Black",
+                img: "bright_luxury_car.png",
+                specs: { engine: "3346 cc", power: "304 bhp", torque: "700 Nm", groundClearance: "235 mm", seats: 7, gearBox: "10-Speed Automatic" },
+                features: ["Multi-Terrain Select 4WD", "Crawl Control", "4-Zone air conditioning", "JBL 14-Speaker system", "Head-up display", "Air suspension"],
+                emi: 380000,
+                featured: false
+            }
+        ],
+        
+        // Dynamic Customer Inquiries Log
+        inquiries: [],
+        
+        // Appraisal requests logged
+        appraisals: [],
+        
+        // Comparison Queue (Max 3 IDs)
+        compareQueue: [],
+        
+        // Listings Page Layout Preferences
+        listingsLayout: 'grid'
+    };
+
+    if (localStorage.getItem('raaz_vehicles')) {
+        state.vehicles = JSON.parse(localStorage.getItem('raaz_vehicles'));
+        // Automatically migrate old hero path to new bright car path
+        let updated = false;
+        state.vehicles.forEach(v => {
+            if (v.img === 'luxury_suv_hero.png') {
+                v.img = 'bright_luxury_car.png';
+                updated = true;
+            }
+        });
+        if (updated) {
+            localStorage.setItem('raaz_vehicles', JSON.stringify(state.vehicles));
+        }
+    } else {
+        localStorage.setItem('raaz_vehicles', JSON.stringify(state.vehicles));
+    }
+
+    if (localStorage.getItem('raaz_inquiries')) {
+        state.inquiries = JSON.parse(localStorage.getItem('raaz_inquiries'));
+    } else {
+        localStorage.setItem('raaz_inquiries', JSON.stringify(state.inquiries));
+    }
+
+    // Bilingual Localization Data
+    const translations = {
+      en: {
+        "nav-home": "Home",
+        "nav-browse": "Browse",
+        "nav-sell": "Sell",
+        "nav-finance": "Finance",
+        "nav-about": "About Us",
+        "nav-contact": "Contact",
+        "nav-admin": "Admin Portal",
+        
+        "filter-brand": "Brand",
+        "filter-all-brands": "All Brands",
+        "filter-price": "Price Range",
+        "filter-any-price": "Any Price",
+        "filter-fuel": "Fuel Type",
+        "filter-all-fuels": "All Fuels",
+        
+        "btn-search": "Search",
+        "btn-browse": "Browse Collection",
+        "btn-sell": "Sell Your Car",
+        "btn-reset": "Reset Filters",
+        
+        "featured-title": "Featured Collection",
+        "featured-sub": "Hand-selected luxury for the discerning driver",
+        "view-all": "View All Listings",
+        
+        "why-title": "Uncompromising Standards",
+        "why-1-title": "150-Point Certified Audit",
+        "why-1-desc": "Every vehicle undergoes a rigorous mechanical and aesthetics audit by our master technicians.",
+        "why-2-title": "Flexible Financing",
+        "why-2-desc": "Seamless loan processing through our partner banks with competitive interest rates for premium vehicles.",
+        "why-3-title": "Full Service Warranty",
+        "why-3-desc": "Drive with total peace of mind with our exclusive 1-year comprehensive mechanical warranty.",
+        
+        "footer-desc": "Redefining pre-owned luxury and reconditioned trust across Kathmandu and Nepal.",
+        "footer-collection": "THE COLLECTION",
+        "footer-suv": "Luxury SUVs",
+        "footer-sedan": "Premium Sedans",
+        "footer-ev": "Electric Vehicles",
+        "footer-offroad": "Off-Road Specialists",
+        "footer-services": "SERVICES",
+        "footer-val": "Valuation Service",
+        "footer-calc": "Finance Calculator",
+        "footer-sell": "Sell Your Vehicle",
+        "footer-centers": "Service Centers",
+        "footer-locations": "LOCATIONS",
+        "footer-loc1": "Main Showroom, Tinkune, Kathmandu",
+        "footer-loc2": "Service Center, Lalitpur",
+        "footer-copyright": "© 2026 RAAZ AUTO. PRECISION ENGINEERED IN KATHMANDU.",
+        
+        "listings-heading": "Browse Pre-Owned Vehicles",
+        "listings-sub": "Filter and search our current inventory in Kathmandu",
+        "search-label": "Keyword Search",
+        "no-results": "No vehicles match your filters.",
+        
+        "home-hero-title": "Find Trusted <span class=\"text-primary-container text-glow\">Reconditioned</span> Vehicles in Kathmandu",
+        "home-hero-desc": "Drive your dream with complete peace of mind. Every vehicle in our showroom passes a certified 150-point inspection and carries an ironclad mechanical warranty.",
+        "home-finance-title": "Instant EMI Estimates & Flexible Bank Loans",
+        "home-finance-desc": "Our partner banks provide competitive interest rates starting from 9.5% for pre-owned SUVs and luxury cars. Use our real-time slider calculator to find a monthly layout that matches your budget.",
+        "home-sell-badge": "Instant Valuation",
+        "home-sell-title": "Looking to Sell or Exchange Your Car?",
+        "home-sell-desc": "Get a fair market valuation in Kathmandu. Bring your vehicle to Tinkune, get it audited in 30 minutes, and either walk away with instant cash or exchange it for a certified premium SUV from our lot.",
+        "home-sell-cta1": "Get Valuation Report",
+        "home-sell-cta2": "Book Evaluation",
+        "home-testimonial-title": "What Our Clients Say",
+        "home-blog-title": "Expert Car Tips & Market Trends",
+        
+        "calc-loan": "Loan Amount",
+        "calc-tenure": "Tenure",
+        "calc-interest": "Interest Rate",
+        "calc-monthly": "Estimated Monthly EMI",
+        
+        "sell-page-sub": "Get an instant estimate, schedule an appraisal, or list your vehicle on our showroom floor. Fill out our multi-step valuation form below.",
+        "finance-page-sub": "Compare loan tenures, calculate monthly payments, and explore vehicle financing terms with Nepal's leading commercial banks.",
+        "contact-page-sub": "Visit our main showroom in Tinkune, schedule a technical valuation at Lalitpur workshops, or drop us a message below."
+      },
+      ne: {
+        "nav-home": "गृहपृष्ठ",
+        "nav-browse": "खोज्नुहोस्",
+        "nav-sell": "बिक्री गर्नुहोस्",
+        "nav-finance": "ऋण र वित्त",
+        "nav-about": "हाम्रो बारेमा",
+        "nav-contact": "सम्पर्क",
+        "nav-admin": "एडमिन प्यानल",
+        
+        "filter-brand": "ब्रान्ड",
+        "filter-all-brands": "सबै ब्रान्डहरू",
+        "filter-price": "मूल्य दायरा",
+        "filter-any-price": "जुनसुकै मूल्य",
+        "filter-fuel": "इन्धन प्रकार",
+        "filter-all-fuels": "सबै इन्धनहरू",
+        
+        "btn-search": "खोज्नुहोस्",
+        "btn-browse": "सवारी सूची हेर्नुहोस्",
+        "btn-sell": "सवारी बिक्री गर्नुहोस्",
+        "btn-reset": "पुनःसेट गर्नुहोस्",
+        
+        "featured-title": "उत्कृष्ट संकलन",
+        "featured-sub": "बुझ्ने चालकका लागि छानिएका विलासी सवारीहरू",
+        "view-all": "सबै सवारीहरू",
+        
+        "why-title": "सम्झौताबिहीन मापदण्डहरू",
+        "why-1-title": "१५०-बुँदा प्रमाणित जाँच",
+        "why-1-desc": "प्रत्येक सवारी साधन हाम्रो दक्ष प्राविधिकहरूद्वारा कडा मेकानिकल र सौन्दर्य परीक्षणबाट गुज्रिन्छ।",
+        "why-2-title": "लचिलो वित्तीय व्यवस्था",
+        "why-2-desc": "प्रिमियम सवारी साधनहरूको लागि प्रतिस्पर्धी ब्याज दरमा हाम्रा साझेदार बैंकहरू मार्फत सहज ऋण प्रक्रिया।",
+        "why-3-title": "पूर्ण सेवा वारेन्टी",
+        "why-3-desc": "हाम्रो विशेष १-वर्षे व्यापक मेकानिकल वारेन्टीको साथ पूर्ण मानसिक शान्तिका साथ ड्राइभ गर्नुहोस्।",
+        
+        "footer-desc": "काठमाडौं र नेपालभरि रिकन्डिसन कार बजारमा पारदर्शिता र विश्वसनीयता कायम गर्दै।",
+        "footer-collection": "संकलन",
+        "footer-suv": "विलासी एसयूभीहरू",
+        "footer-sedan": "प्रिमियम सेडानहरू",
+        "footer-ev": "विद्युतीय सवारीहरू",
+        "footer-offroad": "अफ-रोड विशेषज्ञ",
+        "footer-services": "सेवाहरू",
+        "footer-val": "मूल्याङ्कन सेवा",
+        "footer-calc": "वित्तीय क्यालकुलेटर",
+        "footer-sell": "सवारी बिक्री गर्नुहोस्",
+        "footer-centers": "सेवा केन्द्रहरू",
+        "footer-locations": "स्थानहरू",
+        "footer-loc1": "मुख्य शोरूम, तीनकुने, काठमाडौं",
+        "footer-loc2": "सेवा केन्द्र, ललितपुर",
+        "footer-copyright": "© २०२६ नेपाल मोटर्स। काठमाडौंमा निर्मित।",
+        
+        "listings-heading": "प्रि-ओन्ड सवारी साधनहरू",
+        "listings-sub": "काठमाडौंमा उपलब्ध हाम्रा सवारी साधनहरू खोज्नुहोस् र फिल्टर गर्नुहोस्",
+        "search-label": "खोज शब्द",
+        "no-results": "तपाईंको फिल्टरसँग मिल्ने सवारी साधन भेटिएन।",
+        
+        "home-hero-title": "काठमाडौंमा विश्वसनीय <span class=\"text-primary-container text-glow\">रिकन्डिसन</span> सवारी साधनहरू फेला पार्नुहोस्",
+        "home-hero-desc": "पूर्ण मानसिक शान्तिका साथ आफ्नो सपनाको कार चलाउनुहोस्। हाम्रो शोरूमका प्रत्येक गाडीले प्रमाणित १५०-बुँदा जाँच पास गर्छन्।",
+        "home-finance-title": "तुरुन्त ईएमआई अनुमान र लचिलो बैंक ऋण",
+        "home-finance-desc": "हाम्रा साझेदार बैंकहरूले प्रिमियम गाडीहरूका लागि ९.५% बाट सुरु हुने ब्याज दरमा ऋण प्रदान गर्छन्। आफ्नो बजेट अनुसार मासिक किस्ता हेर्नुहोस्।",
+        "home-sell-badge": "तुरुन्त मूल्याङ्कन",
+        "home-sell-title": "आफ्नो कार बिक्री वा साटफेर गर्न चाहनुहुन्छ?",
+        "home-sell-desc": "काठमाडौंमा आफ्नो गाडीको उचित बजार मूल्य पाउनुहोस्। ३० मिनेटमा प्राविधिक जाँच गरी तुरुन्तै नगद लिनुहोस् वा अर्को गाडीसँग साट्नुहोस्।",
+        "home-sell-cta1": "मूल्याङ्कन रिपोर्ट लिनुहोस्",
+        "home-sell-cta2": "जाँच बुक गर्नुहोस्",
+        "home-testimonial-title": "ग्राहकहरूको भनाइ",
+        "home-blog-title": "गाडी सम्बन्धी सुझाव र बजार ट्रेन्ड",
+        
+        "calc-loan": "ऋण रकम",
+        "calc-tenure": "अवधि",
+        "calc-interest": "ब्याज दर",
+        "calc-monthly": "अनुमानित मासिक किस्ता (EMI)",
+        
+        "sell-page-sub": "तुरुन्तै मूल्य अनुमान पाउनुहोस् वा हाम्रो शोरूममा गाडी बिक्री सूचीमा राख्नुहोस्। तलको फारम भर्नुहोस्।",
+        "finance-page-sub": "नेपालका उत्कृष्ट व्यावसायिक बैंकहरूसँग मासिक किस्ता (EMI), ऋण अवधि र वित्तीय सर्तहरू तुलना गर्नुहोस्।",
+        "contact-page-sub": "तीनकुने शोरूममा आउनुहोस्, ललितपुरमा प्राविधिक जाँच गराउनुहोस् वा हामीलाई म्यासेज पठाउनुहोस्।"
+      }
+    };
+
+    let currentLanguage = 'en';
+
+    // Toggle EN / ने Languages
+    function toggleLanguage() {
+        currentLanguage = currentLanguage === 'en' ? 'ne' : 'en';
+        document.body.className = `bg-background text-on-background font-sans selection:bg-primary-container selection:text-on-primary-container lang-${currentLanguage} transition-colors duration-300`;
+        
+        const btn = document.getElementById('lang-toggle-btn');
+        btn.innerText = currentLanguage === 'en' ? 'नेपाली' : 'ENGLISH';
+        
+        // Translate elements
+        document.querySelectorAll('[data-translate-key]').forEach(node => {
+            const key = node.getAttribute('data-translate-key');
+            if (translations[currentLanguage][key]) {
+                node.innerHTML = translations[currentLanguage][key];
+            }
+        });
+        
+        // Re-render components that are dynamically generated
+        renderFeaturedHome();
+        renderListings();
+        renderAdminTables();
+        calculateHomeEMI();
+        calculateAdvancedEMI();
+        calculateEstimateValuation();
+    }
+
+    // Comma formatting for lakhs and crores
+    function formatNPRValue(val) {
+        let str = Math.round(val).toString();
+        let lastThree = str.substring(str.length - 3);
+        let otherNumbers = str.substring(0, str.length - 3);
+        if (otherNumbers !== '') {
+            lastThree = ',' + lastThree;
+        }
+        let res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+        return res;
+    }
+
+    // English digits to Devanagari numerals
+    const nepaliDigits = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+    function toNepaliDigits(numStr) {
+        return numStr.toString().split('').map(char => {
+            if (char >= '0' && char <= '9') {
+                return nepaliDigits[parseInt(char)];
+            }
+            return char;
+        }).join('');
+    }
+
+    function formatCurrency(amount) {
+        const formatted = formatNPRValue(amount);
+        if (currentLanguage === 'ne') {
+            return `रु.&nbsp;${toNepaliDigits(formatted)}`;
+        }
+        return `Rs.&nbsp;${formatted}`;
+    }
+
+    // ==============================================
+    // HASH ROUTER ENGINE
+    // ==============================================
+    function handleRouting() {
+        // Reload state from local storage to keep synchronized with admin dashboard
+        if (localStorage.getItem('raaz_vehicles')) {
+            state.vehicles = JSON.parse(localStorage.getItem('raaz_vehicles'));
+        }
+        if (localStorage.getItem('raaz_inquiries')) {
+            state.inquiries = JSON.parse(localStorage.getItem('raaz_inquiries'));
+        }
+
+        const hash = window.location.hash || '#home';
+        
+        // Hide all views
+        document.querySelectorAll('.page-view').forEach(view => {
+            view.classList.add('hidden');
+        });
+        
+        // Extract route and parameters
+        const parts = hash.split('?');
+        const route = parts[0];
+        const params = {};
+        
+        if (parts[1]) {
+            parts[1].split('&').forEach(pair => {
+                const [k, v] = pair.split('=');
+                params[k] = decodeURIComponent(v);
+            });
+        }
+        
+        // Switch active route
+        if (route === '#home') {
+            document.getElementById('view-home').classList.remove('hidden');
+            renderFeaturedHome();
+        } else if (route === '#listings') {
+            document.getElementById('view-listings').classList.remove('hidden');
+            buildSidebarBrands();
+            renderListings();
+        } else if (route === '#detail') {
+            document.getElementById('view-detail').classList.remove('hidden');
+            renderVehicleDetail(parseInt(params.id));
+        } else if (route === '#sell') {
+            document.getElementById('view-sell').classList.remove('hidden');
+            navigateWizard(1);
+            calculateEstimateValuation();
+        } else if (route === '#finance') {
+            document.getElementById('view-finance').classList.remove('hidden');
+            calculateAdvancedEMI();
+        } else if (route === '#about') {
+            document.getElementById('view-about').classList.remove('hidden');
+        } else if (route === '#contact') {
+            document.getElementById('view-contact').classList.remove('hidden');
+        } else if (route === '#admin') {
+            // Redirect to secure standalone admin panel
+            window.location.href = "admin.html";
+        }
+        
+        // Scroll to viewport top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('hashchange', handleRouting);
+    window.addEventListener('DOMContentLoaded', () => {
+        handleRouting();
+        // Trigger initial calculations
+        calculateHomeEMI();
+    });
+
+    // Mobile Navigation Drawer Utility
+    function toggleMobileNav(show) {
+        const drawer = document.getElementById('mobile-nav-drawer');
+        if (show) {
+            drawer.classList.remove('hidden');
+            setTimeout(() => drawer.style.opacity = '1', 10);
+        } else {
+            drawer.style.opacity = '0';
+            setTimeout(() => drawer.classList.add('hidden'), 300);
+        }
+    }
+
+    function scrollToFeatured() {
+        if (window.location.hash !== '#home') {
+            window.location.hash = '#home';
+            setTimeout(() => {
+                document.getElementById('home-featured-grid').scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+        } else {
+            document.getElementById('home-featured-grid').scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    function focusSearch() {
+        window.location.hash = '#listings';
+        setTimeout(() => {
+            const searchInput = document.getElementById('listings-search-input');
+            if (searchInput) searchInput.focus();
+        }, 300);
+    }
+
+    // ==============================================
+    // VEHICLE DATA RENDERING FUNCTIONS
+    // ==============================================
+    
+    // 1. Render Featured Collection on Homepage
+    function renderFeaturedHome() {
+        const grid = document.getElementById('home-featured-grid');
+        grid.innerHTML = "";
+        
+        // Filter out items matching featured flag
+        const featuredCars = state.vehicles.filter(c => c.featured);
+        
+        featuredCars.forEach(car => {
+            const card = document.createElement('div');
+            card.className = "glass-card group rounded-2xl overflow-hidden flex flex-col";
+            card.innerHTML = `
+                <div class="relative h-60 overflow-hidden select-none">
+                    <img alt="${car.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" src="${car.img}"/>
+                    <div class="absolute top-4 right-4 bg-primary-container text-on-primary-container font-display text-[9px] font-bold tracking-widest px-2.5 py-1 rounded shadow-md uppercase">
+                        ${currentLanguage === 'en' ? 'FEATURED' : 'विशेष'}
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-display text-base font-bold text-white mb-2 group-hover:text-primary transition-colors">${car.name}</h3>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-surface-container-highest text-on-surface text-[10px] font-bold px-2 py-0.5 rounded-sm">${currentLanguage === 'en' ? `${car.year}` : `${toNepaliDigits(car.year)}`}</span>
+                            <span class="bg-surface-container-highest text-on-surface text-[10px] font-bold px-2 py-0.5 rounded-sm">${currentLanguage === 'en' ? `${formatNPRValue(car.km)} KM` : `${toNepaliDigits(formatNPRValue(car.km))} किमी`}</span>
+                            <span class="bg-surface-container-highest text-on-surface text-[10px] font-bold px-2 py-0.5 rounded-sm">${car.fuel}</span>
+                            <span class="bg-surface-container-highest text-on-surface text-[10px] font-bold px-2 py-0.5 rounded-sm">${car.transmission}</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-white/5 pt-5 flex justify-between items-center">
+                        <div>
+                            <p class="text-primary-container font-mono text-base font-bold">${formatCurrency(car.price)}</p>
+                            <p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider mt-0.5">
+                                ${currentLanguage === 'en' ? `EMI from ${formatCurrency(car.emi)}` : `मासिक किस्ता ${formatCurrency(car.emi)} बाट`}
+                            </p>
+                        </div>
+                        <a href="#detail?id=${car.id}" class="turbo-btn bg-surface-container-highest hover:bg-primary-container hover:text-on-primary p-2.5 rounded-full transition-all flex items-center justify-center">
+                            <span class="material-symbols-outlined text-sm font-bold block" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
+                        </a>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    // 2. Dynamic Brand Filters builder (Listings sidebar)
+    function buildSidebarBrands() {
+        const container = document.getElementById('brand-filters-container');
+        if (!container) return;
+        
+        // Extract unique brands
+        const brands = [...new Set(state.vehicles.map(v => v.brand))];
+        container.innerHTML = "";
+        
+        brands.forEach(brand => {
+            const label = document.createElement('label');
+            label.className = "flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer select-none";
+            label.innerHTML = `
+                <input type="checkbox" name="brand" value="${brand}" onchange="applyFilters()" class="rounded bg-background border-white/10 text-primary-container focus:ring-0 focus:ring-offset-0"/>
+                <span>${brand}</span>
+            `;
+            container.appendChild(label);
+        });
+    }
+
+    // 3. Render Listings Catalog (with layout switching)
+    function renderListings(filteredList = null) {
+        const gridContainer = document.getElementById('listings-grid-container');
+        const list = filteredList || state.vehicles;
+        
+        document.getElementById('listings-count').innerText = currentLanguage === 'en' ? `Showing ${list.length} Vehicles` : `${toNepaliDigits(list.length)} सवारी साधनहरू`;
+        
+        if (list.length === 0) {
+            gridContainer.classList.add('hidden');
+            document.getElementById('listings-no-results').classList.remove('hidden');
+            return;
+        }
+        
+        gridContainer.classList.remove('hidden');
+        document.getElementById('listings-no-results').classList.add('hidden');
+        gridContainer.innerHTML = "";
+        
+        if (state.listingsLayout === 'grid') {
+            gridContainer.className = "grid grid-cols-1 md:grid-cols-2 gap-6";
+        } else {
+            gridContainer.className = "flex flex-col gap-5";
+        }
+        
+        list.forEach(car => {
+            const isCompared = state.compareQueue.includes(car.id);
+            const compareBtnText = isCompared 
+                ? (currentLanguage === 'en' ? 'Remove Compare' : 'तुलनाबाट हटाउनुहोस्')
+                : (currentLanguage === 'en' ? 'Add to Compare' : 'तुलना थप्नुहोस्');
+            
+            const card = document.createElement('div');
+            
+            if (state.listingsLayout === 'grid') {
+                card.className = "glass-card group rounded-2xl overflow-hidden flex flex-col justify-between";
+                card.innerHTML = `
+                    <div class="relative h-56 overflow-hidden select-none">
+                        <img alt="${car.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" src="${car.img}"/>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start gap-2 mb-2">
+                                <h3 class="font-display text-sm font-bold text-white group-hover:text-primary transition-colors">${car.name}</h3>
+                                <button onclick="toggleCompare(${car.id})" class="text-[10px] border border-white/10 px-2 py-0.5 rounded text-on-surface-variant hover:text-white transition-colors font-display uppercase tracking-wider select-none">
+                                    ${isCompared ? '✓ Queued' : '+ Compare'}
+                                </button>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5 mb-5 select-none">
+                                <span class="bg-surface-container-highest text-on-surface text-[9px] font-bold px-2 py-0.5 rounded-sm">${currentLanguage === 'en' ? `${car.year}` : `${toNepaliDigits(car.year)}`}</span>
+                                <span class="bg-surface-container-highest text-on-surface text-[9px] font-bold px-2 py-0.5 rounded-sm">${currentLanguage === 'en' ? `${formatNPRValue(car.km)} KM` : `${toNepaliDigits(formatNPRValue(car.km))} किमी`}</span>
+                                <span class="bg-surface-container-highest text-on-surface text-[9px] font-bold px-2 py-0.5 rounded-sm">${car.fuel}</span>
+                                <span class="bg-surface-container-highest text-on-surface text-[9px] font-bold px-2 py-0.5 rounded-sm">${car.transmission}</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-white/5 pt-4 flex justify-between items-center">
+                            <div>
+                                <p class="text-primary-container font-mono text-base font-bold">${formatCurrency(car.price)}</p>
+                                <p class="text-[9px] text-on-surface-variant uppercase font-bold tracking-wider mt-0.5">
+                                    ${currentLanguage === 'en' ? `EMI from ${formatCurrency(car.emi)}` : `मासिक किस्ता ${formatCurrency(car.emi)} बाट`}
+                                </p>
+                            </div>
+                            <a href="#detail?id=${car.id}" class="turbo-btn bg-primary-container/10 text-primary border border-primary-container/20 px-3.5 py-1.5 rounded-lg text-[10px] font-bold tracking-widest uppercase font-display flex items-center gap-1 hover:bg-primary-container hover:text-on-primary">
+                                <span data-translate-key="listings-view">Details</span> &rarr;
+                            </a>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // List Layout
+                card.className = "glass-card group rounded-xl overflow-hidden flex flex-col sm:flex-row items-stretch border border-white/5";
+                card.innerHTML = `
+                    <div class="relative w-full sm:w-60 h-44 sm:h-auto overflow-hidden select-none">
+                        <img alt="${car.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="${car.img}"/>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div class="flex justify-between items-start gap-4">
+                            <div>
+                                <h3 class="font-display text-base font-bold text-white mb-2 group-hover:text-primary transition-colors">${car.name}</h3>
+                                <div class="flex flex-wrap gap-2 select-none">
+                                    <span class="bg-surface-container-highest text-on-surface text-[10px] font-bold px-2.5 py-0.5 rounded-sm">${currentLanguage === 'en' ? `${car.year}` : `${toNepaliDigits(car.year)}`}</span>
+                                    <span class="bg-surface-container-highest text-on-surface text-[10px] font-bold px-2.5 py-0.5 rounded-sm">${currentLanguage === 'en' ? `${formatNPRValue(car.km)} KM` : `${toNepaliDigits(formatNPRValue(car.km))} किमी`}</span>
+                                    <span class="bg-surface-container-highest text-on-surface text-[10px] font-bold px-2.5 py-0.5 rounded-sm">${car.fuel}</span>
+                                    <span class="bg-surface-container-highest text-on-surface text-[10px] font-bold px-2.5 py-0.5 rounded-sm">${car.transmission}</span>
+                                </div>
+                            </div>
+                            <button onclick="toggleCompare(${car.id})" class="text-[10px] border border-white/10 px-2.5 py-1 rounded text-on-surface-variant hover:text-white transition-colors font-display uppercase tracking-wider select-none">
+                                ${isCompared ? '✓ Queued' : '+ Compare'}
+                            </button>
+                        </div>
+                        <div class="border-t border-white/5 pt-4 mt-4 flex justify-between items-center">
+                            <div>
+                                <p class="text-primary-container font-mono text-base font-bold">${formatCurrency(car.price)}</p>
+                                <p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider mt-0.5">
+                                    ${currentLanguage === 'en' ? `EMI from ${formatCurrency(car.emi)}` : `मासिक किस्ता ${formatCurrency(car.emi)} बाट`}
+                                </p>
+                            </div>
+                            <a href="#detail?id=${car.id}" class="turbo-btn bg-primary-container text-on-primary-container hover:bg-primary px-5 py-2.5 rounded-lg text-xs font-bold tracking-widest uppercase font-display flex items-center gap-1.5">
+                                <span data-translate-key="listings-view">Details</span> &rarr;
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+            gridContainer.appendChild(card);
+        });
+    }
+
+    // Toggle Listings Layout (Grid vs List)
+    function toggleListingsLayout(layout) {
+        state.listingsLayout = layout;
+        document.getElementById('layout-grid-btn').className = layout === 'grid' ? 'p-1 rounded bg-surface-container text-primary flex items-center justify-center' : 'p-1 rounded text-on-surface-variant flex items-center justify-center hover:text-white';
+        document.getElementById('layout-list-btn').className = layout === 'list' ? 'p-1 rounded bg-surface-container text-primary flex items-center justify-center' : 'p-1 rounded text-on-surface-variant flex items-center justify-center hover:text-white';
+        renderListings();
+    }
+
+    // 4. Advanced Filter Engine (Listings View)
+    function applyFilters() {
+        let list = [...state.vehicles];
+        
+        // Odometer Search
+        const searchInput = document.getElementById('listings-search-input');
+        if (searchInput && searchInput.value.trim() !== "") {
+            const query = searchInput.value.toLowerCase();
+            list = list.filter(c => c.name.toLowerCase().includes(query) || c.brand.toLowerCase().includes(query));
+        }
+        
+        // Brand filter checkboxes
+        const selectedBrands = Array.from(document.querySelectorAll('#brand-filters-container input:checked')).map(cb => cb.value);
+        if (selectedBrands.length > 0) {
+            list = list.filter(c => selectedBrands.includes(c.brand));
+        }
+        
+        // Price bracket
+        const priceBracket = document.getElementById('listings-price-bracket').value;
+        if (priceBracket === 'under50') {
+            list = list.filter(c => c.price < 5000000);
+        } else if (priceBracket === '50to1') {
+            list = list.filter(c => c.price >= 5000000 && c.price <= 10000000);
+        } else if (priceBracket === 'above1') {
+            list = list.filter(c => c.price > 10000000);
+        }
+        
+        // Category checkboxes
+        const selectedCats = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
+        if (selectedCats.length > 0) {
+            list = list.filter(c => selectedCats.includes(c.category));
+        }
+
+        // Fuel checkboxes
+        const selectedFuels = Array.from(document.querySelectorAll('input[name="fuel"]:checked')).map(cb => cb.value);
+        if (selectedFuels.length > 0) {
+            list = list.filter(c => selectedFuels.includes(c.fuel));
+        }
+
+        // Transmission checkboxes
+        const selectedTrans = Array.from(document.querySelectorAll('input[name="trans"]:checked')).map(cb => cb.value);
+        if (selectedTrans.length > 0) {
+            list = list.filter(c => selectedTrans.includes(c.transmission));
+        }
+        
+        // Sort order
+        const sortBy = document.getElementById('listings-sort').value;
+        if (sortBy === 'priceAsc') {
+            list.sort((a, b) => a.price - b.price);
+        } else if (sortBy === 'priceDesc') {
+            list.sort((a, b) => b.price - a.price);
+        } else if (sortBy === 'yearDesc') {
+            list.sort((a, b) => b.year - a.year);
+        } else if (sortBy === 'kmAsc') {
+            list.sort((a, b) => a.km - b.km);
+        }
+        
+        renderListings(list);
+    }
+
+    function resetListingsFilters() {
+        document.getElementById('listings-search-input').value = "";
+        document.getElementById('listings-price-bracket').selectedIndex = 0;
+        document.getElementById('listings-sort').selectedIndex = 0;
+        
+        document.querySelectorAll('#brand-filters-container input:checked').forEach(cb => cb.checked = false);
+        document.querySelectorAll('input[name="category"]:checked').forEach(cb => cb.checked = false);
+        document.querySelectorAll('input[name="fuel"]:checked').forEach(cb => cb.checked = false);
+        document.querySelectorAll('input[name="trans"]:checked').forEach(cb => cb.checked = false);
+        
+        applyFilters();
+    }
+
+    // Category click helper from Footer / Icons
+    function filterByCategory(category) {
+        window.location.hash = "#listings";
+        setTimeout(() => {
+            resetListingsFilters();
+            const checkbox = document.querySelector(`input[name="category"][value="${category}"]`);
+            if (checkbox) {
+                checkbox.checked = true;
+                applyFilters();
+            }
+        }, 200);
+    }
+
+    // Homepage search bar click handler
+    function executeHomeFilter() {
+        const brand = document.getElementById('home-brand').value;
+        const priceRange = document.getElementById('home-price').value;
+        const fuel = document.getElementById('home-fuel').value;
+        
+        window.location.hash = "#listings";
+        
+        setTimeout(() => {
+            resetListingsFilters();
+            
+            // Set Brand
+            if (brand !== 'All Brands' && brand !== 'सबै ब्रान्डहरू') {
+                const cb = document.querySelector(`#brand-filters-container input[value="${brand}"]`);
+                if (cb) cb.checked = true;
+            }
+            
+            // Set Price Bracket
+            const priceSelect = document.getElementById('listings-price-bracket');
+            if (priceRange === 'Rs. 20L - 50L' || priceRange === 'रु. २०L - ५०L') {
+                priceSelect.value = 'under50';
+            } else if (priceRange === 'Rs. 50L - 1Cr' || priceRange === 'रु. ५०L - १Cr') {
+                priceSelect.value = '50to1';
+            } else if (priceRange === 'Above 1Cr' || priceRange === '१Cr भन्दा माथि') {
+                priceSelect.value = 'above1';
+            }
+            
+            // Set Fuel
+            if (fuel !== 'All Fuels' && fuel !== 'सबै इन्धनहरू') {
+                const cb = document.querySelector(`input[name="fuel"][value="${fuel}"]`);
+                if (cb) cb.checked = true;
+            }
+            
+            applyFilters();
+        }, 250);
+    }
+
+    // ==============================================
+    // VEHICLE DETAIL PAGE GENERATOR
+    // ==============================================
+    function renderVehicleDetail(id) {
+        const container = document.getElementById('detail-page-content');
+        const car = state.vehicles.find(v => v.id === id);
+        
+        if (!car) {
+            container.innerHTML = `<div class="col-span-12 py-16 text-center text-on-surface-variant font-bold">Vehicle Details Not Found.</div>`;
+            return;
+        }
+        
+        container.innerHTML = `
+            <!-- Gallery Panel -->
+            <div class="lg:col-span-7 space-y-6 select-none">
+                <div class="h-96 w-full rounded-2xl overflow-hidden border border-white/5 shadow-2xl relative">
+                    <img alt="${car.name}" class="w-full h-full object-cover" src="${car.img}"/>
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="h-28 rounded-lg overflow-hidden border border-white/5 opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
+                        <img alt="Thumbnail 1" class="w-full h-full object-cover" src="${car.img}"/>
+                    </div>
+                    <div class="h-28 rounded-lg overflow-hidden border border-white/10 bg-surface-container flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+                        <span class="material-symbols-outlined text-primary text-2xl" data-icon="photo_camera">photo_camera</span>
+                    </div>
+                    <div class="h-28 rounded-lg overflow-hidden border border-white/10 bg-surface-container flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+                        <span class="material-symbols-outlined text-primary text-2xl" data-icon="videocam">videocam</span>
+                    </div>
+                </div>
+                
+                <!-- Specs Matrix -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/5">
+                    <h3 class="font-display text-sm font-bold text-primary uppercase tracking-widest mb-6">Technical Specifications</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-xs text-on-surface-variant">
+                        <div>
+                            <p class="font-bold text-white uppercase tracking-wider">Engine Size</p>
+                            <p class="mt-1 font-mono">${car.specs.engine}</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white uppercase tracking-wider">Power Output</p>
+                            <p class="mt-1 font-mono">${car.specs.power}</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white uppercase tracking-wider">Peak Torque</p>
+                            <p class="mt-1 font-mono">${car.specs.torque}</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white uppercase tracking-wider">Ground Clearance</p>
+                            <p class="mt-1 font-mono">${car.specs.groundClearance}</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white uppercase tracking-wider">Seating Capacity</p>
+                            <p class="mt-1 font-mono">${car.specs.seats} Seater</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white uppercase tracking-wider">Gearbox</p>
+                            <p class="mt-1 font-mono">${car.specs.gearBox}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Checklist -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/5">
+                    <h3 class="font-display text-sm font-bold text-primary uppercase tracking-widest mb-6">Key Cabin Features</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-semibold text-on-surface-variant">
+                        ${car.features.map(f => `
+                            <div class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-success text-sm font-bold" data-icon="check_circle">check_circle</span>
+                                <span>${f}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inquire & Finance Booking Panel -->
+            <div class="lg:col-span-5 space-y-6">
+                <!-- Vehicle Card Overview -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/5 shadow-2xl">
+                    <h1 class="font-display text-2xl font-extrabold text-white mb-2">${car.name}</h1>
+                    <div class="flex items-center gap-3 text-xs text-on-surface-variant select-none mb-6">
+                        <span>Color: <b>${car.color}</b></span>
+                        <span>•</span>
+                        <span>Year: <b>${car.year}</b></span>
+                    </div>
+                    
+                    <div class="bg-background/50 border border-white/5 p-5 rounded-xl text-center mb-6">
+                        <p class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">Resale Reshaped Price</p>
+                        <p class="text-primary-container font-mono text-2xl md:text-3xl font-extrabold tracking-wide">${formatCurrency(car.price)}</p>
+                        <p class="text-[10px] text-on-surface-variant uppercase mt-1">Est. loan monthly payment Rs. ${formatNPRValue(car.emi)}/mo</p>
+                    </div>
+                    
+                    <!-- Booking / WhatsApp Triggers -->
+                    <div class="space-y-4">
+                        <a href="https://wa.me/9779800000000?text=Hello%20Nepal%20Motors%2C%20I%20am%20inquiring%20about%20the%20${encodeURIComponent(car.name)}" target="_blank" class="turbo-btn bg-[#25D366] text-white hover:opacity-90 w-full py-4 rounded-lg font-display text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2.5 shadow-md">
+                            <!-- WhatsApp Icon -->
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.012 2C6.48 2 2 6.48 2 12.012c0 1.918.52 3.71 1.4 5.273L2 22l4.902-1.316a9.89 9.89 0 0 0 5.11 1.328c5.533 0 10.012-4.48 10.012-10.012S17.545 2 12.012 2zm6.2 13.914c-.26.74-1.272 1.348-1.745 1.413-.472.065-.968.106-2.9-.684-2.477-1.01-4.077-3.524-4.2-3.686-.124-.163-.984-1.307-.984-2.494 0-1.187.62-1.77.842-2.008.222-.238.486-.3.648-.3h.466c.162 0 .373.01.53.385.176.417.6 1.468.653 1.577.054.11.09.237.018.384-.07.148-.108.238-.217.367-.11.128-.228.286-.325.385-.108.11-.223.23-.096.448.127.218.566.93 1.21 1.503.832.74 1.53.968 1.748 1.077.218.11.346.09.475-.054.127-.144.55-.644.697-.863.147-.218.293-.18.498-.105.205.074 1.3.613 1.523.725.223.11.37.165.425.26.054.095.054.55-.205 1.29z"/>
+                            </svg>
+                            Inquire via WhatsApp
+                        </a>
+                        
+                        <button onclick="scrollToLeadForm()" class="turbo-btn bg-primary-container text-on-primary-container hover:bg-primary w-full py-4 rounded-lg font-display text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-base font-bold" data-icon="event">event</span> Book Showroom Appointment
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Test Drive Form -->
+                <div id="booking-lead-form" class="glass-panel p-6 rounded-2xl border border-white/5 shadow-2xl">
+                    <h3 class="font-display text-sm font-bold text-primary uppercase tracking-widest mb-6">Schedule Test Drive</h3>
+                    <form onsubmit="event.preventDefault(); submitBooking('${car.name}');" class="space-y-4">
+                        <div>
+                            <label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 block">Full Name</label>
+                            <input type="text" id="book-name" required placeholder="e.g., Aayush Karki" class="w-full bg-background border-white/10 text-on-surface text-sm rounded-lg py-2 focus:ring-primary-container focus:border-primary-container"/>
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 block">Mobile Number</label>
+                            <input type="tel" id="book-phone" required placeholder="e.g., 9800000000" class="w-full bg-background border-white/10 text-on-surface text-sm rounded-lg py-2 focus:ring-primary-container focus:border-primary-container"/>
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 block">Preferred Date</label>
+                            <input type="date" id="book-date" required class="w-full bg-background border-white/10 text-on-surface text-sm rounded-lg py-2 focus:ring-primary-container focus:border-primary-container"/>
+                        </div>
+                        <button type="submit" class="turbo-btn bg-surface-container-highest text-white border border-white/10 hover:bg-primary-container hover:text-on-primary w-full py-3 rounded-lg font-display text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-sm font-bold" data-icon="send">send</span> Request Appointment Slot
+                        </button>
+                    </form>
+                </div>
+            </div>
+        `;
+    }
+
+    function scrollToLeadForm() {
+        document.getElementById('booking-lead-form').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ==============================================
+    // SELLING PORTAL WIZARD LOGIC
+    // ==============================================
+    let currentWizardStep = 1;
+
+    function navigateWizard(step) {
+        currentWizardStep = step;
+        
+        // Show/hide sections
+        document.getElementById('wizard-step-1').classList.add('hidden');
+        document.getElementById('wizard-step-2').classList.add('hidden');
+        document.getElementById('wizard-step-3').classList.add('hidden');
+        
+        document.getElementById(`wizard-step-${step}`).classList.remove('hidden');
+        
+        // Progress label & bars
+        const label = document.getElementById('wizard-step-label');
+        const number = document.getElementById('wizard-step-number');
+        const bar = document.getElementById('wizard-progress-bar');
+        
+        if (step === 1) {
+            label.innerText = currentLanguage === 'en' ? "Step 1: Basic Specifications" : "चरण १: आधारभूत विवरण";
+            number.innerText = "33%";
+            bar.style.width = "33%";
+        } else if (step === 2) {
+            label.innerText = currentLanguage === 'en' ? "Step 2: Resale Value & Quality" : "चरण २: गुणस्तर र मूल्याङ्कन";
+            number.innerText = "66%";
+            bar.style.width = "66%";
+        } else if (step === 3) {
+            label.innerText = currentLanguage === 'en' ? "Step 3: Upload Photos & Details" : "चरण ३: फोटो अपलोड र सम्पर्क";
+            number.innerText = "100%";
+            bar.style.width = "100%";
+        }
+    }
+
+    function calculateEstimateValuation() {
+        const year = parseInt(document.getElementById('sell-year').value) || 2020;
+        const condition = parseInt(document.getElementById('sell-cond-slider').value) || 8;
+        
+        // Base math algorithm
+        let baseVal = 6000000;
+        const age = 2026 - year;
+        
+        // Depreciation
+        const deprFactor = Math.pow(0.9, age);
+        const conditionFactor = condition / 10;
+        
+        const estimate = baseVal * deprFactor * conditionFactor;
+        const lowerBound = estimate * 0.95;
+        const upperBound = estimate * 1.08;
+        
+        document.getElementById('valuation-result-display').innerHTML = `${formatCurrency(lowerBound)} - ${formatCurrency(upperBound)}`;
+    }
+
+    // Submit Appraisal Form
+    function submitAppraisalForm() {
+        const brand = document.getElementById('sell-brand').value;
+        const model = document.getElementById('sell-model').value;
+        const year = document.getElementById('sell-year').value;
+        const km = document.getElementById('sell-km').value;
+        const price = document.getElementById('sell-price').value;
+        const ownerName = document.getElementById('sell-owner').value;
+        const phone = document.getElementById('sell-phone').value;
+        
+        const data = {
+            id: Date.now(),
+            customer: ownerName,
+            name: ownerName,
+            phone: phone,
+            email: "info@raazauto.com",
+            category: "Seller Appraisals",
+            type: "Valuation",
+            target: `${year} ${brand} ${model}`,
+            value: `Asking: ${formatCurrency(price)} (Resale Est: ${document.getElementById('valuation-result-display').innerText})`,
+            details: `Asking: ${formatCurrency(price)} (Resale Est: ${document.getElementById('valuation-result-display').innerText})`,
+            status: "New",
+            date: new Date().toISOString().split('T')[0]
+        };
+        
+        state.inquiries.push(data);
+        localStorage.setItem('raaz_inquiries', JSON.stringify(state.inquiries));
+
+        // Sync to activity logs
+        if (localStorage.getItem('raaz_activity_logs')) {
+            const logs = JSON.parse(localStorage.getItem('raaz_activity_logs')) || [];
+            const now = new Date();
+            const dateStr = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0') + ' ' + String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+            logs.unshift({ text: `New seller appraisal request submitted by ${ownerName} for ${year} ${brand} ${model}`, date: dateStr });
+            localStorage.setItem('raaz_activity_logs', JSON.stringify(logs));
+        }
+
+        alert(currentLanguage === 'en' ? "Appraisal request submitted successfully! Visit our Tinkune center for inspection." : "मूल्याङ्कन फारम दर्ता भयो! कृपया गाडी जाँचका लागि तीनकुने शोरूममा ल्याउनुहोस्।");
+        
+        // Reset and redirect
+        document.getElementById('valuation-wizard-form').reset();
+        window.location.hash = "#home";
+    }
+
+    // ==============================================
+    // DYNAMIC EMI CALCULATOR FUNCTIONS
+    // ==============================================
+    function calculateHomeEMI() {
+        const loanAmt = parseFloat(document.getElementById('home-loan-slider').value);
+        const tenureYears = parseInt(document.getElementById('home-tenure-slider').value);
+        const interestRate = parseFloat(document.getElementById('home-interest-slider').value);
+        
+        const emi = computeMonthlyEMI(loanAmt, tenureYears, interestRate);
+        
+        document.getElementById('home-loan-val').innerHTML = formatCurrency(loanAmt);
+        document.getElementById('home-tenure-val').innerText = currentLanguage === 'en' ? `${tenureYears} Years` : `${toNepaliDigits(tenureYears)} वर्ष`;
+        document.getElementById('home-interest-val').innerText = currentLanguage === 'en' ? `${interestRate}%` : `${toNepaliDigits(interestRate)}%`;
+        
+        document.getElementById('home-emi-val').innerHTML = formatCurrency(emi);
+    }
+
+    function calculateAdvancedEMI() {
+        const price = parseFloat(document.getElementById('adv-price-slider').value);
+        const downPct = parseInt(document.getElementById('adv-down-slider').value);
+        const tenureYears = parseInt(document.getElementById('adv-tenure-slider').value);
+        const interestRate = parseFloat(document.getElementById('adv-interest-slider').value);
+        
+        const downAmt = (downPct / 100) * price;
+        const loanAmt = price - downAmt;
+        
+        const emi = computeMonthlyEMI(loanAmt, tenureYears, interestRate);
+        const totalPayments = emi * tenureYears * 12;
+        const totalInterest = totalPayments - loanAmt;
+        
+        // Update visual labels
+        document.getElementById('adv-price-val').innerHTML = formatCurrency(price);
+        document.getElementById('adv-down-val').innerHTML = `${downPct}% (${formatCurrency(downAmt)})`;
+        document.getElementById('adv-tenure-val').innerText = currentLanguage === 'en' ? `${tenureYears} Years` : `${toNepaliDigits(tenureYears)} वर्ष`;
+        document.getElementById('adv-interest-val').innerText = currentLanguage === 'en' ? `${interestRate}%` : `${toNepaliDigits(interestRate)}%`;
+        
+        document.getElementById('adv-emi-display').innerHTML = formatCurrency(emi);
+        document.getElementById('adv-principal-display').innerHTML = formatCurrency(loanAmt);
+        document.getElementById('adv-interest-display').innerHTML = formatCurrency(totalInterest);
+        document.getElementById('adv-total-display').innerHTML = formatCurrency(totalPayments);
+        
+        // Graphical split update
+        const principalPct = (loanAmt / totalPayments) * 100;
+        const interestPct = 100 - principalPct;
+        
+        document.getElementById('bar-principal').style.width = `${principalPct}%`;
+        document.getElementById('bar-interest').style.width = `${interestPct}%`;
+    }
+
+    function computeMonthlyEMI(principal, tenureYears, interestRate) {
+        const monthlyRate = (interestRate / 12) / 100;
+        const totalMonths = tenureYears * 12;
+        if (monthlyRate > 0) {
+            return principal * (monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+        }
+        return principal / totalMonths;
+    }
+
+    // ==============================================
+    // LEADS & INQUIRIES PROCESSING ENGINE
+    // ==============================================
+    function submitBooking(vehicleName) {
+        const name = document.getElementById('book-name').value;
+        const phone = document.getElementById('book-phone').value;
+        const date = document.getElementById('book-date').value;
+        
+        const data = {
+            id: Date.now(),
+            customer: name,
+            name: name,
+            phone: phone,
+            email: "info@raazauto.com",
+            category: "Test Drive Appointments",
+            type: "Test Drive",
+            target: vehicleName,
+            value: `Date: ${date}`,
+            details: `Date: ${date}`,
+            status: "New",
+            date: new Date().toISOString().split('T')[0]
+        };
+        
+        state.inquiries.push(data);
+        localStorage.setItem('raaz_inquiries', JSON.stringify(state.inquiries));
+
+        // Sync to activity logs
+        if (localStorage.getItem('raaz_activity_logs')) {
+            const logs = JSON.parse(localStorage.getItem('raaz_activity_logs')) || [];
+            const now = new Date();
+            const dateStr = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0') + ' ' + String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+            logs.unshift({ text: `New test drive booking by ${name} for ${vehicleName} on ${date}`, date: dateStr });
+            localStorage.setItem('raaz_activity_logs', JSON.stringify(logs));
+        }
+
+        alert(currentLanguage === 'en' ? `Showroom appointment for ${vehicleName} requested. We will contact you at ${phone} to confirm.` : `सवारी जाँच अपोइन्टमेन्ट अनुरोध प्राप्त भयो! हामी पुष्टि गर्न तपाईंलाई सम्पर्क गर्नेछौं।`);
+        
+        // Reset forms
+        document.getElementById('book-name').value = "";
+        document.getElementById('book-phone').value = "";
+        document.getElementById('book-date').value = "";
+    }
+
+    function submitContactForm() {
+        const name = document.getElementById('contact-name').value;
+        const emailInput = document.getElementById('contact-email').value;
+        const subject = document.getElementById('contact-subject').value;
+        const msg = document.getElementById('contact-msg').value;
+        
+        const data = {
+            id: Date.now(),
+            customer: name,
+            name: name,
+            phone: "General Contact",
+            email: emailInput,
+            category: "Contact Messages",
+            type: "WhatsApp", // Show under WhatsApp inquiries for action
+            target: subject,
+            value: msg.substring(0, 45) + "...",
+            details: msg,
+            status: "New",
+            date: new Date().toISOString().split('T')[0]
+        };
+        
+        state.inquiries.push(data);
+        localStorage.setItem('raaz_inquiries', JSON.stringify(state.inquiries));
+
+        // Sync to activity logs
+        if (localStorage.getItem('raaz_activity_logs')) {
+            const logs = JSON.parse(localStorage.getItem('raaz_activity_logs')) || [];
+            const now = new Date();
+            const dateStr = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0') + ' ' + String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+            logs.unshift({ text: `New contact form submission from ${name} (Subject: ${subject})`, date: dateStr });
+            localStorage.setItem('raaz_activity_logs', JSON.stringify(logs));
+        }
+
+        alert(currentLanguage === 'en' ? "Thank you! Message submitted to customer service. We will respond within 24 hours." : "सम्पर्क सन्देश दर्ता भयो! हामी २४ घण्टा भित्र म्यासेजको जवाफ दिनेछौं।");
+        document.getElementById('contact-page-form').reset();
+    }
+
+    // ==============================================
+    // VEHICLE COMPARISON ENGINE LOGIC
+    // ==============================================
+    function toggleCompare(id) {
+        const idx = state.compareQueue.indexOf(id);
+        if (idx > -1) {
+            state.compareQueue.splice(idx, 1);
+        } else {
+            if (state.compareQueue.length >= 3) {
+                alert(currentLanguage === 'en' ? "Comparison limited to 3 vehicles maximum." : "अधिकतम ३ सवारी साधनहरू मात्र तुलना गर्न सकिन्छ।");
+                return;
+            }
+            state.compareQueue.push(id);
+        }
+        
+        updateCompareOverlay();
+        renderListings(); // Redraw checkmarks
+    }
+
+    function updateCompareOverlay() {
+        const bar = document.getElementById('compare-bar');
+        const slotsInfo = document.getElementById('compare-slots-info');
+        
+        const size = state.compareQueue.length;
+        slotsInfo.innerText = currentLanguage === 'en' ? `${size} of 3 vehicles queued` : `${toNepaliDigits(size)} मध्ये ${toNepaliDigits(3)} सवारीहरू तुलनामा`;
+        
+        if (size > 0) {
+            bar.classList.remove('hidden');
+            setTimeout(() => {
+                bar.style.transform = 'translateY(0) translateX(-50%)';
+            }, 50);
+        } else {
+            bar.style.transform = 'translateY(100px) translateX(-50%)';
+            setTimeout(() => {
+                bar.classList.add('hidden');
+            }, 300);
+        }
+    }
+
+    function resetComparison() {
+        state.compareQueue = [];
+        updateCompareOverlay();
+        renderListings();
+    }
+
+    function openComparisonModal() {
+        const modal = document.getElementById('compare-modal');
+        const tableBody = document.getElementById('compare-matrix-body');
+        
+        // Fetch compared cars
+        const cars = state.compareQueue.map(id => state.vehicles.find(v => v.id === id)).filter(Boolean);
+        
+        if (cars.length === 0) return;
+        
+        // Build side-by-side specs row matrix
+        tableBody.innerHTML = `
+            <!-- Headers Row (Photos & Title) -->
+            <tr class="bg-surface-container-low font-bold">
+                <td class="p-3 text-primary uppercase tracking-widest font-display text-[10px]">Specifications</td>
+                ${cars.map(c => `
+                    <td class="p-3 text-center">
+                        <div class="h-20 w-32 rounded overflow-hidden mx-auto mb-2 border border-white/5">
+                            <img class="w-full h-full object-cover" src="${c.img}"/>
+                        </div>
+                        <p class="font-bold text-white text-xs">${c.name}</p>
+                    </td>
+                `).join('')}
+            </tr>
+            <!-- Price Row -->
+            <tr>
+                <td class="p-3 font-bold text-on-surface-variant">Price (NPR)</td>
+                ${cars.map(c => `
+                    <td class="p-3 text-center font-mono font-bold text-primary-container text-xs">${formatCurrency(c.price)}</td>
+                `).join('')}
+            </tr>
+            <!-- Year -->
+            <tr>
+                <td class="p-3 font-bold text-on-surface-variant">Year</td>
+                ${cars.map(c => `
+                    <td class="p-3 text-center font-mono text-white text-xs">${currentLanguage === 'en' ? c.year : toNepaliDigits(c.year)}</td>
+                `).join('')}
+            </tr>
+            <!-- KM Driven -->
+            <tr>
+                <td class="p-3 font-bold text-on-surface-variant">KM Driven</td>
+                ${cars.map(c => `
+                    <td class="p-3 text-center font-mono text-white text-xs">${currentLanguage === 'en' ? `${formatNPRValue(c.km)} KM` : `${toNepaliDigits(formatNPRValue(c.km))} किमी`}</td>
+                `).join('')}
+            </tr>
+            <!-- Fuel -->
+            <tr>
+                <td class="p-3 font-bold text-on-surface-variant">Fuel Type</td>
+                ${cars.map(c => `
+                    <td class="p-3 text-center text-white text-xs">${c.fuel}</td>
+                `).join('')}
+            </tr>
+            <!-- Transmission -->
+            <tr>
+                <td class="p-3 font-bold text-on-surface-variant">Transmission</td>
+                ${cars.map(c => `
+                    <td class="p-3 text-center text-white text-xs">${c.transmission}</td>
+                `).join('')}
+            </tr>
+            <!-- Engine -->
+            <tr>
+                <td class="p-3 font-bold text-on-surface-variant">Engine size (cc)</td>
+                ${cars.map(c => `
+                    <td class="p-3 text-center text-white text-xs font-mono">${c.specs.engine}</td>
+                `).join('')}
+            </tr>
+            <!-- Ground Clearance -->
+            <tr>
+                <td class="p-3 font-bold text-on-surface-variant">Ground Clearance</td>
+                ${cars.map(c => `
+                    <td class="p-3 text-center text-white text-xs font-mono">${c.specs.groundClearance}</td>
+                `).join('')}
+            </tr>
+        `;
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => modal.style.opacity = '1', 10);
+    }
+
+    function closeComparisonModal() {
+        const modal = document.getElementById('compare-modal');
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    }
+
+    // ==============================================
+    // DEALERSHIP ADMIN DASHBOARD ENGINE
+    // ==============================================
+    let activeAdminTab = 'inventory';
+
+    function toggleAdminTab(tab) {
+        activeAdminTab = tab;
+        
+        document.getElementById('tab-btn-inventory').className = tab === 'inventory' 
+            ? 'pb-3 text-xs font-bold tracking-widest uppercase border-b-2 border-primary-container text-primary font-display'
+            : 'pb-3 text-xs font-bold tracking-widest uppercase border-b-2 border-transparent text-on-surface-variant hover:text-white font-display';
+            
+        document.getElementById('tab-btn-inquiries').className = tab === 'inquiries'
+            ? 'pb-3 text-xs font-bold tracking-widest uppercase border-b-2 border-primary-container text-primary font-display'
+            : 'pb-3 text-xs font-bold tracking-widest uppercase border-b-2 border-transparent text-on-surface-variant hover:text-white font-display';
+            
+        if (tab === 'inventory') {
+            document.getElementById('admin-tab-inventory').classList.remove('hidden');
+            document.getElementById('admin-tab-inquiries').classList.add('hidden');
+        } else {
+            document.getElementById('admin-tab-inventory').classList.add('hidden');
+            document.getElementById('admin-tab-inquiries').classList.remove('hidden');
+        }
+        
+        renderAdminTables();
+    }
+
+    function renderAdminTables() {
+        // Stats counts
+        document.getElementById('stat-inventory-count').innerText = currentLanguage === 'en' 
+            ? state.vehicles.length 
+            : toNepaliDigits(state.vehicles.length);
+            
+        document.getElementById('stat-inquiries-count').innerText = currentLanguage === 'en' 
+            ? state.inquiries.length 
+            : toNepaliDigits(state.inquiries.length);
+            
+        const appraisalsCount = state.inquiries.filter(i => i.category === "Seller Appraisals").length;
+        document.getElementById('stat-appraisals-count').innerText = currentLanguage === 'en' 
+            ? appraisalsCount 
+            : toNepaliDigits(appraisalsCount);
+
+        // 1. Inventory Table
+        const invBody = document.getElementById('admin-inventory-table-body');
+        invBody.innerHTML = "";
+        
+        state.vehicles.forEach(car => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="p-4 flex items-center gap-3">
+                    <div class="w-12 h-9 rounded overflow-hidden bg-background">
+                        <img class="w-full h-full object-cover" src="${car.img}"/>
+                    </div>
+                    <div>
+                        <p class="font-bold text-white">${car.name}</p>
+                        <p class="text-[10px] text-on-surface-variant font-mono">ID: ${car.id} | Year: ${car.year} | ${car.km} KM</p>
+                    </div>
+                </td>
+                <td class="p-4 font-mono font-bold text-primary-container">${formatCurrency(car.price)}</td>
+                <td class="p-4 font-semibold text-white">${car.category}</td>
+                <td class="p-4 text-on-surface-variant">${car.fuel} / ${car.transmission}</td>
+                <td class="p-4 text-center">
+                    <button onclick="deleteVehicle(${car.id})" class="text-secondary hover:text-white bg-secondary/15 hover:bg-secondary border border-secondary/30 px-3 py-1.5 rounded transition-all font-display text-[9px] font-bold uppercase tracking-wider">
+                        Delete
+                    </button>
+                </td>
+            `;
+            invBody.appendChild(tr);
+        });
+
+        // 2. Inquiries Table
+        const inqBody = document.getElementById('admin-inquiries-table-body');
+        inqBody.innerHTML = "";
+        
+        if (state.inquiries.length === 0) {
+            inqBody.innerHTML = `<tr><td colspan="5" class="p-8 text-center text-on-surface-variant font-bold">No customer inquiries logged yet. Inquire on detail pages or contact page.</td></tr>`;
+            return;
+        }
+        
+        state.inquiries.forEach(inq => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="p-4">
+                    <p class="font-bold text-white">${inq.customer}</p>
+                    <p class="text-[10px] text-on-surface-variant font-mono">${inq.phone}</p>
+                </td>
+                <td class="p-4 font-semibold text-primary">${inq.category}</td>
+                <td class="p-4 text-white font-mono">${inq.target}</td>
+                <td class="p-4 text-on-surface-variant text-xs">${inq.value}</td>
+                <td class="p-4 text-center">
+                    <span class="bg-green-500/10 text-success border border-success/30 text-[9px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest font-display shadow-md shadow-success/5">${inq.status}</span>
+                </td>
+            `;
+            inqBody.appendChild(tr);
+        });
+    }
+
+    function deleteVehicle(id) {
+        if (confirm(currentLanguage === 'en' ? "Confirm vehicle deletion from showroom database?" : "के तपाईं यो सवारी साधन शोरूम सूचीबाट हटाउन चाहनुहुन्छ?")) {
+            const target = state.vehicles.find(v => v.id === id);
+            state.vehicles = state.vehicles.filter(v => v.id !== id);
+            localStorage.setItem('raaz_vehicles', JSON.stringify(state.vehicles));
+
+            // Sync to activity logs
+            if (localStorage.getItem('raaz_activity_logs')) {
+                const logs = JSON.parse(localStorage.getItem('raaz_activity_logs')) || [];
+                const now = new Date();
+                const dateStr = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0') + ' ' + String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+                logs.unshift({ text: `Deleted vehicle via index portal: ${target ? target.name : 'ID ' + id}`, date: dateStr });
+                localStorage.setItem('raaz_activity_logs', JSON.stringify(logs));
+            }
+            
+            // Remove from compare queue if needed
+            state.compareQueue = state.compareQueue.filter(qid => qid !== id);
+            updateCompareOverlay();
+            
+            renderAdminTables();
+            renderFeaturedHome();
+            renderListings();
+        }
+    }
+
+    // Modal Add Vehicle Triggers
+    function openAddVehicleModal() {
+        const modal = document.getElementById('add-vehicle-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => modal.style.opacity = '1', 10);
+    }
+
+    // Modal Add Vehicle Triggers
+    function closeAddVehicleModal() {
+        const modal = document.getElementById('add-vehicle-modal');
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    }
+
+    function submitAddVehicleForm() {
+        const name = document.getElementById('admin-add-name').value;
+        const brand = document.getElementById('admin-add-brand').value;
+        const cat = document.getElementById('admin-add-cat').value;
+        const price = parseInt(document.getElementById('admin-add-price').value);
+        const year = parseInt(document.getElementById('admin-add-year').value);
+        const km = parseInt(document.getElementById('admin-add-km').value);
+        const fuel = document.getElementById('admin-add-fuel').value;
+        const trans = document.getElementById('admin-add-trans').value;
+        const img = document.getElementById('admin-add-img').value;
+        const gc = document.getElementById('admin-add-gc').value;
+        
+        const newCar = {
+            id: state.vehicles.length + 1,
+            name: `${year} ${brand} ${name}`,
+            brand: brand,
+            category: cat,
+            price: price,
+            year: year,
+            km: km,
+            fuel: fuel,
+            transmission: trans,
+            color: "Titanium Metal",
+            img: img,
+            specs: { engine: "1998 cc", power: "150 bhp", torque: "220 Nm", groundClearance: `${gc} mm`, seats: 5, gearBox: trans },
+            features: ["Climate Control", "Reverse Parking Sensors", "Steering Controls", "Alloy Wheels"],
+            emi: Math.round(price * 0.015),
+            featured: false,
+            status: "In Stock"
+        };
+        
+        state.vehicles.push(newCar);
+        localStorage.setItem('raaz_vehicles', JSON.stringify(state.vehicles));
+
+        // Sync to activity logs
+        if (localStorage.getItem('raaz_activity_logs')) {
+            const logs = JSON.parse(localStorage.getItem('raaz_activity_logs')) || [];
+            const now = new Date();
+            const dateStr = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0') + ' ' + String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+            logs.unshift({ text: `Added new vehicle via index portal: ${newCar.name}`, date: dateStr });
+            localStorage.setItem('raaz_activity_logs', JSON.stringify(logs));
+        }
+
+        alert(currentLanguage === 'en' ? "Showroom Listing Added Successfully!" : "सवारी साधन शोरूम सूचीमा थपियो!");
+        
+        closeAddVehicleModal();
+        renderAdminTables();
+        renderFeaturedHome();
+        
+        // Redirect to listings catalog
+        window.location.hash = "#listings";
+        applyFilters();
+    }
+</script>
+</body>
+</html>

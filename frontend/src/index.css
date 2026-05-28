@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styling for Neon Glows & Transitions */
+.text-glow {
+    text-shadow: 0 0 12px rgba(255, 87, 26, 0.4);
+}
+.border-glow-focus:focus {
+    border-color: #ff571a !important;
+    box-shadow: 0 0 0 2px rgba(255, 87, 26, 0.2);
+    outline: none;
+}
+.glass-panel {
+    background: rgba(26, 27, 34, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #0c0e14;
+}
+::-webkit-scrollbar-thumb {
+    background: #23252e;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #ff571a;
+}
+
+/* Sidebar Active Mappings */
+.sidebar-item.active {
+    color: #ff571a;
+    background: rgba(255, 87, 26, 0.08);
+    border-left: 3px solid #ff571a;
+}
+.sidebar-item {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 3px solid transparent;
+}
+
+/* Page fade-in animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-view {
+  animation: fadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}

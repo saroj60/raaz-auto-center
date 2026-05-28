@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAAZ AUTO Center - Admin Control Panel</title>
+    
+    <!-- Google Fonts: Montserrat (Headings) & Inter (Body/Data) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js (via CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Google Material Symbols (for clean scalable icons) -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0c0e14',
+                        surface: '#12131a',
+                        'surface-dim': '#12131a',
+                        'surface-container': '#1a1b22',
+                        'surface-container-high': '#23252e',
+                        'surface-container-highest': '#2c2e3a',
+                        primary: '#ffb59e',
+                        'primary-container': '#ff571a',
+                        secondary: '#ffb3b1',
+                        'secondary-container': '#ad0224',
+                        'on-surface': '#e2e1eb',
+                        'on-surface-variant': '#e6beb2',
+                    },
+                    fontFamily: {
+                        display: ['Montserrat', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        soft: '4px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styling for Neon Glows & Transitions */
+        .text-glow {
+            text-shadow: 0 0 12px rgba(255, 87, 26, 0.4);
+        }
+        .border-glow-focus:focus {
+            border-color: #ff571a !important;
+            box-shadow: 0 0 0 2px rgba(255, 87, 26, 0.2);
+            outline: none;
+        }
+        .glass-panel {
+            background: rgba(26, 27, 34, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0c0e14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #23252e;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff571a;
+        }
+        
+        /* Sidebar Active State Animations */
+        .sidebar-item.active {
+            color: #ff571a;
+            background: rgba(255, 87, 26, 0.08);
+            border-left: 3px solid #ff571a;
+        }
+        .sidebar-item {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 3px solid transparent;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-sans antialiased min-h-screen">
+
+    <!-- ============================================== -->
+    <!-- AUTHENTICATION FLOW: LOGIN & FORGOT PASSWORD  -->
+    <!-- ============================================== -->
+    <div id="auth-flow-container" class="fixed inset-0 z-[200] bg-background flex items-center justify-center p-4">
+        <!-- Login Card -->
+        <div id="login-card" class="glass-panel w-full max-w-md p-8 rounded-2xl shadow-2xl relative border border-white/5 animate-[fadeIn_0.3s_ease-out]">
+            <div class="text-center mb-8">
+                <!-- RAAZ AUTO Inline SVG Logo -->
+                <div class="flex justify-center mb-4">
+                    <svg class="h-10 text-primary-container" viewBox="0 0 300 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="22" stroke="currentColor" stroke-width="3" fill="none" opacity="0.3"/>
+                        <circle cx="30" cy="30" r="18" stroke="currentColor" stroke-width="2" stroke-dasharray="8 6" fill="none"/>
+                        <path d="M12 30C12 20.0589 20.0589 12 30 12V30H48" stroke="#ff571a" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="30" cy="30" r="4" fill="#ff571a"/>
+                        <path d="M70 20L80 12H130L120 20H70Z" fill="currentColor"/>
+                        <path d="M65 24L75 16H115L105 24H65Z" fill="#ff571a"/>
+                        <text x="140" y="32" fill="white" font-family="Montserrat" font-weight="800" font-size="20" letter-spacing="0.05em">RAAZ AUTO</text>
+                        <text x="140" y="46" fill="#e6beb2" font-family="Inter" font-weight="600" font-size="9" letter-spacing="0.4em">CENTER</text>
+                    </svg>
+                </div>
+                <h2 class="font-display text-lg font-bold text-white uppercase tracking-wider">Admin Portal Access</h2>
+                <p class="text-xs text-on-surface-variant mt-1">RAAZ AUTO Center reconditioned dealership management</p>
+            </div>
+            
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <div class="mb-5">
+                    <label class="block text-[10px] font-bold text-primary-container tracking-wider uppercase mb-2">Select User Role (Demo Switch)</label>
+                    <select id="login-role-selector" class="w-full bg-surface-container border border-white/10 rounded-lg px-4 py-3 text-sm text-white border-glow-focus">
+                        <option value="admin">Administrator (Full Access)</option>
+                        <option value="manager">Manager (Inventory/Inquiries Only)</option>
+                        <option value="staff">Sales Staff (Read-Only Logs)</option>
+                    </select>
+                </div>
+
+                <div class="mb-5">
+                    <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-2">Email Address</label>
+                    <input type="email" id="login-email" required class="w-full bg-surface-container border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-white/20 border-glow-focus" placeholder="e.g. administrator@raazauto.com">
+                </div>
+
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase">Password</label>
+                        <button type="button" onclick="showForgotPassword()" class="text-[10px] text-primary hover:text-primary-container font-semibold transition-colors">Forgot Password?</button>
+                    </div>
+                    <div class="relative">
+                        <input type="password" id="login-password" required class="w-full bg-surface-container border border-white/10 rounded-lg pl-4 pr-10 py-3 text-sm text-white placeholder-white/20 border-glow-focus" placeholder="••••••••">
+                        <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-white transition-colors flex items-center">
+                            <span id="password-toggle-icon" class="material-symbols-outlined text-sm">visibility</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="login-error-msg" class="hidden bg-red-950/40 border border-red-800 text-red-300 text-xs px-4 py-3 rounded-lg mb-5 animate-pulse"></div>
+
+                <button type="submit" class="w-full bg-primary-container hover:bg-opacity-90 text-white font-display text-xs font-bold py-3.5 rounded-lg tracking-widest uppercase transition-all shadow-lg shadow-primary-container/20">
+                    Authenticate & Access
+                </button>
+                
+                <!-- Demo login helpers -->
+                <div class="mt-6 p-4 rounded-lg bg-surface border border-white/5 text-[10px] text-on-surface-variant space-y-1">
+                    <p class="font-bold text-primary uppercase tracking-wider mb-1">Demo Secure Logins:</p>
+                    <p><b class="text-white">Admin:</b> admin@raazauto.com | raaz2026</p>
+                    <p><b class="text-white">Manager:</b> manager@raazauto.com | manager2026</p>
+                    <p><b class="text-white">Staff:</b> staff@raazauto.com | staff2026</p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Forgot Password Card -->
+        <div id="forgot-card" class="glass-panel w-full max-w-md p-8 rounded-2xl shadow-2xl relative border border-white/5 hidden animate-[fadeIn_0.3s_ease-out]">
+            <button onclick="showLogin()" class="absolute top-6 left-6 text-on-surface-variant hover:text-white transition-colors flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider">
+                <span class="material-symbols-outlined text-xs">arrow_back</span> Back
+            </button>
+            
+            <div class="text-center mb-8 mt-4">
+                <h2 class="font-display text-lg font-bold text-white uppercase tracking-wider">Reset Security Code</h2>
+                <p class="text-xs text-on-surface-variant mt-1">Enter your registered email below to receive a security recovery key</p>
+            </div>
+            
+            <form onsubmit="handleForgotPassword(event)">
+                <div class="mb-6">
+                    <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-2">Registered Email</label>
+                    <input type="email" id="forgot-email" required class="w-full bg-surface-container border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-white/20 border-glow-focus" placeholder="administrator@raazauto.com">
+                </div>
+
+                <div id="forgot-success-msg" class="hidden bg-emerald-950/40 border border-emerald-800 text-emerald-300 text-xs px-4 py-3 rounded-lg mb-5"></div>
+
+                <button type="submit" class="w-full bg-primary-container hover:bg-opacity-90 text-white font-display text-xs font-bold py-3.5 rounded-lg tracking-widest uppercase transition-all shadow-lg shadow-primary-container/20">
+                    Send Recovery Key
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- MAIN APPLICATION CONTAINER (SIDEBAR & PANELS) -->
+    <!-- ============================================== -->
+    <div id="app-container" class="hidden flex min-h-screen">
+        
+        <!-- Sidebar Navigation Drawer (Desktop layout) -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-surface border-r border-white/5 flex flex-col justify-between transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+            <div>
+                <!-- Brand logo area -->
+                <div class="p-6 border-b border-white/5 flex items-center justify-between">
+                    <svg class="h-8 text-primary-container" viewBox="0 0 300 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="22" stroke="currentColor" stroke-width="3" fill="none" opacity="0.3"/>
+                        <circle cx="30" cy="30" r="18" stroke="currentColor" stroke-width="2" stroke-dasharray="8 6" fill="none"/>
+                        <path d="M12 30C12 20.0589 20.0589 12 30 12V30H48" stroke="#ff571a" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="30" cy="30" r="4" fill="#ff571a"/>
+                        <path d="M70 20L80 12H130L120 20H70Z" fill="currentColor"/>
+                        <path d="M65 24L75 16H115L105 24H65Z" fill="#ff571a"/>
+                        <text x="140" y="32" fill="white" font-family="Montserrat" font-weight="800" font-size="20" letter-spacing="0.05em">RAAZ AUTO</text>
+                        <text x="140" y="46" fill="#e6beb2" font-family="Inter" font-weight="600" font-size="9" letter-spacing="0.4em">CENTER</text>
+                    </svg>
+                    <button onclick="toggleMobileSidebar()" class="lg:hidden text-on-surface-variant hover:text-white">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+
+                <!-- Navigation menu -->
+                <nav class="p-4 space-y-1 select-none">
+                    <button onclick="switchTab('overview')" id="nav-overview" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-xs font-bold tracking-wider uppercase text-on-surface-variant hover:text-white active">
+                        <span class="material-symbols-outlined text-lg">dashboard</span> Dashboard Overview
+                    </button>
+                    <button onclick="switchTab('vehicles')" id="nav-vehicles" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-xs font-bold tracking-wider uppercase text-on-surface-variant hover:text-white">
+                        <span class="material-symbols-outlined text-lg">directions_car</span> Vehicle CRUD
+                    </button>
+                    <button onclick="switchTab('inventory')" id="nav-inventory" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-xs font-bold tracking-wider uppercase text-on-surface-variant hover:text-white">
+                        <span class="material-symbols-outlined text-lg">inventory_2</span> Stock Inventory
+                    </button>
+                    <button onclick="switchTab('inquiries')" id="nav-inquiries" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-xs font-bold tracking-wider uppercase text-on-surface-variant hover:text-white">
+                        <span class="material-symbols-outlined text-lg">forum</span> Inquiry Resolution
+                    </button>
+                    <button onclick="switchTab('sales')" id="nav-sales" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-xs font-bold tracking-wider uppercase text-on-surface-variant hover:text-white">
+                        <span class="material-symbols-outlined text-lg">receipt_long</span> Sales Ledger
+                    </button>
+                    <button onclick="switchTab('users')" id="nav-users" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-xs font-bold tracking-wider uppercase text-on-surface-variant hover:text-white">
+                        <span class="material-symbols-outlined text-lg">manage_accounts</span> User / Staff
+                    </button>
+                    <button onclick="switchTab('analytics')" id="nav-analytics" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-xs font-bold tracking-wider uppercase text-on-surface-variant hover:text-white">
+                        <span class="material-symbols-outlined text-lg">monitoring</span> Analytics Hub
+                    </button>
+                    <button onclick="switchTab('settings')" id="nav-settings" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-xs font-bold tracking-wider uppercase text-on-surface-variant hover:text-white">
+                        <span class="material-symbols-outlined text-lg">settings</span> Platform Settings
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Profile Widget Footer -->
+            <div class="p-4 border-t border-white/5 bg-surface-container flex items-center justify-between">
+                <div class="flex items-center gap-3 overflow-hidden">
+                    <div class="h-9 w-9 rounded-full bg-primary-container flex items-center justify-center font-display font-bold text-white text-sm shrink-0">
+                        <span id="profile-avatar-letters">RA</span>
+                    </div>
+                    <div class="overflow-hidden">
+                        <p id="profile-name" class="text-xs font-bold text-white truncate">Administrator</p>
+                        <p id="profile-role" class="text-[10px] text-primary truncate tracking-wider uppercase font-semibold">Admin</p>
+                    </div>
+                </div>
+                <button onclick="handleLogout()" class="text-on-surface-variant hover:text-secondary-container transition-colors" title="Logout">
+                    <span class="material-symbols-outlined text-lg">logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace Shell -->
+        <main class="flex-1 lg:ml-64 flex flex-col min-w-0">
+            
+            <!-- Header Sticky Navbar -->
+            <header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleMobileSidebar()" class="lg:hidden text-on-surface-variant hover:text-white">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                    <div class="relative hidden sm:block w-72">
+                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-base">search</span>
+                        <input type="text" id="global-search-input" onkeyup="handleGlobalSearch()" class="w-full bg-surface-container border border-white/5 rounded-lg pl-10 pr-4 py-2 text-xs text-white placeholder-white/20 border-glow-focus" placeholder="Global command search...">
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 select-none">
+                    <!-- Demo Switcher in Navbar -->
+                    <div class="flex items-center gap-1.5 bg-surface-container px-3 py-1.5 rounded-full border border-white/5">
+                        <span class="h-2 w-2 rounded-full bg-emerald-500 animate-ping"></span>
+                        <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mr-1">Role:</span>
+                        <select id="header-role-switcher" onchange="changeRole(this.value)" class="bg-transparent text-[10px] text-white font-bold tracking-widest uppercase focus:outline-none cursor-pointer">
+                            <option value="admin" class="bg-surface">Admin</option>
+                            <option value="manager" class="bg-surface">Manager</option>
+                            <option value="staff" class="bg-surface">Staff</option>
+                        </select>
+                    </div>
+
+                    <!-- Notification center -->
+                    <div class="relative">
+                        <button onclick="toggleNotifications()" class="relative p-1.5 rounded-lg bg-surface-container border border-white/5 text-on-surface-variant hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-base">notifications</span>
+                            <span id="notif-badge" class="absolute -top-1 -right-1 h-3.5 w-3.5 rounded-full bg-primary-container text-[8px] font-bold text-white flex items-center justify-center">2</span>
+                        </button>
+                        
+                        <!-- Notifications Popup -->
+                        <div id="notifications-box" class="absolute right-0 mt-2.5 w-80 glass-panel border border-white/5 rounded-xl shadow-2xl p-4 hidden">
+                            <div class="flex justify-between items-center mb-3">
+                                <h4 class="text-[10px] font-bold text-primary uppercase tracking-widest">Recent System Alerts</h4>
+                                <button onclick="clearNotifications()" class="text-[9px] text-on-surface-variant hover:text-white">Clear All</button>
+                            </div>
+                            <div id="notif-list" class="space-y-2 text-[10px] text-on-surface-variant max-h-60 overflow-y-auto">
+                                <div class="p-2 border-b border-white/5">
+                                    <p class="text-white font-semibold">New Test Drive Request</p>
+                                    <p class="mt-0.5">Ramesh Shrestha booked Tesla Model Y</p>
+                                    <span class="text-[8px] text-primary">5 mins ago</span>
+                                </div>
+                                <div class="p-2">
+                                    <p class="text-white font-semibold">Low Inventory Warning</p>
+                                    <p class="mt-0.5">EV Category is down to 1 active vehicle</p>
+                                    <span class="text-[8px] text-primary">1 hour ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Active view wrapper -->
+            <div class="flex-1 p-6 space-y-8 overflow-y-auto">
+                
+                <!-- ============================================== -->
+                <!-- 1. DASHBOARD OVERVIEW VIEW                     -->
+                <!-- ============================================== -->
+                <div id="view-overview" class="view-panel space-y-8">
+                    <!-- Heading -->
+                    <div>
+                        <h1 class="font-display text-2xl font-extrabold text-white mb-1 uppercase tracking-wide">Performance Overview</h1>
+                        <p class="text-xs text-on-surface-variant">Real-time dealer summary metrics, sales counts, and recent notifications</p>
+                    </div>
+
+                    <!-- Statistics Matrix cards -->
+                    <div class="grid grid-cols-2 xl:grid-cols-4 gap-6">
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 flex items-center justify-between select-none">
+                            <div>
+                                <span class="text-[10px] font-bold text-primary tracking-widest uppercase">Showroom Inventory</span>
+                                <p id="ov-inventory-count" class="text-3xl font-extrabold text-white mt-2 font-mono">6</p>
+                                <span class="text-[9px] text-emerald-500 mt-1 block">&uarr; 16.5% vs last month</span>
+                            </div>
+                            <span class="material-symbols-outlined text-white/10 text-4xl">directions_car</span>
+                        </div>
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 flex items-center justify-between select-none">
+                            <div>
+                                <span class="text-[10px] font-bold text-primary tracking-widest uppercase">Inquiries Pending</span>
+                                <p id="ov-inquiries-count" class="text-3xl font-extrabold text-white mt-2 font-mono">4</p>
+                                <span class="text-[9px] text-primary mt-1 block">Requires action</span>
+                            </div>
+                            <span class="material-symbols-outlined text-white/10 text-4xl">forum</span>
+                        </div>
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 flex items-center justify-between select-none">
+                            <div>
+                                <span class="text-[10px] font-bold text-primary tracking-widest uppercase">Completed Sales</span>
+                                <p id="ov-sales-count" class="text-3xl font-extrabold text-white mt-2 font-mono">3</p>
+                                <span class="text-[9px] text-emerald-500 mt-1 block">Rs. 2.06 Crore volume</span>
+                            </div>
+                            <span class="material-symbols-outlined text-white/10 text-4xl">receipt_long</span>
+                        </div>
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 flex items-center justify-between select-none">
+                            <div>
+                                <span class="text-[10px] font-bold text-primary tracking-widest uppercase">Staff Logins</span>
+                                <p class="text-3xl font-extrabold text-white mt-2 font-mono">3</p>
+                                <span class="text-[9px] text-on-surface-variant mt-1 block">All accounts active</span>
+                            </div>
+                            <span class="material-symbols-outlined text-white/10 text-4xl">group</span>
+                        </div>
+                    </div>
+
+                    <!-- Split section: Main charts & activities logs -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Chart Card -->
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 lg:col-span-2 space-y-4">
+                            <div class="flex justify-between items-center select-none">
+                                <h3 class="font-display text-sm font-bold text-white uppercase tracking-wider">Revenue Trend Model</h3>
+                                <span class="text-[10px] text-on-surface-variant font-mono">Monthly Estimates (Lakhs)</span>
+                            </div>
+                            <div class="h-64">
+                                <canvas id="chart-overview-sales"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- System Activity Feed -->
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 space-y-4">
+                            <h3 class="font-display text-sm font-bold text-white uppercase tracking-wider select-none">Audit Activity Feed</h3>
+                            <div id="activity-log-feed" class="space-y-4 max-h-[17rem] overflow-y-auto text-xs text-on-surface-variant pr-1">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- 2. VEHICLE MANAGEMENT VIEW (CRUD)              -->
+                <!-- ============================================== -->
+                <div id="view-vehicles" class="view-panel space-y-6 hidden">
+                    <!-- Heading -->
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div>
+                            <h1 class="font-display text-2xl font-extrabold text-white mb-1 uppercase tracking-wide">Vehicle Inventory Control</h1>
+                            <p class="text-xs text-on-surface-variant">Perform full showroom CRUD modifications, image updates, and pricing edits</p>
+                        </div>
+                        <button onclick="openVehicleModal()" id="btn-add-vehicle" class="bg-primary-container hover:bg-opacity-90 text-white font-display text-xs font-bold px-4 py-2.5 rounded-lg uppercase tracking-widest flex items-center gap-2 transition-all shadow-lg shadow-primary-container/20">
+                            <span class="material-symbols-outlined text-sm font-bold">add</span> Add New Vehicle
+                        </button>
+                    </div>
+
+                    <!-- Filter panel -->
+                    <div class="glass-panel p-4 rounded-xl border border-white/5 flex flex-col md:flex-row md:items-center justify-between gap-4 select-none">
+                        <div class="flex flex-wrap items-center gap-3">
+                            <div class="relative w-full md:w-56">
+                                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+                                <input type="text" id="vehicle-search" onkeyup="renderVehicleTable()" class="w-full bg-surface border border-white/5 rounded-lg pl-9 pr-4 py-2 text-xs text-white placeholder-white/20 border-glow-focus" placeholder="Search brand or model...">
+                            </div>
+                            <select id="vehicle-filter-brand" onchange="renderVehicleTable()" class="bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                                <option value="">All Brands</option>
+                                <option value="Hyundai">Hyundai</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Tesla">Tesla</option>
+                                <option value="Kia">Kia</option>
+                                <option value="Suzuki">Suzuki</option>
+                            </select>
+                            <select id="vehicle-filter-category" onchange="renderVehicleTable()" class="bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                                <option value="">All Categories</option>
+                                <option value="SUV">SUV</option>
+                                <option value="Sedan">Sedan</option>
+                                <option value="EV">EV</option>
+                                <option value="Pickup">Pickup</option>
+                            </select>
+                            <select id="vehicle-filter-status" onchange="renderVehicleTable()" class="bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                                <option value="">All Statuses</option>
+                                <option value="In Stock">In Stock</option>
+                                <option value="Sold Out">Sold Out</option>
+                                <option value="Reserved">Reserved</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-on-surface-variant">
+                            <span>Sort By:</span>
+                            <select id="vehicle-sort" onchange="renderVehicleTable()" class="bg-surface border border-white/5 rounded-lg px-2.5 py-1.5 text-xs text-white border-glow-focus">
+                                <option value="newest">Newest First</option>
+                                <option value="price-asc">Price: Low to High</option>
+                                <option value="price-desc">Price: High to Low</option>
+                                <option value="year-desc">Year: Newest First</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Vehicles data table -->
+                    <div class="glass-panel rounded-xl border border-white/5 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-xs select-none">
+                                <thead class="bg-surface-container text-primary font-bold tracking-wider uppercase border-b border-white/5 font-display">
+                                    <tr>
+                                        <th class="p-4">Car details</th>
+                                        <th class="p-4">Category</th>
+                                        <th class="p-4">Specs & Fuel</th>
+                                        <th class="p-4">Price / EMI</th>
+                                        <th class="p-4">Status</th>
+                                        <th class="p-4 text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="crud-vehicle-table-body" class="divide-y divide-white/5">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- 3. STOCK INVENTORY VIEW                        -->
+                <!-- ============================================== -->
+                <div id="view-inventory" class="view-panel space-y-6 hidden">
+                    <!-- Heading -->
+                    <div>
+                        <h1 class="font-display text-2xl font-extrabold text-white mb-1 uppercase tracking-wide">Stock & Category Tracker</h1>
+                        <p class="text-xs text-on-surface-variant">Manage active inventory category folders and evaluate stock distribution</p>
+                    </div>
+
+                    <!-- Category grids and charts -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Category Counter Box -->
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 space-y-4">
+                            <div class="flex justify-between items-center select-none">
+                                <h3 class="font-display text-sm font-bold text-white uppercase tracking-wider">Inventory Categories</h3>
+                                <button onclick="openCategoryModal()" id="btn-add-category" class="text-[10px] text-primary hover:text-primary-container font-bold uppercase tracking-wider">+ Add New</button>
+                            </div>
+                            <div id="inventory-categories-list" class="space-y-2 select-none">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Stock Velocity charts -->
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 lg:col-span-2 space-y-4">
+                            <h3 class="font-display text-sm font-bold text-white uppercase tracking-wider select-none">Stock Density Model</h3>
+                            <div class="h-64">
+                                <canvas id="chart-inventory-distribution"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- 4. INQUIRY RESOLUTION VIEW                    -->
+                <!-- ============================================== -->
+                <div id="view-inquiries" class="view-panel space-y-6 hidden">
+                    <!-- Heading -->
+                    <div>
+                        <h1 class="font-display text-2xl font-extrabold text-white mb-1 uppercase tracking-wide">Customer Inquiries Desk</h1>
+                        <p class="text-xs text-on-surface-variant">Process test drive booking leads, WhatsApp triggers, and pricing evaluations</p>
+                    </div>
+
+                    <!-- Lead Filters -->
+                    <div class="glass-panel p-4 rounded-xl border border-white/5 flex flex-wrap gap-3 select-none">
+                        <select id="inquiry-filter-status" onchange="renderInquiryTable()" class="bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                            <option value="">All Lead Statuses</option>
+                            <option value="New">New</option>
+                            <option value="Contacted">Contacted</option>
+                            <option value="Interested">Interested</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                        <select id="inquiry-filter-type" onchange="renderInquiryTable()" class="bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                            <option value="">All Categories</option>
+                            <option value="WhatsApp">WhatsApp Inquiries</option>
+                            <option value="Test Drive">Test Drives</option>
+                            <option value="Valuation">Valuation Appraisals</option>
+                        </select>
+                    </div>
+
+                    <!-- Inquiries table -->
+                    <div class="glass-panel rounded-xl border border-white/5 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-xs select-none">
+                                <thead class="bg-surface-container text-primary font-bold tracking-wider uppercase border-b border-white/5 font-display">
+                                    <tr>
+                                        <th class="p-4">Customer</th>
+                                        <th class="p-4">Type</th>
+                                        <th class="p-4">Target Car</th>
+                                        <th class="p-4">Details / Values</th>
+                                        <th class="p-4">Lead Status</th>
+                                        <th class="p-4 text-center">Reply Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inquiries-table-body" class="divide-y divide-white/5">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- 5. SALES LEDGER VIEW                           -->
+                <!-- ============================================== -->
+                <div id="view-sales" class="view-panel space-y-6 hidden">
+                    <!-- Heading -->
+                    <div>
+                        <h1 class="font-display text-2xl font-extrabold text-white mb-1 uppercase tracking-wide">Historical Sales Ledger</h1>
+                        <p class="text-xs text-on-surface-variant">Archived database of completed sales, final purchase details, and agent logs</p>
+                    </div>
+
+                    <!-- Stat cards -->
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 select-none">
+                            <span class="text-[10px] font-bold text-primary tracking-widest uppercase">Total Sales Volume</span>
+                            <p id="ledger-total-volume" class="text-2xl font-extrabold text-white mt-2 font-mono">Rs. 2,06,00,000</p>
+                        </div>
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 select-none">
+                            <span class="text-[10px] font-bold text-primary tracking-widest uppercase">Units Transacted</span>
+                            <p id="ledger-total-units" class="text-2xl font-extrabold text-white mt-2 font-mono">3 Cars</p>
+                        </div>
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 col-span-2 md:col-span-1 select-none">
+                            <span class="text-[10px] font-bold text-primary tracking-widest uppercase">Avg Transaction Value</span>
+                            <p id="ledger-avg-price" class="text-2xl font-extrabold text-white mt-2 font-mono">Rs. 68,66,667</p>
+                        </div>
+                    </div>
+
+                    <!-- Sales table -->
+                    <div class="glass-panel rounded-xl border border-white/5 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-xs select-none">
+                                <thead class="bg-surface-container text-primary font-bold tracking-wider uppercase border-b border-white/5 font-display">
+                                    <tr>
+                                        <th class="p-4">Sold Vehicle</th>
+                                        <th class="p-4">Buyer details</th>
+                                        <th class="p-4">Final Value</th>
+                                        <th class="p-4">Transaction Date</th>
+                                        <th class="p-4">Salesperson</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sales-table-body" class="divide-y divide-white/5">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- 6. STAFF & USER ACCOUNTS VIEW                  -->
+                <!-- ============================================== -->
+                <div id="view-users" class="view-panel space-y-6 hidden">
+                    <!-- Heading -->
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h1 class="font-display text-2xl font-extrabold text-white mb-1 uppercase tracking-wide">Staff Accounts desk</h1>
+                            <p class="text-xs text-on-surface-variant">Configure user roles, update profiles, and view permission mappings</p>
+                        </div>
+                        <button onclick="openStaffModal()" id="btn-add-staff" class="bg-primary-container hover:bg-opacity-90 text-white font-display text-xs font-bold px-4 py-2.5 rounded-lg uppercase tracking-widest flex items-center gap-2 transition-all shadow-lg shadow-primary-container/20">
+                            <span class="material-symbols-outlined text-sm font-bold">person_add</span> Add Staff Member
+                        </button>
+                    </div>
+
+                    <!-- Staff accounts table -->
+                    <div class="glass-panel rounded-xl border border-white/5 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-xs select-none">
+                                <thead class="bg-surface-container text-primary font-bold tracking-wider uppercase border-b border-white/5 font-display">
+                                    <tr>
+                                        <th class="p-4">Staff Member</th>
+                                        <th class="p-4">Email</th>
+                                        <th class="p-4">Security Role</th>
+                                        <th class="p-4">Permission Matrix Preview</th>
+                                        <th class="p-4">Status</th>
+                                        <th class="p-4 text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-table-body" class="divide-y divide-white/5">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- 7. ANALYTICS HUB VIEW                         -->
+                <!-- ============================================== -->
+                <div id="view-analytics" class="view-panel space-y-8 hidden select-none">
+                    <!-- Heading -->
+                    <div>
+                        <h1 class="font-display text-2xl font-extrabold text-white mb-1 uppercase tracking-wide">Analytics Hub</h1>
+                        <p class="text-xs text-on-surface-variant">Visual charts for lead distribution, sales timelines, and interest velocity</p>
+                    </div>
+
+                    <!-- Charts Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 space-y-4">
+                            <h3 class="font-display text-sm font-bold text-white uppercase tracking-wider">Inquiry Source distribution</h3>
+                            <div class="h-64">
+                                <canvas id="chart-analytics-inquiries"></canvas>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-6 rounded-xl border border-white/5 space-y-4">
+                            <h3 class="font-display text-sm font-bold text-white uppercase tracking-wider">Category Revenue Matrix</h3>
+                            <div class="h-64">
+                                <canvas id="chart-analytics-categories"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- 8. PLATFORM SETTINGS VIEW                      -->
+                <!-- ============================================== -->
+                <div id="view-settings" class="view-panel space-y-6 hidden">
+                    <!-- Heading -->
+                    <div>
+                        <h1 class="font-display text-2xl font-extrabold text-white mb-1 uppercase tracking-wide">Dealership Settings</h1>
+                        <p class="text-xs text-on-surface-variant">Modify dealer profiles, social mappings, and customize active hero banners</p>
+                    </div>
+
+                    <!-- Settings Wizard Form -->
+                    <form onsubmit="handleSaveSettings(event)" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Col 1 & 2: Main Info -->
+                        <div class="lg:col-span-2 space-y-6">
+                            <div class="glass-panel p-6 rounded-xl border border-white/5 space-y-5">
+                                <h3 class="font-display text-sm font-bold text-white uppercase tracking-wider select-none">Showroom profile Metadata</h3>
+                                
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Dealership Name</label>
+                                        <input type="text" id="settings-name" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Physical Address</label>
+                                        <input type="text" id="settings-address" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">General Phone</label>
+                                        <input type="text" id="settings-phone" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">WhatsApp hotline</label>
+                                        <input type="text" id="settings-whatsapp" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                                    </div>
+                                    <div class="sm:col-span-2">
+                                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">General Email</label>
+                                        <input type="email" id="settings-email" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                                    </div>
+                                    <div class="sm:col-span-2">
+                                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Google Maps Link</label>
+                                        <input type="text" id="settings-maps" class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-panel p-6 rounded-xl border border-white/5 space-y-5">
+                                <h3 class="font-display text-sm font-bold text-white uppercase tracking-wider select-none">Meta Search Engine Parameters</h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">SEO Title Tag</label>
+                                        <input type="text" id="settings-seo-title" class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">SEO Meta Description</label>
+                                        <textarea id="settings-seo-desc" rows="3" class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus resize-none"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Col 3: Banner & Social Mappings -->
+                        <div class="space-y-6">
+                            <div class="glass-panel p-6 rounded-xl border border-white/5 space-y-4">
+                                <h3 class="font-display text-sm font-bold text-white uppercase tracking-wider select-none">Social Network Mappings</h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Facebook Page</label>
+                                        <input type="text" id="settings-facebook" class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Instagram Profile</label>
+                                        <input type="text" id="settings-instagram" class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-panel p-6 rounded-xl border border-white/5 space-y-4">
+                                <h3 class="font-display text-sm font-bold text-white uppercase tracking-wider select-none">Hero banner files</h3>
+                                <div class="space-y-3">
+                                    <div class="p-3 bg-surface border border-white/5 rounded-lg flex items-center justify-between">
+                                        <span class="text-[10px] text-white truncate max-w-[12rem]">bright_luxury_car.png</span>
+                                        <span class="text-[9px] font-bold text-primary uppercase tracking-wider">Active</span>
+                                    </div>
+                                    <div class="p-3 bg-surface border border-white/5 rounded-lg flex items-center justify-between">
+                                        <span class="text-[10px] text-white truncate max-w-[12rem]">luxury_suv_hero.png</span>
+                                        <button type="button" class="text-[9px] text-on-surface-variant hover:text-white uppercase font-semibold">Make Active</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="btn-save-settings" class="w-full bg-primary-container hover:bg-opacity-90 text-white font-display text-xs font-bold py-3 rounded-lg tracking-widest uppercase transition-all shadow-lg shadow-primary-container/20">
+                                Commit Settings
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- FLOATING CONTEXT-AWARE EDITING MODALS          -->
+    <!-- ============================================== -->
+    
+    <!-- 1. VEHICLE ADD / EDIT CRUD MODAL -->
+    <div id="modal-vehicle" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-panel w-full max-w-3xl rounded-2xl p-6 border border-white/5 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeVehicleModal()" class="absolute top-5 right-5 text-on-surface-variant hover:text-white transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <h3 id="modal-vehicle-title" class="font-display text-lg font-bold text-white uppercase tracking-wider mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary-container">directions_car</span> Add Showroom Listing
+            </h3>
+
+            <form onsubmit="handleSaveVehicle(event)" class="space-y-6">
+                <input type="hidden" id="modal-vehicle-id">
+
+                <!-- Row 1: Brand & Model -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Brand</label>
+                        <input type="text" id="modal-vehicle-brand" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="e.g. Hyundai">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Model / Name</label>
+                        <input type="text" id="modal-vehicle-name" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="e.g. Tucson">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Category</label>
+                        <select id="modal-vehicle-category" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                            <option value="SUV">SUV</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="EV">EV</option>
+                            <option value="Pickup">Pickup</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Row 2: Specs Details -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Manufacturing Year</label>
+                        <input type="number" id="modal-vehicle-year" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="2021">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Price (NPR)</label>
+                        <input type="number" id="modal-vehicle-price" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="8550000">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">EMI per Month (NPR)</label>
+                        <input type="number" id="modal-vehicle-emi" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="120000">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">KM Driven</label>
+                        <input type="number" id="modal-vehicle-km" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="24000">
+                    </div>
+                </div>
+
+                <!-- Row 3: Fuel & Trans -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Fuel Type</label>
+                        <select id="modal-vehicle-fuel" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                            <option value="Diesel">Diesel</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Electric">Electric</option>
+                            <option value="Hybrid">Hybrid</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Transmission</label>
+                        <select id="modal-vehicle-transmission" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                            <option value="Automatic">Automatic</option>
+                            <option value="Manual">Manual</option>
+                            <option value="AWD">AWD</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Condition Rating</label>
+                        <select id="modal-vehicle-condition" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                            <option value="Excellent">Excellent (Like New)</option>
+                            <option value="Very Good">Very Good</option>
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Color</label>
+                        <input type="text" id="modal-vehicle-color" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="Polar White">
+                    </div>
+                </div>
+
+                <!-- Row 4: Image URLs -->
+                <div>
+                    <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Primary Image URL</label>
+                    <input type="url" id="modal-vehicle-img" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="https://domain.com/car.png">
+                </div>
+
+                <!-- Row 5: Specs Structure Details -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Engine (cc / Motor)</label>
+                        <input type="text" id="modal-vehicle-spec-engine" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="1997 cc">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Power</label>
+                        <input type="text" id="modal-vehicle-spec-power" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="182 bhp">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Torque</label>
+                        <input type="text" id="modal-vehicle-spec-torque" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="400 Nm">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Ground Clearance</label>
+                        <input type="text" id="modal-vehicle-spec-clearance" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="172 mm">
+                    </div>
+                </div>
+
+                <!-- Row 6: Description & Status Mappings -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="sm:col-span-2">
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Description details</label>
+                        <textarea id="modal-vehicle-desc" rows="3" class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus resize-none" placeholder="Provide description of vehicle status..."></textarea>
+                    </div>
+                    <div class="space-y-3.5">
+                        <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase">Promotional Flags</label>
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" id="modal-vehicle-featured" class="accent-primary-container h-4 w-4 bg-surface border border-white/5 rounded">
+                            <span class="text-xs text-white">Featured Homepage</span>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1">Availability Status</label>
+                            <select id="modal-vehicle-status" required class="w-full bg-surface border border-white/5 rounded-lg px-2.5 py-1.5 text-xs text-white border-glow-focus">
+                                <option value="In Stock">In Stock</option>
+                                <option value="Reserved">Reserved</option>
+                                <option value="Sold Out">Sold Out</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-3 select-none">
+                    <button type="button" onclick="closeVehicleModal()" class="text-xs text-on-surface-variant hover:text-white font-bold py-2.5 px-4">Cancel</button>
+                    <button type="submit" class="bg-primary-container hover:bg-opacity-90 text-white font-display text-xs font-bold px-6 py-2.5 rounded-lg tracking-widest uppercase transition-all shadow-lg shadow-primary-container/20">Commit Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 2. STAFF ADD / EDIT MODAL -->
+    <div id="modal-staff" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-panel w-full max-w-md rounded-2xl p-6 border border-white/5 relative">
+            <button onclick="closeStaffModal()" class="absolute top-5 right-5 text-on-surface-variant hover:text-white transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <h3 id="modal-staff-title" class="font-display text-lg font-bold text-white uppercase tracking-wider mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary-container">person_add</span> Add Staff Account
+            </h3>
+
+            <form onsubmit="handleSaveStaff(event)" class="space-y-5">
+                <input type="hidden" id="modal-staff-id">
+                <div>
+                    <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Full Name</label>
+                    <input type="text" id="modal-staff-name" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="e.g. Sabin Shrestha">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Email Address</label>
+                    <input type="email" id="modal-staff-email" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="sabin@raazauto.com">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Security Role</label>
+                    <select id="modal-staff-role" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus">
+                        <option value="admin">Administrator (Full Access)</option>
+                        <option value="manager">Manager (Inventory/Inquiries)</option>
+                        <option value="staff">Sales Staff (Read-Only)</option>
+                    </select>
+                </div>
+                <div class="flex items-center gap-2 pt-2">
+                    <input type="checkbox" id="modal-staff-active" class="accent-primary-container h-4 w-4 bg-surface border border-white/5 rounded" checked>
+                    <span class="text-xs text-white">Active Account</span>
+                </div>
+
+                <div class="flex justify-end gap-3 select-none pt-4">
+                    <button type="button" onclick="closeStaffModal()" class="text-xs text-on-surface-variant hover:text-white font-bold py-2.5 px-4">Cancel</button>
+                    <button type="submit" class="bg-primary-container hover:bg-opacity-90 text-white font-display text-xs font-bold px-6 py-2.5 rounded-lg tracking-widest uppercase transition-all shadow-lg shadow-primary-container/20">Save Member</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 3. INVENTORY CATEGORY ADD MODAL -->
+    <div id="modal-category" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-panel w-full max-w-sm rounded-2xl p-6 border border-white/5 relative">
+            <button onclick="closeCategoryModal()" class="absolute top-5 right-5 text-on-surface-variant hover:text-white transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <h3 class="font-display text-base font-bold text-white uppercase tracking-wider mb-5 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary-container">folder_open</span> Add New Category
+            </h3>
+
+            <form onsubmit="handleSaveCategory(event)" class="space-y-4">
+                <div>
+                    <label class="block text-[10px] font-bold text-on-surface-variant tracking-wider uppercase mb-1.5">Category Name</label>
+                    <input type="text" id="modal-category-name" required class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-xs text-white border-glow-focus" placeholder="e.g. Hatchback">
+                </div>
+
+                <div class="flex justify-end gap-3 select-none pt-4">
+                    <button type="button" onclick="closeCategoryModal()" class="text-xs text-on-surface-variant hover:text-white font-bold py-2.5 px-4">Cancel</button>
+                    <button type="submit" class="bg-primary-container hover:bg-opacity-90 text-white font-display text-xs font-bold px-5 py-2 rounded-lg tracking-widest uppercase transition-all shadow-lg shadow-primary-container/20">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- JAVASCRIPT STATE ENGINE & DYNAMIC RENDERER    -->
+    <!-- ============================================== -->
+    <script>
+        // Seed Initial Data if localStorage is empty
+        function seedInitialDatabase() {
+            if (!localStorage.getItem('raaz_vehicles')) {
+                const defaultVehicles = [
+                    {
+                        id: 1,
+                        name: "Tucson",
+                        brand: "Hyundai",
+                        category: "SUV",
+                        price: 8550000,
+                        year: 2021,
+                        km: 24000,
+                        fuel: "Diesel",
+                        transmission: "Automatic",
+                        color: "Polar White",
+                        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBwbx4wQVJ5uzm0neWc8lC9SP-Di2vhPdLqaXCqfm5iAPyup3LMc0MGxCFnuriYxU1_FN4o_mW78gWZCFlXM3Nc2BnjKKX1EIU9SVEDKHvOv3eyOJiBujEN22XssBq7lnrdCeOe7UVpO4euP9fG9JbADze5VNSEf5-ZQ69_assWYlTddG81rjf727c35YNr9g_Ny9Gmxmq9fVnU1fD-dOccs8mTLJnHvHONORczo8F-5ZAKTwI6xT8UjKz6guMxGNuRebIi6-F2GqgR",
+                        specs: { engine: "1997 cc", power: "182 bhp", torque: "400 Nm", groundClearance: "172 mm", seats: 5, gearBox: "8-Speed Auto" },
+                        features: ["Panoramic Sunroof", "6 Airbags", "ADAS Lane Assist", "Heated Seats", "360 Camera", "Wireless Charge"],
+                        emi: 120000,
+                        featured: true,
+                        status: "In Stock"
+                    },
+                    {
+                        id: 2,
+                        name: "Hilux",
+                        brand: "Toyota",
+                        category: "Pickup",
+                        price: 9200000,
+                        year: 2019,
+                        km: 42000,
+                        fuel: "Diesel",
+                        transmission: "Manual",
+                        color: "Attitude Black Metallic",
+                        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDavJilN8zHGnQqjw8Jsjj8bqynuNRQCz5K4uIOUHVNZgD7rmOSWyLFQREJ7l_Lu7uWp5Gv317kn0BTv9K0h_n31Fz3Sv5oLFl34KGOw2doBfcRI3ZODJmVJs8Ssx4F7t-8r8B7P8BDE9oEwlZCO_6f_8BWuxkiv4Df9nGp3ewQsvJZWDt6tuY5MNkwtN8ZeGwo89Y8Yxb6yHq2lvcU6s1IPFYCvPpUP4iMjJjeRCtChsoseO1RZhaknMRgAtCAJIHxOdCtVjzqrrfu",
+                        specs: { engine: "2755 cc", power: "201 bhp", torque: "420 Nm", groundClearance: "293 mm", seats: 5, gearBox: "6-Speed Manual" },
+                        features: ["Active Traction Control", "7 Airbags", "Differential Lock", "Dual-Zone climate control", "Rear View Camera", "Underbody Armor"],
+                        emi: 145000,
+                        featured: true,
+                        status: "In Stock"
+                    },
+                    {
+                        id: 3,
+                        name: "Model Y",
+                        brand: "Tesla",
+                        category: "EV",
+                        price: 14500000,
+                        year: 2023,
+                        km: 3500,
+                        fuel: "Electric",
+                        transmission: "AWD",
+                        color: "Midnight Silver Metallic",
+                        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCoPmWpqhKP1TMCMbnn1WfUfsfGTjQggmQ6oT-ORRyF21lCBbGIjqUyWLnVPVLGrjLo0_C9KybFyU33oi5O5aqiUUBGrKlKOgQNQUAVH36jH1ArsHO2btSsB10ba8RUZlcwXR-e5aQsY6M6rAHYtGrTW4bqVjooTSdYN34XHi0XSDEdpB6Rm8wOjQ61HyDAxInymFRjplJ2QxMVzJP6_C0tAXTKNiTJpu0Ngz3h5OaWeHD_llfmWbDhoCAdMqXy9xNumxI5l14lKe57",
+                        specs: { engine: "Dual Electric Motor", power: "384 bhp", torque: "510 Nm", groundClearance: "167 mm", seats: 5, gearBox: "Single Speed" },
+                        features: ["Autopilot Capability", "Full Glass Roof", "15-inch Touchscreen", "Sentry Security Mode", "HEPA cabin filter", "Premium Audio"],
+                        emi: 210000,
+                        featured: true,
+                        status: "In Stock"
+                    },
+                    {
+                        id: 4,
+                        name: "Sportage",
+                        brand: "Kia",
+                        category: "SUV",
+                        price: 6800000,
+                        year: 2020,
+                        km: 31000,
+                        fuel: "Petrol",
+                        transmission: "Automatic",
+                        color: "Fiery Red",
+                        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBwbx4wQVJ5uzm0neWc8lC9SP-Di2vhPdLqaXCqfm5iAPyup3LMc0MGxCFnuriYxU1_FN4o_mW78gWZCFlXM3Nc2BnjKKX1EIU9SVEDKHvOv3eyOJiBujEN22XssBq7lnrdCeOe7UVpO4euP9fG9JbADze5VNSEf5-ZQ69_assWYlTddG81rjf727c35YNr9g_Ny9Gmxmq9fVnU1fD-dOccs8mTLJnHvHONORczo8F-5ZAKTwI6xT8UjKz6guMxGNuRebIi6-F2GqgR",
+                        specs: { engine: "1999 cc", power: "154 bhp", torque: "192 Nm", groundClearance: "172 mm", seats: 5, gearBox: "6-Speed Automatic" },
+                        features: ["Panoramic Sunroof", "Blindspot Collision warning", "Smart Power Tailgate", "8-inch touchscreen", "Harman Kardon speaker"],
+                        emi: 95000,
+                        featured: false,
+                        status: "In Stock"
+                    },
+                    {
+                        id: 5,
+                        name: "Jimny",
+                        brand: "Suzuki",
+                        category: "Pickup",
+                        price: 4800000,
+                        year: 2022,
+                        km: 12000,
+                        fuel: "Petrol",
+                        transmission: "Manual",
+                        color: "Kinetic Yellow",
+                        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDavJilN8zHGnQqjw8Jsjj8bqynuNRQCz5K4uIOUHVNZgD7rmOSWyLFQREJ7l_Lu7uWp5Gv317kn0BTv9K0h_n31Fz3Sv5oLFl34KGOw2doBfcRI3ZODJmVJs8Ssx4F7t-8r8B7P8BDE9oEwlZCO_6f_8BWuxkiv4Df9nGp3ewQsvJZWDt6tuY5MNkwtN8ZeGwo89Y8Yxb6yHq2lvcU6s1IPFYCvPpUP4iMjJjeRCtChsoseO1RZhaknMRgAtCAJIHxOdCtVjzqrrfu",
+                        specs: { engine: "1462 cc", power: "101 bhp", torque: "130 Nm", groundClearance: "210 mm", seats: 4, gearBox: "5-Speed Manual" },
+                        features: ["AllGrip Pro 4WD system", "Hill descent control", "High-beam assist", "Retro body styling", "Washable cargo zone"],
+                        emi: 72000,
+                        featured: false,
+                        status: "In Stock"
+                    },
+                    {
+                        id: 6,
+                        name: "Land Cruiser",
+                        brand: "Toyota",
+                        category: "SUV",
+                        price: 29500000,
+                        year: 2021,
+                        km: 15000,
+                        fuel: "Diesel",
+                        transmission: "Automatic",
+                        color: "Attitude Black",
+                        img: "bright_luxury_car.png",
+                        specs: { engine: "3346 cc", power: "304 bhp", torque: "700 Nm", groundClearance: "235 mm", seats: 7, gearBox: "10-Speed Automatic" },
+                        features: ["Multi-Terrain Select 4WD", "Crawl Control", "4-Zone air conditioning", "JBL 14-Speaker system", "Head-up display", "Air suspension"],
+                        emi: 380000,
+                        featured: false,
+                        status: "In Stock"
+                    }
+                ];
+                localStorage.setItem('raaz_vehicles', JSON.stringify(defaultVehicles));
+            }
+
+            if (!localStorage.getItem('raaz_inquiries')) {
+                const defaultInquiries = [
+                    { id: 1, name: "Subash Thapa", phone: "9801122334", email: "subash@gmail.com", type: "WhatsApp", target: "2021 Hyundai Tucson", details: "Enquired about cash discount bounds", date: "2026-05-26", status: "Interested" },
+                    { id: 2, name: "Ramesh Shrestha", phone: "9841122334", email: "ramesh@outlook.com", type: "Test Drive", target: "2023 Tesla Model Y", details: "Booked for 2026-06-01 at Gairidhara", date: "2026-05-27", status: "New" },
+                    { id: 3, name: "Aarav Adhikari", phone: "9812233445", email: "aarav@gmail.com", type: "Valuation", target: "2018 Suzuki Vitara", details: "Seller expects Rs. 38 Lakhs; Valuation Rs. 34-36L", date: "2026-05-25", status: "Contacted" },
+                    { id: 4, name: "Pooja Karki", phone: "9851122334", email: "pooja@yahoo.com", type: "Test Drive", target: "2021 Toyota Land Cruiser", details: "Completed test drive on 2026-05-24", date: "2026-05-24", status: "Closed" }
+                ];
+                localStorage.setItem('raaz_inquiries', JSON.stringify(defaultInquiries));
+            }
+
+            if (!localStorage.getItem('raaz_sales')) {
+                const defaultSales = [
+                    { id: 1, name: "2019 Toyota Hilux", buyer: "Binod Bhandari", price: 9150000, date: "2026-05-10", salesperson: "Sabin Shrestha" },
+                    { id: 2, name: "2020 Kia Sportage", buyer: "Sunita Gurung", price: 6700000, date: "2026-05-18", salesperson: "Niraj Thapa" },
+                    { id: 3, name: "2022 Suzuki Jimny", buyer: "Pradeep Gyawali", price: 4750000, date: "2026-05-24", salesperson: "Sabin Shrestha" }
+                ];
+                localStorage.setItem('raaz_sales', JSON.stringify(defaultSales));
+            }
+
+            if (!localStorage.getItem('raaz_staff')) {
+                const defaultStaff = [
+                    { id: 1, name: "Saroj Adhikari", email: "saroj@raazauto.com", role: "admin", active: true },
+                    { id: 2, name: "Sabin Shrestha", email: "sabin@raazauto.com", role: "manager", active: true },
+                    { id: 3, name: "Niraj Thapa", email: "niraj@raazauto.com", role: "staff", active: true }
+                ];
+                localStorage.setItem('raaz_staff', JSON.stringify(defaultStaff));
+            }
+
+            if (!localStorage.getItem('raaz_categories')) {
+                const defaultCategories = ["SUV", "Sedan", "EV", "Pickup"];
+                localStorage.setItem('raaz_categories', JSON.stringify(defaultCategories));
+            }
+
+            if (!localStorage.getItem('raaz_settings')) {
+                const defaultSettings = {
+                    name: "RAAZ AUTO Center",
+                    address: "Gairidhara, Kathmandu, Nepal",
+                    phone: "+977 1 4400000",
+                    whatsapp: "+977 9801234567",
+                    email: "info@raazauto.com",
+                    facebook: "https://facebook.com/raazautocenter",
+                    instagram: "https://instagram.com/raazauto",
+                    maps: "https://maps.google.com/?q=Gairidhara+Kathmandu",
+                    seoTitle: "RAAZ AUTO Center | Premium Reconditioned Vehicles in Kathmandu",
+                    seoDesc: "Find trusted, certified, and fully inspected pre-owned premium cars and SUVs at Kathmandu's leading reconditioned marketplace."
+                };
+                localStorage.setItem('raaz_settings', JSON.stringify(defaultSettings));
+            }
+
+            if (!localStorage.getItem('raaz_activity_logs')) {
+                const defaultLogs = [
+                    { text: "System initialized with base inventory logs.", date: "2026-05-27 05:40" },
+                    { text: "Sabin Shrestha completed sale: Suzuki Jimny.", date: "2026-05-24 15:30" },
+                    { text: "Niraj Thapa updated Kia Sportage detail tags.", date: "2026-05-20 11:15" }
+                ];
+                localStorage.setItem('raaz_activity_logs', JSON.stringify(defaultLogs));
+            }
+        }
+
+        // Global State Accessors
+        const db = {
+            getVehicles: () => JSON.parse(localStorage.getItem('raaz_vehicles')),
+            saveVehicles: (v) => { localStorage.setItem('raaz_vehicles', JSON.stringify(v)); },
+            getInquiries: () => JSON.parse(localStorage.getItem('raaz_inquiries')),
+            saveInquiries: (i) => { localStorage.setItem('raaz_inquiries', JSON.stringify(i)); },
+            getSales: () => JSON.parse(localStorage.getItem('raaz_sales')),
+            saveSales: (s) => { localStorage.setItem('raaz_sales', JSON.stringify(s)); },
+            getStaff: () => JSON.parse(localStorage.getItem('raaz_staff')),
+            saveStaff: (st) => { localStorage.setItem('raaz_staff', JSON.stringify(st)); },
+            getCategories: () => JSON.parse(localStorage.getItem('raaz_categories')),
+            saveCategories: (c) => { localStorage.setItem('raaz_categories', JSON.stringify(c)); },
+            getSettings: () => JSON.parse(localStorage.getItem('raaz_settings')),
+            saveSettings: (se) => { localStorage.setItem('raaz_settings', JSON.stringify(se)); },
+            getLogs: () => JSON.parse(localStorage.getItem('raaz_activity_logs')),
+            addLog: (text) => {
+                const logs = db.getLogs() || [];
+                const now = new Date();
+                const dateStr = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0') + ' ' + String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+                logs.unshift({ text, date: dateStr });
+                localStorage.setItem('raaz_activity_logs', JSON.stringify(logs));
+                renderLogs();
+            }
+        };
+
+        // Seed on runtime initialization
+        seedInitialDatabase();
+
+        // Security / Role Mappings
+        let currentUser = null;
+        const rolePermissions = {
+            admin: {
+                canDeleteVehicles: true,
+                canEditStaff: true,
+                canEditSettings: true
+            },
+            manager: {
+                canDeleteVehicles: false,
+                canEditStaff: false,
+                canEditSettings: true
+            },
+            staff: {
+                canDeleteVehicles: false,
+                canEditStaff: false,
+                canEditSettings: false
+            }
+        };
+
+        // Secure SHA-256 Hashing helper
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        }
+
+        let failedAttempts = 0;
+        let lockTime = null;
+
+        // Check LocalStorage Session on Page Load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedSession = sessionStorage.getItem('raaz_session');
+            if (savedSession) {
+                // Verify session structure integrity
+                try {
+                    currentUser = JSON.parse(savedSession);
+                    if (currentUser && currentUser.token && currentUser.role) {
+                        initializeDashboard();
+                    } else {
+                        handleLogout();
+                    }
+                } catch(e) {
+                    handleLogout();
+                }
+            }
+        });
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const errorMsg = document.getElementById('login-error-msg');
+            
+            // Check Lockout
+            if (lockTime && Date.now() < lockTime) {
+                const remaining = Math.round((lockTime - Date.now()) / 1000);
+                errorMsg.innerText = `Too many failed attempts. Try again in ${remaining} seconds.`;
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            const role = document.getElementById('login-role-selector').value;
+            const email = document.getElementById('login-email').value.trim().toLowerCase();
+            const pass = document.getElementById('login-password').value;
+
+            // Secure hashes matching:
+            // Admin: raaz2026
+            // Manager: manager2026
+            // Staff: staff2026
+            const secureHashes = {
+                admin: "d46974fe5bba742fcf0f35411e12a57f28380d70e874f672d12f47a47fa742fa",
+                manager: "2e064c30dfe840ff76432c401a0d0c19f0b30d823f60fd378353a6a63e431e75",
+                staff: "7448477c642e607e214fc8f12e1e68389c59f142459fea8c074b324acb553100"
+            };
+
+            const inputHash = await sha256(pass);
+            let valid = false;
+            let name = "";
+
+            if (role === 'admin' && (email === 'saroj@raazauto.com' || email === 'admin@raazauto.com') && inputHash === secureHashes.admin) {
+                valid = true;
+                name = "Saroj Adhikari";
+            } else if (role === 'manager' && (email === 'sabin@raazauto.com' || email === 'manager@raazauto.com') && inputHash === secureHashes.manager) {
+                valid = true;
+                name = "Sabin Shrestha";
+            } else if (role === 'staff' && (email === 'niraj@raazauto.com' || email === 'staff@raazauto.com') && inputHash === secureHashes.staff) {
+                valid = true;
+                name = "Niraj Thapa";
+            }
+
+            if (valid) {
+                failedAttempts = 0;
+                errorMsg.classList.add('hidden');
+                
+                // Cryptographic token generation
+                const sessionToken = Array.from(crypto.getRandomValues(new Uint8Array(16)))
+                    .map(b => b.toString(16).padStart(2, '0')).join('');
+                
+                currentUser = { name, email, role, token: sessionToken };
+                sessionStorage.setItem('raaz_session', JSON.stringify(currentUser));
+                
+                initializeDashboard();
+            } else {
+                failedAttempts++;
+                if (failedAttempts >= 3) {
+                    lockTime = Date.now() + 30000; // Lock for 30s
+                    errorMsg.innerText = "Too many failed attempts. Security lockout active for 30 seconds.";
+                    failedAttempts = 0;
+                } else {
+                    errorMsg.innerText = `Access Denied: Invalid credentials for selected role (${3 - failedAttempts} attempts remaining).`;
+                }
+                errorMsg.classList.remove('hidden');
+            }
+        }
+
+        function togglePasswordVisibility() {
+            const passInput = document.getElementById('login-password');
+            const icon = document.getElementById('password-toggle-icon');
+            if (passInput.type === 'password') {
+                passInput.type = 'text';
+                icon.innerText = 'visibility_off';
+            } else {
+                passInput.type = 'password';
+                icon.innerText = 'visibility';
+            }
+        }
+
+        function showForgotPassword() {
+            document.getElementById('login-card').classList.add('hidden');
+            document.getElementById('forgot-card').classList.remove('hidden');
+        }
+
+        function showLogin() {
+            document.getElementById('forgot-card').classList.add('hidden');
+            document.getElementById('login-card').classList.remove('hidden');
+        }
+
+        async function handleForgotPassword(e) {
+            e.preventDefault();
+            const email = document.getElementById('forgot-email').value;
+            const success = document.getElementById('forgot-success-msg');
+            success.innerText = "A security recovery link was sent to: " + email + ". Check your folder inboxes.";
+            success.classList.remove('hidden');
+        }
+
+        function handleLogout() {
+            sessionStorage.removeItem('raaz_session');
+            currentUser = null;
+            document.getElementById('app-container').classList.add('hidden');
+            document.getElementById('auth-flow-container').classList.remove('hidden');
+            document.getElementById('login-error-msg').classList.add('hidden');
+            document.getElementById('login-form').reset();
+            
+            // Clean dynamic elements from memory for safety
+            const cleanElements = [
+                'ov-inventory-count', 'ov-inquiries-count', 'ov-sales-count', 
+                'crud-vehicle-table-body', 'inventory-categories-list', 
+                'inquiries-table-body', 'sales-table-body', 'users-table-body'
+            ];
+            cleanElements.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = "";
+            });
+        }
+
+        function changeRole(newRole) {
+            currentUser.role = newRole;
+            currentUser.name = newRole === 'admin' ? "Saroj Adhikari" : (newRole === 'manager' ? "Sabin Shrestha" : "Niraj Thapa");
+            currentUser.email = newRole + "@raazauto.com";
+            sessionStorage.setItem('raaz_session', JSON.stringify(currentUser));
+            
+            // Adjust layouts and refresh permissions UI
+            updateProfileUI();
+            applyRolePermissions();
+            renderVehicleTable();
+            renderUsersTable();
+            db.addLog(`Switched active profile context to: ${newRole.toUpperCase()}`);
+        }
+
+        function updateProfileUI() {
+            document.getElementById('profile-name').innerText = currentUser.name;
+            document.getElementById('profile-role').innerText = currentUser.role.toUpperCase();
+            
+            // Generate initials
+            const initials = currentUser.name.split(' ').map(n => n[0]).join('');
+            document.getElementById('profile-avatar-letters').innerText = initials;
+            
+            // Synchronize navbar dropdown
+            document.getElementById('header-role-switcher').value = currentUser.role;
+        }
+
+        function applyRolePermissions() {
+            const roleInfo = rolePermissions[currentUser.role];
+            
+            // Button restrictions based on active role
+            const btnAddVehicle = document.getElementById('btn-add-vehicle');
+            const btnAddStaff = document.getElementById('btn-add-staff');
+            const btnAddCategory = document.getElementById('btn-add-category');
+            const btnSaveSettings = document.getElementById('btn-save-settings');
+
+            if (currentUser.role === 'staff') {
+                if (btnAddVehicle) btnAddVehicle.classList.add('hidden');
+                if (btnAddStaff) btnAddStaff.classList.add('hidden');
+                if (btnAddCategory) btnAddCategory.classList.add('hidden');
+                if (btnSaveSettings) btnSaveSettings.classList.add('hidden');
+            } else if (currentUser.role === 'manager') {
+                if (btnAddVehicle) btnAddVehicle.classList.remove('hidden');
+                if (btnAddStaff) btnAddStaff.classList.add('hidden');
+                if (btnAddCategory) btnAddCategory.classList.remove('hidden');
+                if (btnSaveSettings) btnSaveSettings.classList.remove('hidden');
+            } else { // Admin
+                if (btnAddVehicle) btnAddVehicle.classList.remove('hidden');
+                if (btnAddStaff) btnAddStaff.classList.remove('hidden');
+                if (btnAddCategory) btnAddCategory.classList.remove('hidden');
+                if (btnSaveSettings) btnSaveSettings.classList.remove('hidden');
+            }
+        }
+
+        function initializeDashboard() {
+            if (!currentUser || !currentUser.token) {
+                handleLogout();
+                return;
+            }
+            document.getElementById('auth-flow-container').classList.add('hidden');
+            document.getElementById('app-container').classList.remove('hidden');
+            
+            updateProfileUI();
+            applyRolePermissions();
+
+            // Populate components
+            refreshOverviewCounters();
+            renderVehicleTable();
+            renderCategoryView();
+            renderInquiryTable();
+            renderSalesLedger();
+            renderUsersTable();
+            renderLogs();
+            loadSettingsForm();
+            
+            // Build Charts
+            buildOverviewSalesChart();
+            buildInventoryDistributionChart();
+            buildAnalyticsInquiriesChart();
+            buildAnalyticsCategoriesChart();
+
+            db.addLog(`${currentUser.name} signed into the console.`);
+        }
+
+
+        // ============================================== -->
+        // VIEW SWITCHER (SPA TAB CONTROL)                -->
+        // ============================================== -->
+        function switchTab(tabId) {
+            // Hide all views
+            const panels = document.querySelectorAll('.view-panel');
+            panels.forEach(p => p.classList.add('hidden'));
+
+            // Show active view
+            document.getElementById('view-' + tabId).classList.remove('hidden');
+
+            // Deactivate all sidebar anchors
+            const items = document.querySelectorAll('.sidebar-item');
+            items.forEach(i => i.classList.remove('active'));
+
+            // Activate current
+            document.getElementById('nav-' + tabId).classList.add('active');
+
+            // Close mobile menu if open
+            const sidebar = document.getElementById('sidebar');
+            if (!sidebar.classList.contains('-translate-x-full')) {
+                toggleMobileSidebar();
+            }
+        }
+
+        function toggleMobileSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('-translate-x-full');
+        }
+
+        function toggleNotifications() {
+            document.getElementById('notifications-box').classList.toggle('hidden');
+        }
+
+        function toggleNotificationsBox(state) {
+            const box = document.getElementById('notifications-box');
+            if (state) box.classList.remove('hidden');
+            else box.classList.add('hidden');
+        }
+
+
+        // ============================================== -->
+        // DYNAMIC COUNTERS & DATA LOADERS                -->
+        // ============================================== -->
+        function refreshOverviewCounters() {
+            const vehicles = db.getVehicles() || [];
+            const inquiries = db.getInquiries() || [];
+            const appraisals = inquiries.filter(i => i.type === 'Valuation');
+            const sales = db.getSales() || [];
+
+            // Main Stats
+            document.getElementById('ov-inventory-count').innerText = vehicles.length;
+            document.getElementById('ov-inquiries-count').innerText = inquiries.filter(i => i.status === 'New').length;
+            document.getElementById('ov-sales-count').innerText = sales.length;
+        }
+
+        function renderLogs() {
+            const logs = db.getLogs() || [];
+            const container = document.getElementById('activity-log-feed');
+            if (!container) return;
+
+            if (logs.length === 0) {
+                container.innerHTML = `<p class="text-on-surface-variant text-center py-4">No audit logs logged.</p>`;
+                return;
+            }
+
+            container.innerHTML = logs.map(l => `
+                <div class="p-3 bg-surface border border-white/5 rounded-lg flex flex-col gap-1">
+                    <p class="text-white font-medium">${l.text}</p>
+                    <span class="text-[9px] text-primary font-semibold tracking-wider font-mono">${l.date}</span>
+                </div>
+            `).join('');
+        }
+
+
+        // ============================================== -->
+        // FORMATTERS                                     -->
+        // ============================================== -->
+        function formatNPR(num) {
+            // Standard Nepalese numeric system commas formatting (Lakhs, Crores)
+            let str = String(num);
+            let lastThree = str.substring(str.length - 3);
+            let otherParts = str.substring(0, str.length - 3);
+            if (otherParts !== '') {
+                lastThree = ',' + lastThree;
+            }
+            let res = otherParts.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+            return "Rs. " + res;
+        }
+
+
+        // ============================================== -->
+        // VEHICLE CRUD LOGIC                             -->
+        // ============================================== -->
+        function renderVehicleTable() {
+            const vehicles = db.getVehicles() || [];
+            const tbody = document.getElementById('crud-vehicle-table-body');
+            if (!tbody) return;
+
+            const searchVal = document.getElementById('vehicle-search').value.toLowerCase();
+            const brandVal = document.getElementById('vehicle-filter-brand').value;
+            const catVal = document.getElementById('vehicle-filter-category').value;
+            const statusVal = document.getElementById('vehicle-filter-status').value;
+            const sortVal = document.getElementById('vehicle-sort').value;
+
+            // Filter logic
+            let filtered = vehicles.filter(v => {
+                const matchesSearch = v.brand.toLowerCase().includes(searchVal) || v.name.toLowerCase().includes(searchVal);
+                const matchesBrand = brandVal === "" || v.brand === brandVal;
+                const matchesCategory = catVal === "" || v.category === catVal;
+                const matchesStatus = statusVal === "" || v.status === statusVal;
+                return matchesSearch && matchesBrand && matchesCategory && matchesStatus;
+            });
+
+            // Sort logic
+            if (sortVal === 'price-asc') {
+                filtered.sort((a,b) => a.price - b.price);
+            } else if (sortVal === 'price-desc') {
+                filtered.sort((a,b) => b.price - a.price);
+            } else if (sortVal === 'year-desc') {
+                filtered.sort((a,b) => b.year - a.year);
+            } else { // newest first
+                filtered.sort((a,b) => b.id - a.id);
+            }
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-on-surface-variant">No vehicles match current search filter settings.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(v => {
+                let badgeColor = "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+                if (v.status === 'Sold Out') badgeColor = "bg-red-500/10 text-red-400 border border-red-500/20";
+                if (v.status === 'Reserved') badgeColor = "bg-amber-500/10 text-amber-400 border border-amber-500/20";
+
+                const displayPrice = formatNPR(v.price);
+                const displayEmi = formatNPR(v.emi);
+                const roleInfo = rolePermissions[currentUser.role];
+
+                // Disable buttons for staff role
+                const deleteDisabledClass = roleInfo.canDeleteVehicles ? "" : "opacity-30 cursor-not-allowed";
+                const deleteAction = roleInfo.canDeleteVehicles ? `onclick="deleteVehicle(${v.id})"` : "";
+
+                const editDisabledClass = currentUser.role === 'staff' ? "opacity-30 cursor-not-allowed" : "";
+                const editAction = currentUser.role !== 'staff' ? `onclick="openVehicleModal(${v.id})"` : "";
+
+                return `
+                    <tr class="hover:bg-white/[0.02] transition-colors border-b border-white/5">
+                        <td class="p-4">
+                            <div class="flex items-center gap-3">
+                                <img src="${v.img}" alt="${v.brand}" class="h-10 w-16 object-cover rounded border border-white/5 bg-background shrink-0">
+                                <div>
+                                    <p class="font-semibold text-white text-xs">${v.year} ${v.brand} ${v.name}</p>
+                                    <p class="text-[10px] text-on-surface-variant mt-0.5">${v.color} &bull; ${v.km.toLocaleString()} KM</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-4 font-semibold text-white uppercase tracking-wider text-[10px]">${v.category}</td>
+                        <td class="p-4">
+                            <p class="text-white">${v.specs.engine}</p>
+                            <p class="text-[10px] text-on-surface-variant mt-0.5">${v.fuel} &bull; ${v.transmission}</p>
+                        </td>
+                        <td class="p-4">
+                            <p class="font-semibold text-primary font-mono text-xs">${displayPrice}</p>
+                            <p class="text-[10px] text-on-surface-variant font-mono mt-0.5">${displayEmi} / month</p>
+                        </td>
+                        <td class="p-4">
+                            <span class="px-2.5 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider ${badgeColor}">${v.status}</span>
+                        </td>
+                        <td class="p-4 text-center">
+                            <div class="flex items-center justify-center gap-2">
+                                <button ${editAction} class="${editDisabledClass} hover:text-primary transition-colors p-1" title="Edit Vehicle">
+                                    <span class="material-symbols-outlined text-base">edit</span>
+                                </button>
+                                <button ${deleteAction} class="${deleteDisabledClass} hover:text-red-500 transition-colors p-1" title="Delete Vehicle">
+                                    <span class="material-symbols-outlined text-base">delete</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function openVehicleModal(id = null) {
+            // Check permissions
+            if (currentUser.role === 'staff') {
+                alert("Restricted Action: Sales Staff cannot add or modify vehicles.");
+                return;
+            }
+
+            const modal = document.getElementById('modal-vehicle');
+            const title = document.getElementById('modal-vehicle-title');
+            const form = modal.querySelector('form');
+            form.reset();
+            document.getElementById('modal-vehicle-id').value = "";
+
+            if (id) {
+                title.innerHTML = `<span class="material-symbols-outlined text-primary-container">edit</span> Edit Showroom Listing`;
+                const vehicles = db.getVehicles() || [];
+                const v = vehicles.find(item => item.id === id);
+                if (v) {
+                    document.getElementById('modal-vehicle-id').value = v.id;
+                    document.getElementById('modal-vehicle-brand').value = v.brand;
+                    document.getElementById('modal-vehicle-name').value = v.name;
+                    document.getElementById('modal-vehicle-category').value = v.category;
+                    document.getElementById('modal-vehicle-year').value = v.year;
+                    document.getElementById('modal-vehicle-price').value = v.price;
+                    document.getElementById('modal-vehicle-emi').value = v.emi;
+                    document.getElementById('modal-vehicle-km').value = v.km;
+                    document.getElementById('modal-vehicle-fuel').value = v.fuel;
+                    document.getElementById('modal-vehicle-transmission').value = v.transmission;
+                    document.getElementById('modal-vehicle-condition').value = v.specs.condition || 'Excellent';
+                    document.getElementById('modal-vehicle-color').value = v.color;
+                    document.getElementById('modal-vehicle-img').value = v.img;
+                    
+                    document.getElementById('modal-vehicle-spec-engine').value = v.specs.engine;
+                    document.getElementById('modal-vehicle-spec-power').value = v.specs.power;
+                    document.getElementById('modal-vehicle-spec-torque').value = v.specs.torque;
+                    document.getElementById('modal-vehicle-spec-clearance').value = v.specs.groundClearance;
+                    
+                    document.getElementById('modal-vehicle-desc').value = v.description || "";
+                    document.getElementById('modal-vehicle-featured').checked = v.featured || false;
+                    document.getElementById('modal-vehicle-status').value = v.status;
+                }
+            } else {
+                title.innerHTML = `<span class="material-symbols-outlined text-primary-container">directions_car</span> Add Showroom Listing`;
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeVehicleModal() {
+            const modal = document.getElementById('modal-vehicle');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleSaveVehicle(e) {
+            e.preventDefault();
+            const id = document.getElementById('modal-vehicle-id').value;
+            const vehicles = db.getVehicles() || [];
+
+            const brand = document.getElementById('modal-vehicle-brand').value.trim();
+            const name = document.getElementById('modal-vehicle-name').value.trim();
+            const category = document.getElementById('modal-vehicle-category').value;
+            const year = parseInt(document.getElementById('modal-vehicle-year').value);
+            const price = parseInt(document.getElementById('modal-vehicle-price').value);
+            const emi = parseInt(document.getElementById('modal-vehicle-emi').value);
+            const km = parseInt(document.getElementById('modal-vehicle-km').value);
+            const fuel = document.getElementById('modal-vehicle-fuel').value;
+            const transmission = document.getElementById('modal-vehicle-transmission').value;
+            const color = document.getElementById('modal-vehicle-color').value.trim();
+            const img = document.getElementById('modal-vehicle-img').value.trim();
+            
+            const engine = document.getElementById('modal-vehicle-spec-engine').value.trim();
+            const power = document.getElementById('modal-vehicle-spec-power').value.trim();
+            const torque = document.getElementById('modal-vehicle-spec-torque').value.trim();
+            const clearance = document.getElementById('modal-vehicle-spec-clearance').value.trim();
+            
+            const desc = document.getElementById('modal-vehicle-desc').value.trim();
+            const featured = document.getElementById('modal-vehicle-featured').checked;
+            const status = document.getElementById('modal-vehicle-status').value;
+
+            if (id) {
+                // Update
+                const index = vehicles.findIndex(v => v.id === parseInt(id));
+                if (index !== -1) {
+                    vehicles[index] = {
+                        ...vehicles[index],
+                        brand, name, category, year, price, emi, km, fuel, transmission, color, img, status, featured,
+                        description: desc,
+                        specs: { engine, power, torque, groundClearance: clearance, seats: 5, gearBox: transmission + " " + fuel },
+                    };
+                    db.addLog(`Updated vehicle profile details: ${year} ${brand} ${name}`);
+                }
+            } else {
+                // Insert
+                const newId = vehicles.length > 0 ? Math.max(...vehicles.map(v => v.id)) + 1 : 1;
+                vehicles.push({
+                    id: newId,
+                    brand, name, category, year, price, emi, km, fuel, transmission, color, img, status, featured,
+                    description: desc,
+                    specs: { engine, power, torque, groundClearance: clearance, seats: 5, gearBox: transmission + " " + fuel },
+                    features: ["Inspected Engine", "Certified Gearbox", "Clear Title", "AC", "Safety Airbags"]
+                });
+                db.addLog(`Added new showroom listing: ${year} ${brand} ${name}`);
+            }
+
+            db.saveVehicles(vehicles);
+            closeVehicleModal();
+            
+            // Refresh tables & counts
+            renderVehicleTable();
+            refreshOverviewCounters();
+            refreshCharts();
+        }
+
+        function deleteVehicle(id) {
+            // Check permissions
+            const roleInfo = rolePermissions[currentUser.role];
+            if (!roleInfo.canDeleteVehicles) {
+                alert("Restricted Action: You do not have permissions to delete showroom vehicles.");
+                return;
+            }
+
+            if (confirm("Are you sure you want to permanently delete this vehicle from inventory?")) {
+                let vehicles = db.getVehicles() || [];
+                const target = vehicles.find(v => v.id === id);
+                vehicles = vehicles.filter(v => v.id !== id);
+                db.saveVehicles(vehicles);
+                
+                if (target) {
+                    db.addLog(`Deleted vehicle from database: ${target.year} ${target.brand} ${target.name}`);
+                }
+
+                renderVehicleTable();
+                refreshOverviewCounters();
+                refreshCharts();
+            }
+        }
+
+
+        // ============================================== -->
+        // CATEGORY CONTROL                               -->
+        // ============================================== -->
+        function renderCategoryView() {
+            const categories = db.getCategories() || [];
+            const vehicles = db.getVehicles() || [];
+            const container = document.getElementById('inventory-categories-list');
+            if (!container) return;
+
+            container.innerHTML = categories.map(cat => {
+                const count = vehicles.filter(v => v.category === cat).length;
+                
+                // Show delete button only if it has 0 items and role is manager/admin
+                const canDelete = count === 0 && currentUser.role !== 'staff';
+                const deleteBtn = canDelete ? `<button onclick="deleteCategory('${cat}')" class="text-on-surface-variant hover:text-red-500 transition-colors p-1"><span class="material-symbols-outlined text-sm font-semibold">delete</span></button>` : "";
+
+                return `
+                    <div class="p-3.5 bg-surface border border-white/5 rounded-lg flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary-container text-base">folder</span>
+                            <span class="text-xs text-white font-bold tracking-wider uppercase">${cat}</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-[10px] bg-white/5 font-mono px-2 py-0.5 rounded text-on-surface-variant">${count} Cars</span>
+                            ${deleteBtn}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function openCategoryModal() {
+            if (currentUser.role === 'staff') {
+                alert("Restricted Action: Staff cannot manage folders.");
+                return;
+            }
+            const modal = document.getElementById('modal-category');
+            modal.querySelector('form').reset();
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeCategoryModal() {
+            document.getElementById('modal-category').classList.add('hidden');
+            document.getElementById('modal-category').classList.remove('flex');
+        }
+
+        function handleSaveCategory(e) {
+            e.preventDefault();
+            const name = document.getElementById('modal-category-name').value.trim();
+            const categories = db.getCategories() || [];
+
+            if (categories.includes(name)) {
+                alert("This category folder already exists!");
+                return;
+            }
+
+            categories.push(name);
+            db.saveCategories(categories);
+            db.addLog(`Created inventory folder category: ${name.toUpperCase()}`);
+            closeCategoryModal();
+
+            // Refresh views & modal options
+            renderCategoryView();
+            populateCategoryDropdowns();
+            refreshCharts();
+        }
+
+        function deleteCategory(cat) {
+            let categories = db.getCategories() || [];
+            categories = categories.filter(c => c !== cat);
+            db.saveCategories(categories);
+            db.addLog(`Deleted category folder: ${cat.toUpperCase()}`);
+            
+            renderCategoryView();
+            populateCategoryDropdowns();
+            refreshCharts();
+        }
+
+        function populateCategoryDropdowns() {
+            const categories = db.getCategories() || [];
+            const filterDropdown = document.getElementById('vehicle-filter-category');
+            const modalDropdown = document.getElementById('modal-vehicle-category');
+
+            if (filterDropdown) {
+                filterDropdown.innerHTML = `<option value="">All Categories</option>` + categories.map(c => `<option value="${c}">${c}</option>`).join('');
+            }
+            if (modalDropdown) {
+                modalDropdown.innerHTML = categories.map(c => `<option value="${c}">${c}</option>`).join('');
+            }
+        }
+
+
+        // ============================================== -->
+        // INQUIRY RESOLUTION                             -->
+        // ============================================== -->
+        function renderInquiryTable() {
+            const inquiries = db.getInquiries() || [];
+            const tbody = document.getElementById('inquiries-table-body');
+            if (!tbody) return;
+
+            const statusVal = document.getElementById('inquiry-filter-status').value;
+            const typeVal = document.getElementById('inquiry-filter-type').value;
+
+            let filtered = inquiries.filter(i => {
+                const matchesStatus = statusVal === "" || i.status === statusVal;
+                const matchesType = typeVal === "" || i.type === typeVal;
+                return matchesStatus && matchesType;
+            });
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-on-surface-variant">No inquiries in active queue.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(i => {
+                let badgeClass = "bg-primary-container/10 text-primary border border-primary-container/20";
+                if (i.status === 'Contacted') badgeClass = "bg-amber-500/10 text-amber-400 border border-amber-500/20";
+                if (i.status === 'Interested') badgeClass = "bg-blue-500/10 text-blue-400 border border-blue-500/20";
+                if (i.status === 'Closed') badgeClass = "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+
+                const isWhatsapp = i.type === 'WhatsApp';
+                const whatsappUrl = `https://wa.me/977${i.phone.replace(/[^0-9]/g, "")}`;
+                const btnAction = isWhatsapp 
+                    ? `<a href="${whatsappUrl}" target="_blank" onclick="updateInquiryStatus(${i.id}, 'Contacted')" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-display text-[9px] font-bold tracking-widest uppercase flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">chat</span> Chat WhatsApp</a>`
+                    : `<button onclick="triggerEmailReply(${i.id})" class="px-2.5 py-1.5 rounded-lg bg-surface border border-white/5 hover:text-primary transition-colors text-white font-display text-[9px] font-bold tracking-widest uppercase flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">mail</span> Email Reply</button>`;
+
+                return `
+                    <tr class="hover:bg-white/[0.02] transition-colors border-b border-white/5">
+                        <td class="p-4">
+                            <p class="font-semibold text-white">${i.name}</p>
+                            <p class="text-[10px] text-on-surface-variant mt-0.5">${i.phone} &bull; ${i.email}</p>
+                        </td>
+                        <td class="p-4">
+                            <span class="font-semibold uppercase tracking-wider text-[10px] text-white">${i.type}</span>
+                        </td>
+                        <td class="p-4 text-white">${i.target}</td>
+                        <td class="p-4 text-on-surface-variant leading-relaxed max-w-xs truncate" title="${i.details}">${i.details}</td>
+                        <td class="p-4">
+                            <select onchange="updateInquiryStatus(${i.id}, this.value)" class="bg-surface-container border border-white/5 rounded px-2 py-1 text-[10px] text-white focus:outline-none">
+                                <option value="New" ${i.status === 'New' ? 'selected' : ''}>New</option>
+                                <option value="Contacted" ${i.status === 'Contacted' ? 'selected' : ''}>Contacted</option>
+                                <option value="Interested" ${i.status === 'Interested' ? 'selected' : ''}>Interested</option>
+                                <option value="Closed" ${i.status === 'Closed' ? 'selected' : ''}>Closed</option>
+                            </select>
+                        </td>
+                        <td class="p-4 text-center">
+                            <div class="flex items-center justify-center gap-2">
+                                ${btnAction}
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function updateInquiryStatus(id, newStatus) {
+            const inquiries = db.getInquiries() || [];
+            const index = inquiries.findIndex(i => i.id === id);
+            if (index !== -1) {
+                inquiries[index].status = newStatus;
+                db.saveInquiries(inquiries);
+                db.addLog(`Updated inquiry lead #${id} status: ${newStatus.toUpperCase()}`);
+                
+                renderInquiryTable();
+                refreshOverviewCounters();
+            }
+        }
+
+        function triggerEmailReply(id) {
+            const inquiries = db.getInquiries() || [];
+            const target = inquiries.find(i => i.id === id);
+            if (target) {
+                alert(`Simulated email sent to: ${target.email} containing reconditioned spec sheets.`);
+                updateInquiryStatus(id, 'Contacted');
+            }
+        }
+
+
+        // ============================================== -->
+        // SALES LEDGER                                   -->
+        // ============================================== -->
+        function renderSalesLedger() {
+            const sales = db.getSales() || [];
+            const tbody = document.getElementById('sales-table-body');
+            if (!tbody) return;
+
+            if (sales.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-8 text-center text-on-surface-variant">No completed sales logged in database.</td></tr>`;
+                return;
+            }
+
+            // Calculations
+            const total = sales.reduce((sum, item) => sum + item.price, 0);
+            const avg = sales.length > 0 ? Math.round(total / sales.length) : 0;
+
+            document.getElementById('ledger-total-volume').innerText = formatNPR(total);
+            document.getElementById('ledger-total-units').innerText = `${sales.length} Cars`;
+            document.getElementById('ledger-avg-price').innerText = formatNPR(avg);
+
+            tbody.innerHTML = sales.map(s => `
+                <tr class="hover:bg-white/[0.02] border-b border-white/5 transition-colors">
+                    <td class="p-4 font-semibold text-white">${s.name}</td>
+                    <td class="p-4 text-white">${s.buyer}</td>
+                    <td class="p-4 font-semibold text-primary font-mono">${formatNPR(s.price)}</td>
+                    <td class="p-4 text-on-surface-variant">${s.date}</td>
+                    <td class="p-4 text-white">${s.salesperson}</td>
+                </tr>
+            `).join('');
+        }
+
+
+        // ============================================== -->
+        // USER / STAFF SYSTEM                            -->
+        // ============================================== -->
+        function renderUsersTable() {
+            const staff = db.getStaff() || [];
+            const tbody = document.getElementById('users-table-body');
+            if (!tbody) return;
+
+            tbody.innerHTML = staff.map(s => {
+                const badgeColor = s.active ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" : "bg-red-500/10 text-red-400 border border-red-500/20";
+                
+                // Mapped permission badges
+                let permissions = `<span class="bg-white/5 text-[9px] px-2 py-0.5 rounded text-on-surface-variant">Read Logs</span>`;
+                if (s.role === 'admin') {
+                    permissions = `<span class="bg-white/5 text-[9px] px-2 py-0.5 rounded text-primary-container font-semibold mr-1 border border-primary-container/10">Full Access</span><span class="bg-white/5 text-[9px] px-2 py-0.5 rounded text-primary-container font-semibold border border-primary-container/10">Edit System</span>`;
+                } else if (s.role === 'manager') {
+                    permissions = `<span class="bg-white/5 text-[9px] px-2 py-0.5 rounded text-white font-semibold mr-1">Modify Stock</span><span class="bg-white/5 text-[9px] px-2 py-0.5 rounded text-on-surface-variant">Process Leads</span>`;
+                }
+
+                // Check permissions to edit/delete staff
+                const isSelf = currentUser.email === s.email;
+                const canModify = rolePermissions[currentUser.role].canEditStaff && !isSelf;
+                
+                const disabledClass = canModify ? "" : "opacity-30 cursor-not-allowed";
+                const editAction = canModify ? `onclick="openStaffModal(${s.id})"` : "";
+                const deleteAction = canModify ? `onclick="deleteStaff(${s.id})"` : "";
+
+                return `
+                    <tr class="hover:bg-white/[0.02] border-b border-white/5 transition-colors">
+                        <td class="p-4">
+                            <div class="flex items-center gap-3">
+                                <div class="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center font-display font-semibold text-white text-xs">
+                                    ${s.name.split(' ').map(n=>n[0]).join('')}
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-white">${s.name}</p>
+                                    ${isSelf ? '<span class="text-[8px] bg-primary/20 text-primary border border-primary/30 px-1 py-0.5 rounded font-bold uppercase tracking-wider">You</span>' : ''}
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-4 text-on-surface-variant font-mono">${s.email}</td>
+                        <td class="p-4 uppercase tracking-wider text-[10px] text-white font-bold font-display">${s.role}</td>
+                        <td class="p-4 select-none">${permissions}</td>
+                        <td class="p-4 select-none">
+                            <span class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${badgeColor}">${s.active ? 'Active' : 'Disabled'}</span>
+                        </td>
+                        <td class="p-4 text-center">
+                            <div class="flex items-center justify-center gap-2">
+                                <button ${editAction} class="${disabledClass} hover:text-primary transition-colors p-1" title="Edit Permissions">
+                                    <span class="material-symbols-outlined text-base">edit</span>
+                                </button>
+                                <button ${deleteAction} class="${disabledClass} hover:text-red-500 transition-colors p-1" title="Delete Account">
+                                    <span class="material-symbols-outlined text-base">delete</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function openStaffModal(id = null) {
+            // Check permissions
+            if (!rolePermissions[currentUser.role].canEditStaff) {
+                alert("Restricted Action: Only Administrators can create or modify staff accounts.");
+                return;
+            }
+
+            const modal = document.getElementById('modal-staff');
+            const title = document.getElementById('modal-staff-title');
+            const form = modal.querySelector('form');
+            form.reset();
+            document.getElementById('modal-staff-id').value = "";
+
+            if (id) {
+                title.innerHTML = `<span class="material-symbols-outlined text-primary-container">edit</span> Edit Staff Permissions`;
+                const staff = db.getStaff() || [];
+                const s = staff.find(item => item.id === id);
+                if (s) {
+                    document.getElementById('modal-staff-id').value = s.id;
+                    document.getElementById('modal-staff-name').value = s.name;
+                    document.getElementById('modal-staff-email').value = s.email;
+                    document.getElementById('modal-staff-role').value = s.role;
+                    document.getElementById('modal-staff-active').checked = s.active;
+                }
+            } else {
+                title.innerHTML = `<span class="material-symbols-outlined text-primary-container">person_add</span> Add Staff Member`;
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeStaffModal() {
+            document.getElementById('modal-staff').classList.add('hidden');
+            document.getElementById('modal-staff').classList.remove('flex');
+        }
+
+        function handleSaveStaff(e) {
+            e.preventDefault();
+            const id = document.getElementById('modal-staff-id').value;
+            const staff = db.getStaff() || [];
+
+            const name = document.getElementById('modal-staff-name').value.trim();
+            const email = document.getElementById('modal-staff-email').value.trim();
+            const role = document.getElementById('modal-staff-role').value;
+            const active = document.getElementById('modal-staff-active').checked;
+
+            if (id) {
+                const index = staff.findIndex(s => s.id === parseInt(id));
+                if (index !== -1) {
+                    staff[index] = { ...staff[index], name, email, role, active };
+                    db.addLog(`Updated staff configurations for: ${name} (${role.toUpperCase()})`);
+                }
+            } else {
+                const newId = staff.length > 0 ? Math.max(...staff.map(s => s.id)) + 1 : 1;
+                staff.push({ id: newId, name, email, role, active });
+                db.addLog(`Created new staff login account: ${name} (${role.toUpperCase()})`);
+            }
+
+            db.saveStaff(staff);
+            closeStaffModal();
+            renderUsersTable();
+        }
+
+        function deleteStaff(id) {
+            if (confirm("Are you sure you want to permanently disable and delete this staff member account?")) {
+                let staff = db.getStaff() || [];
+                const target = staff.find(s => s.id === id);
+                staff = staff.filter(s => s.id !== id);
+                db.saveStaff(staff);
+
+                if (target) {
+                    db.addLog(`Deleted staff account record: ${target.name}`);
+                }
+
+                renderUsersTable();
+            }
+        }
+
+
+        // ============================================== -->
+        // DYNAMIC CHARTS PLOTS ENGINE                    -->
+        // ============================================== -->
+        let chartSales, chartInventory, chartInquiries, chartCategories;
+
+        function buildOverviewSalesChart() {
+            const ctx = document.getElementById('chart-overview-sales').getContext('2d');
+            chartSales = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                    datasets: [{
+                        label: 'Estimated Sales Volume (LPR)',
+                        data: [120, 190, 150, 240, 206],
+                        borderColor: '#ff571a',
+                        backgroundColor: 'rgba(255, 87, 26, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { color: '#e6beb2' }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#e6beb2' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function buildInventoryDistributionChart() {
+            const ctx = document.getElementById('chart-inventory-distribution').getContext('2d');
+            const vehicles = db.getVehicles() || [];
+            
+            // Collect category distributions
+            const distribution = {};
+            vehicles.forEach(v => {
+                distribution[v.category] = (distribution[v.category] || 0) + 1;
+            });
+
+            chartInventory = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(distribution),
+                    datasets: [{
+                        data: Object.values(distribution),
+                        backgroundColor: '#ffb59e',
+                        borderRadius: 4,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { color: '#e6beb2', stepSize: 1 }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#e6beb2' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function buildAnalyticsInquiriesChart() {
+            const ctx = document.getElementById('chart-analytics-inquiries').getContext('2d');
+            chartInquiries = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['WhatsApp Inquiries', 'Test Drives Requested', 'Trade-In Valuations'],
+                    datasets: [{
+                        data: [2, 3, 1],
+                        backgroundColor: ['#ff571a', '#ffb59e', '#383940'],
+                        borderColor: '#12131a',
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#e2e1eb', font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+        }
+
+        function buildAnalyticsCategoriesChart() {
+            const ctx = document.getElementById('chart-analytics-categories').getContext('2d');
+            chartCategories = new Chart(ctx, {
+                type: 'polarArea',
+                data: {
+                    labels: ['SUV', 'EV', 'Pickup', 'Sedan'],
+                    datasets: [{
+                        data: [38, 24, 18, 12],
+                        backgroundColor: ['rgba(255, 87, 26, 0.6)', 'rgba(255, 181, 158, 0.6)', 'rgba(56, 57, 64, 0.6)', 'rgba(255, 255, 255, 0.1)'],
+                        borderColor: 'rgba(255,255,255,0.05)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#e2e1eb', font: { size: 10 } }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            angleLines: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        function refreshCharts() {
+            // Destroy and rebuild to reflect latest database values
+            if (chartInventory) {
+                chartInventory.destroy();
+                buildInventoryDistributionChart();
+            }
+            if (chartCategories) {
+                chartCategories.destroy();
+                buildAnalyticsCategoriesChart();
+            }
+        }
+
+
+        // ============================================== -->
+        // PLATFORM SETTINGS FORM                          -->
+        // ============================================== -->
+        function loadSettingsForm() {
+            const s = db.getSettings();
+            if (!s) return;
+
+            document.getElementById('settings-name').value = s.name;
+            document.getElementById('settings-address').value = s.address;
+            document.getElementById('settings-phone').value = s.phone;
+            document.getElementById('settings-whatsapp').value = s.whatsapp;
+            document.getElementById('settings-email').value = s.email;
+            document.getElementById('settings-maps').value = s.maps || "";
+            document.getElementById('settings-facebook').value = s.facebook || "";
+            document.getElementById('settings-instagram').value = s.instagram || "";
+            document.getElementById('settings-seo-title').value = s.seoTitle || "";
+            document.getElementById('settings-seo-desc').value = s.seoDesc || "";
+        }
+
+        function handleSaveSettings(e) {
+            e.preventDefault();
+            
+            // Check permissions
+            if (!rolePermissions[currentUser.role].canEditSettings) {
+                alert("Restricted Action: You do not have permissions to edit system dealership settings.");
+                return;
+            }
+
+            const updated = {
+                name: document.getElementById('settings-name').value.trim(),
+                address: document.getElementById('settings-address').value.trim(),
+                phone: document.getElementById('settings-phone').value.trim(),
+                whatsapp: document.getElementById('settings-whatsapp').value.trim(),
+                email: document.getElementById('settings-email').value.trim(),
+                maps: document.getElementById('settings-maps').value.trim(),
+                facebook: document.getElementById('settings-facebook').value.trim(),
+                instagram: document.getElementById('settings-instagram').value.trim(),
+                seoTitle: document.getElementById('settings-seo-title').value.trim(),
+                seoDesc: document.getElementById('settings-seo-desc').value.trim()
+            };
+
+            db.saveSettings(updated);
+            db.addLog("Updated dealership settings and metadata profiles.");
+            alert("Settings committed successfully!");
+        }
+
+
+        // ============================================== -->
+        // GLOBAL INTERACTIVE SEARCH                      -->
+        // ============================================== -->
+        function handleGlobalSearch() {
+            const query = document.getElementById('global-search-input').value.toLowerCase();
+            if (query.trim() === "") return;
+
+            // Route search to appropriate sections based on commands
+            if (query.includes('veh') || query.includes('car') || query.includes('crud')) {
+                switchTab('vehicles');
+            } else if (query.includes('inq') || query.includes('lead') || query.includes('test')) {
+                switchTab('inquiries');
+            } else if (query.includes('sale') || query.includes('rev') || query.includes('led')) {
+                switchTab('sales');
+            } else if (query.includes('user') || query.includes('staff')) {
+                switchTab('users');
+            } else if (query.includes('set') || query.includes('seo')) {
+                switchTab('settings');
+            } else if (query.includes('anal') || query.includes('char')) {
+                switchTab('analytics');
+            }
+        }
+
+        // Initialize helper dropdown lists
+        populateCategoryDropdowns();
+    </script>
+</body>
+</html>

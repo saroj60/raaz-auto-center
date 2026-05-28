@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>RAAZ AUTO | Premium Reconditioned Vehicles</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "on-primary": "#5e1700",
+              "on-background": "#e2e1eb",
+              "on-tertiary-fixed": "#001c3a",
+              "secondary-fixed": "#ffdad8",
+              "surface-bright": "#383940",
+              "outline-variant": "#5c4037",
+              "inverse-primary": "#ae3200",
+              "on-tertiary": "#00315e",
+              "surface-container-highest": "#33343c",
+              "on-primary-fixed-variant": "#852400",
+              "outline": "#ad897e",
+              "primary-fixed-dim": "#ffb59e",
+              "surface-variant": "#33343c",
+              "on-primary-fixed": "#3a0b00",
+              "on-secondary-container": "#ffb8b5",
+              "tertiary": "#a5c8ff",
+              "primary-container": "#ff571a",
+              "on-primary-container": "#521300",
+              "tertiary-fixed": "#d4e3ff",
+              "background": "#12131a",
+              "inverse-on-surface": "#2f3037",
+              "surface-dim": "#12131a",
+              "inverse-surface": "#e2e1eb",
+              "surface-container-lowest": "#0c0e14",
+              "secondary-fixed-dim": "#ffb3b1",
+              "error-container": "#93000a",
+              "error": "#ffb4ab",
+              "on-tertiary-fixed-variant": "#004785",
+              "surface": "#12131a",
+              "surface-tint": "#ffb59e",
+              "primary-fixed": "#ffdbd0",
+              "on-error": "#690005",
+              "primary": "#ffb59e",
+              "surface-container-low": "#1a1b22",
+              "on-surface": "#e2e1eb",
+              "tertiary-fixed-dim": "#a5c8ff",
+              "on-secondary": "#680011",
+              "on-error-container": "#ffdad6",
+              "surface-container-high": "#282a31",
+              "on-secondary-fixed-variant": "#92001c",
+              "on-secondary-fixed": "#410007",
+              "surface-container": "#1e1f26",
+              "secondary-container": "#ad0224",
+              "secondary": "#ffb3b1",
+              "on-tertiary-container": "#002a53"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem"
+            },
+            "spacing": {
+              "gutter": "24px",
+              "section-gap": "80px",
+              "container-max": "1280px",
+              "margin-mobile": "16px",
+              "unit": "4px"
+            },
+            "fontFamily": {
+              "display-lg-mobile": ["Montserrat"],
+              "body-lg": ["Inter"],
+              "display-lg": ["Montserrat"],
+              "headline-lg": ["Montserrat"],
+              "body-md": ["Inter"],
+              "headline-xl": ["Montserrat"],
+              "label-caps": ["Inter"],
+              "nepali-body": ["Inter"]
+            },
+            "fontSize": {
+              "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+              "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+              "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+              "headline-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+              "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+              "headline-xl": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+              "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+              "nepali-body": ["16px", {"lineHeight": "1.8", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(30, 31, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(173, 137, 126, 0.2);
+        }
+        .glass-card {
+            background: rgba(30, 31, 38, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(173, 137, 126, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 181, 158, 0.4);
+            box-shadow: 0 12px 40px 0 rgba(255, 87, 26, 0.08), 0px 24px 48px rgba(0, 0, 0, 0.5);
+            transform: translateY(-4px);
+        }
+        .turbo-button {
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .turbo-button:active {
+            transform: scale(0.95);
+            opacity: 0.8;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(255, 181, 158, 0.4);
+        }
+        .text-glow-hover:hover {
+            text-shadow: 0 0 10px rgba(255, 181, 158, 0.3);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #12131a; }
+        ::-webkit-scrollbar-thumb { background: #33343c; border-radius: 10px; }
+        
+        /* Language adjustments */
+        body.lang-ne .font-nepali-body,
+        body.lang-ne p,
+        body.lang-ne span,
+        body.lang-ne select,
+        body.lang-ne option,
+        body.lang-ne label {
+            line-height: 1.8 !important;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary lang-en transition-colors duration-300">
+
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/30 shadow-2xl shadow-black/50">
+    <div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-primary cursor-pointer lg:hidden hover:text-white transition-colors" data-icon="menu" onclick="toggleMobileNav()">menu</span>
+            <a class="font-display-lg text-headline-lg font-extrabold tracking-tighter text-primary select-none hover:opacity-90 transition-opacity" href="#">RAAZ AUTO</a>
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="font-label-caps text-label-caps text-primary font-bold hover:text-primary transition-colors duration-300" href="#" data-translate-key="nav-home">Home</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#" data-translate-key="nav-browse">Browse</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#" data-translate-key="nav-sell">Sell</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#" data-translate-key="nav-concierge">Concierge</a>
+        </div>
+        <div class="flex items-center gap-6">
+            <!-- Language Toggle -->
+            <button onclick="toggleLanguage()" id="lang-toggle-btn" class="px-3 py-1 text-xs font-bold rounded border border-primary/40 text-primary hover:bg-primary hover:text-on-primary transition-all duration-300 font-label-caps uppercase tracking-wider select-none">नेपाली</button>
+            <span class="material-symbols-outlined text-primary cursor-pointer hover:text-white transition-colors" data-icon="search" onclick="focusSearch()">search</span>
+            <span class="material-symbols-outlined text-primary cursor-pointer hidden md:block hover:text-white transition-colors" data-icon="person">person</span>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-nav-drawer" class="fixed inset-0 z-[60] bg-black/80 backdrop-blur-md hidden transition-opacity duration-300 opacity-0">
+    <div class="fixed top-0 left-0 bottom-0 w-3/4 max-w-xs bg-surface-container-low border-r border-outline-variant/20 p-6 flex flex-col justify-between">
+        <div>
+            <div class="flex justify-between items-center mb-10">
+                <span class="font-display-lg text-headline-lg font-extrabold tracking-tighter text-primary">RAAZ AUTO</span>
+                <span class="material-symbols-outlined text-primary cursor-pointer hover:text-white" data-icon="close" onclick="toggleMobileNav()">close</span>
+            </div>
+            <div class="flex flex-col gap-6">
+                <a class="font-label-caps text-headline-lg text-primary font-bold transition-colors" href="#" onclick="toggleMobileNav()" data-translate-key="nav-home">Home</a>
+                <a class="font-label-caps text-headline-lg text-on-surface-variant hover:text-primary transition-colors" href="#" onclick="toggleMobileNav()" data-translate-key="nav-browse">Browse</a>
+                <a class="font-label-caps text-headline-lg text-on-surface-variant hover:text-primary transition-colors" href="#" onclick="toggleMobileNav()" data-translate-key="nav-sell">Sell</a>
+                <a class="font-label-caps text-headline-lg text-on-surface-variant hover:text-primary transition-colors" href="#" onclick="toggleMobileNav()" data-translate-key="nav-concierge">Concierge</a>
+            </div>
+        </div>
+        <div class="border-t border-outline-variant/20 pt-6">
+            <div class="flex items-center gap-4 text-on-surface-variant">
+                <span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+                <div>
+                    <p class="text-xs font-label-caps text-primary">24/7 SUPPORT</p>
+                    <p class="text-sm font-bold">+977 1 4400000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent z-10"></div>
+        <img id="hero-bg-img" alt="RAAZ AUTO Hero SUV" class="w-full h-full object-cover object-center transition-transform duration-300 ease-out scale-105" data-alt="A powerful bright white Toyota Land Cruiser parked on a rugged, high-altitude road in the Kathmandu Valley..." src="bright_luxury_car.png"/>
+    </div>
+    <div class="relative z-20 max-w-container-max mx-auto px-gutter w-full">
+        <div class="max-w-2xl mt-8">
+            <h1 id="hero-title" class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight" data-translate-key="hero-title">
+                Find Your Perfect <span class="text-primary text-glow font-extrabold">Reconditioned</span> Vehicle in Kathmandu
+            </h1>
+            <p id="hero-desc" class="font-body-lg text-body-lg text-on-surface-variant mb-10 border-l-4 border-primary pl-6" data-translate-key="hero-badge">
+                Trusted, 150-point inspected vehicles for the modern Nepali driver. Experience luxury engineering without compromise.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <button onclick="scrollToFeatured()" class="turbo-button bg-primary-container text-on-primary-container hover:bg-primary transition-colors px-8 py-4 font-display-lg text-headline-lg flex items-center gap-2 rounded-lg font-bold shadow-lg shadow-primary-container/20">
+                    <span data-translate-key="btn-browse">Browse Cars</span> <span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+                </button>
+                <button class="turbo-button glass-panel text-on-surface px-8 py-4 font-display-lg text-headline-lg rounded-lg border border-outline/30 hover:bg-surface-variant/50 transition-all font-bold">
+                    <span data-translate-key="btn-sell">Sell Your Car</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Advanced Search Filter (Desktop) -->
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 w-full max-w-container-max px-gutter z-30 hidden md:block">
+        <div class="glass-panel p-8 rounded-xl shadow-2xl flex items-end gap-6 border border-outline/20">
+            <div class="flex-1">
+                <label class="font-label-caps text-label-caps text-primary mb-2 block" data-translate-key="filter-brand">Brand</label>
+                <select id="filter-brand-select" class="w-full bg-surface-container-low border-outline-variant/30 text-on-surface rounded-lg py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-shadow">
+                    <option data-translate-key="filter-all-brands">All Brands</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Hyundai">Hyundai</option>
+                    <option value="Tesla">Tesla</option>
+                    <option value="KIA">KIA</option>
+                    <option value="Suzuki">Suzuki</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <label class="font-label-caps text-label-caps text-primary mb-2 block" data-translate-key="filter-price">Price Range (NPR)</label>
+                <select id="filter-price-select" class="w-full bg-surface-container-low border-outline-variant/30 text-on-surface rounded-lg py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-shadow">
+                    <option data-translate-key="filter-any-price">Any Price</option>
+                    <option>Rs. 20L - 50L</option>
+                    <option>Rs. 50L - 1Cr</option>
+                    <option>Above 1Cr</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <label class="font-label-caps text-label-caps text-primary mb-2 block" data-translate-key="filter-fuel">Fuel Type</label>
+                <select id="filter-fuel-select" class="w-full bg-surface-container-low border-outline-variant/30 text-on-surface rounded-lg py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-shadow">
+                    <option data-translate-key="filter-all-fuels">All Fuels</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="EV">EV</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+            </div>
+            <button onclick="filterVehicles()" class="turbo-button bg-primary-container hover:bg-primary text-on-primary-container px-10 h-[50px] rounded-lg font-label-caps flex items-center justify-center gap-2 transition-colors font-bold shadow-md shadow-primary-container/10">
+                <span class="material-symbols-outlined text-lg" data-icon="search">search</span> <span data-translate-key="btn-search">Search</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Category Icons Section -->
+<section class="py-12 md:py-20 bg-surface-container-lowest border-y border-outline-variant/10">
+    <div class="max-w-container-max mx-auto px-gutter">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+            <!-- Category: SUV -->
+            <a class="group flex flex-col items-center p-8 glass-card rounded-xl hover:border-primary/40 transition-all text-center select-none" href="#" onclick="filterByCategory('SUV')">
+                <svg class="w-12 h-12 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M1.5 11.5h21M3.5 11.5l1.5-4h11.5l1.5 4M4.5 16.5a2 2 0 104 0 2 2 0 00-4 0zm11 0a2 2 0 104 0 2 2 0 00-4 0zM2.5 11.5v4h2M8.5 16.5h7M19.5 15.5v-4M9.5 7.5V5.5h5v2" />
+                </svg>
+                <span class="font-display-lg text-headline-lg font-bold" data-translate-key="cat-suv">SUV</span>
+            </a>
+            <!-- Category: Sedan -->
+            <a class="group flex flex-col items-center p-8 glass-card rounded-xl hover:border-primary/40 transition-all text-center select-none" href="#" onclick="filterByCategory('Sedan')">
+                <svg class="w-12 h-12 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M1.5 13.5h21M6.5 13.5l1.5-4h8l1.5 4M4.5 16.5a2 2 0 104 0 2 2 0 00-4 0zm11 0a2 2 0 104 0 2 2 0 00-4 0zM2.5 13.5v2h2M8.5 16.5h7M19.5 15.5v-2" />
+                </svg>
+                <span class="font-display-lg text-headline-lg font-bold" data-translate-key="cat-sedan">SEDAN</span>
+            </a>
+            <!-- Category: EV -->
+            <a class="group flex flex-col items-center p-8 glass-card rounded-xl hover:border-primary/40 transition-all text-center select-none" href="#" onclick="filterByCategory('EV')">
+                <svg class="w-12 h-12 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2 13h20M7 13l1-3.5h8l1 3.5M5 16a1.5 1.5 0 103 0 1.5 1.5 0 00-3 0zm11 0a1.5 1.5 0 103 0 1.5 1.5 0 00-3 0zm-8.5.5h6" />
+                    <path d="M13.5 3L10 7.5h4L11.5 11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+                <span class="font-display-lg text-headline-lg font-bold" data-translate-key="cat-ev">EV</span>
+            </a>
+            <!-- Category: Pickup -->
+            <a class="group flex flex-col items-center p-8 glass-card rounded-xl hover:border-primary/40 transition-all text-center select-none" href="#" onclick="filterByCategory('Pickup')">
+                <svg class="w-12 h-12 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M1.5 13.5h21M6.5 13.5l1.5-4.5h5.5v4.5M13.5 9h6v4.5M4.5 16.5a2 2 0 104 0 2 2 0 00-4 0zm11 0a2 2 0 104 0 2 2 0 00-4 0zm-7 0h7M2.5 13.5v2h2" />
+                </svg>
+                <span class="font-display-lg text-headline-lg font-bold" data-translate-key="cat-pickup">PICKUP</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Vehicles -->
+<section id="featured-section" class="py-12 md:py-20">
+    <div class="max-w-container-max mx-auto px-gutter">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+            <div>
+                <h2 class="font-display-lg text-headline-xl mb-2" data-translate-key="featured-title">Featured Collection</h2>
+                <p class="text-on-surface-variant font-body-md" data-translate-key="featured-sub">Hand-selected luxury for the discerning driver</p>
+            </div>
+            
+            <!-- Mobile Filters Trigger & Reset -->
+            <div class="flex w-full md:w-auto gap-4 items-center justify-between md:justify-end">
+                <button onclick="toggleMobileFilter()" class="md:hidden flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-high text-primary border border-outline-variant/30 text-sm font-label-caps font-bold">
+                    <span class="material-symbols-outlined text-sm" data-icon="tune">tune</span> Filters
+                </button>
+                <a class="text-primary font-label-caps flex items-center gap-2 hover:underline cursor-pointer select-none" onclick="resetFilters()">
+                    <span data-translate-key="view-all">View All</span> <span class="material-symbols-outlined text-lg" data-icon="arrow_right_alt">arrow_right_alt</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Dynamic Search Filters for Mobile (Collapsible) -->
+        <div id="mobile-filter-drawer" class="hidden glass-panel p-6 rounded-xl mb-8 border border-outline/30 flex-col gap-4 animate-fade-in md:hidden">
+            <div>
+                <label class="font-label-caps text-xs text-primary mb-1 block" data-translate-key="filter-brand">Brand</label>
+                <select id="filter-brand-mobile" class="w-full bg-surface-container-low border-outline-variant/30 text-on-surface rounded-lg py-2 text-sm focus:ring-primary focus:border-primary">
+                    <option data-translate-key="filter-all-brands">All Brands</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Hyundai">Hyundai</option>
+                    <option value="Tesla">Tesla</option>
+                    <option value="KIA">KIA</option>
+                    <option value="Suzuki">Suzuki</option>
+                </select>
+            </div>
+            <div>
+                <label class="font-label-caps text-xs text-primary mb-1 block" data-translate-key="filter-price">Price Range (NPR)</label>
+                <select id="filter-price-mobile" class="w-full bg-surface-container-low border-outline-variant/30 text-on-surface rounded-lg py-2 text-sm focus:ring-primary focus:border-primary">
+                    <option data-translate-key="filter-any-price">Any Price</option>
+                    <option>Rs. 20L - 50L</option>
+                    <option>Rs. 50L - 1Cr</option>
+                    <option>Above 1Cr</option>
+                </select>
+            </div>
+            <div>
+                <label class="font-label-caps text-xs text-primary mb-1 block" data-translate-key="filter-fuel">Fuel Type</label>
+                <select id="filter-fuel-mobile" class="w-full bg-surface-container-low border-outline-variant/30 text-on-surface rounded-lg py-2 text-sm focus:ring-primary focus:border-primary">
+                    <option data-translate-key="filter-all-fuels">All Fuels</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="EV">EV</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+            </div>
+            <button onclick="applyMobileFilters()" class="turbo-button bg-primary-container text-on-primary-container w-full py-3 rounded-lg font-label-caps font-bold mt-2 flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-sm" data-icon="search">search</span> <span data-translate-key="btn-search">Search</span>
+            </button>
+        </div>
+        
+        <!-- Vehicles Grid -->
+        <div id="vehicles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter transition-all duration-300">
+            
+            <!-- Vehicle Card 1 -->
+            <div class="vehicle-card glass-card group rounded-xl overflow-hidden" data-brand="Hyundai" data-category="SUV" data-price="8550000" data-fuel="Diesel">
+                <div class="relative h-64 overflow-hidden select-none">
+                    <img alt="Hyundai Tucson" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwbx4wQVJ5uzm0neWc8lC9SP-Di2vhPdLqaXCqfm5iAPyup3LMc0MGxCFnuriYxU1_FN4o_mW78gWZCFlXM3Nc2BnjKKX1EIU9SVEDKHvOv3eyOJiBujEN22XssBq7lnrdCeOe7UVpO4euP9fG9JbADze5VNSEf5-ZQ69_assWYlTddG81rjf727c35YNr9g_Ny9Gmxmq9fVnU1fD-dOccs8mTLJnHvHONORczo8F-5ZAKTwI6xT8UjKz6guMxGNuRebIi6-F2GqgR"/>
+                    <div class="absolute top-4 right-4 bg-primary text-on-primary font-label-caps px-3 py-1 rounded-sm font-bold text-[10px] tracking-wider select-none shadow-md shadow-black/20" data-translate-key="card-featured">FEATURED</div>
+                    <div onclick="openInspectionModal('Hyundai Tucson')" class="absolute bottom-4 left-4 bg-surface/80 hover:bg-primary hover:text-on-primary backdrop-blur-md text-primary border border-outline/30 px-3 py-1.5 rounded-lg flex items-center gap-1.5 cursor-pointer text-xs font-label-caps font-bold transition-all shadow-lg select-none">
+                        <span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span> <span data-translate-key="inspection-view">View Inspection Report</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-display-lg text-headline-lg mb-2 text-glow-hover transition-all" data-translate-key="car-1-title">2021 Hyundai Tucson</h3>
+                    <div class="flex flex-wrap gap-2 mb-6 select-none">
+                        <span class="bg-surface-container-highest text-on-surface text-xs font-bold uppercase px-3 py-1 rounded-sm" data-translate-key="car-1-mileage">24,000 KM</span>
+                        <span class="bg-surface-container-highest text-on-surface text-xs font-bold uppercase px-3 py-1 rounded-sm" data-translate-key="car-1-fuel">Diesel</span>
+                        <span class="bg-surface-container-highest text-on-surface text-xs font-bold uppercase px-3 py-1 rounded-sm" data-translate-key="car-1-trans">Automatic</span>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-outline-variant/30 pt-6">
+                        <div>
+                            <p class="text-primary font-body-lg font-bold tabular-nums tracking-wide text-lg" data-translate-key="car-1-price">Rs.&nbsp;85,50,000</p>
+                            <p onclick="openEMICalculator('2021 Hyundai Tucson', 8550000)" class="text-xs text-on-surface-variant font-label-caps mt-1 hover:text-primary cursor-pointer transition-colors select-none flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[12px]" data-icon="calculate">calculate</span>
+                                <span data-translate-key="car-1-emi">EMI from Rs.&nbsp;1,20,000</span>
+                            </p>
+                        </div>
+                        <button onclick="openEMICalculator('2021 Hyundai Tucson', 8550000)" class="bg-surface-container-high hover:bg-primary hover:text-on-primary p-3 rounded-full transition-all duration-300 shadow-md hover:shadow-primary-container/20">
+                            <span class="material-symbols-outlined font-bold text-sm block" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vehicle Card 2 -->
+            <div class="vehicle-card glass-card group rounded-xl overflow-hidden" data-brand="Toyota" data-category="Pickup" data-price="9200000" data-fuel="Diesel">
+                <div class="relative h-64 overflow-hidden select-none">
+                    <img alt="Toyota Hilux" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDavJilN8zHGnQqjw8Jsjj8bqynuNRQCz5K4uIOUHVNZgD7rmOSWyLFQREJ7l_Lu7uWp5Gv317kn0BTv9K0h_n31Fz3Sv5oLFl34KGOw2doBfcRI3ZODJmVJs8Ssx4F7t-8r8B7P8BDE9oEwlZCO_6f_8BWuxkiv4Df9nGp3ewQsvJZWDt6tuY5MNkwtN8ZeGwo89Y8Yxb6yHq2lvcU6s1IPFYCvPpUP4iMjJjeRCtChsoseO1RZhaknMRgAtCAJIHxOdCtVjzqrrfu"/>
+                    <div onclick="openInspectionModal('Toyota Hilux')" class="absolute bottom-4 left-4 bg-surface/80 hover:bg-primary hover:text-on-primary backdrop-blur-md text-primary border border-outline/30 px-3 py-1.5 rounded-lg flex items-center gap-1.5 cursor-pointer text-xs font-label-caps font-bold transition-all shadow-lg select-none">
+                        <span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span> <span data-translate-key="inspection-view">View Inspection Report</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-display-lg text-headline-lg mb-2 text-glow-hover transition-all" data-translate-key="car-2-title">2019 Toyota Hilux</h3>
+                    <div class="flex flex-wrap gap-2 mb-6 select-none">
+                        <span class="bg-surface-container-highest text-on-surface text-xs font-bold uppercase px-3 py-1 rounded-sm" data-translate-key="car-2-mileage">42,000 KM</span>
+                        <span class="bg-surface-container-highest text-on-surface text-xs font-bold uppercase px-3 py-1 rounded-sm" data-translate-key="car-2-fuel">Diesel</span>
+                        <span class="bg-surface-container-highest text-on-surface text-xs font-bold uppercase px-3 py-1 rounded-sm" data-translate-key="car-2-trans">Manual</span>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-outline-variant/30 pt-6">
+                        <div>
+                            <p class="text-primary font-body-lg font-bold tabular-nums tracking-wide text-lg" data-translate-key="car-2-price">Rs.&nbsp;92,00,000</p>
+                            <p onclick="openEMICalculator('2019 Toyota Hilux', 9200000)" class="text-xs text-on-surface-variant font-label-caps mt-1 hover:text-primary cursor-pointer transition-colors select-none flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[12px]" data-icon="calculate">calculate</span>
+                                <span data-translate-key="car-2-emi">EMI from Rs.&nbsp;1,45,000</span>
+                            </p>
+                        </div>
+                        <button onclick="openEMICalculator('2019 Toyota Hilux', 9200000)" class="bg-surface-container-high hover:bg-primary hover:text-on-primary p-3 rounded-full transition-all duration-300 shadow-md hover:shadow-primary-container/20">
+                            <span class="material-symbols-outlined font-bold text-sm block" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vehicle Card 3 -->
+            <div class="vehicle-card glass-card group rounded-xl overflow-hidden" data-brand="Tesla" data-category="EV" data-price="14500000" data-fuel="EV">
+                <div class="relative h-64 overflow-hidden select-none">
+                    <img alt="Electric SUV" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoPmWpqhKP1TMCMbnn1WfUfsfGTjQggmQ6oT-ORRyF21lCBbGIjqUyWLnVPVLGrjLo0_C9KybFyU33oi5O5aqiUUBGrKlKOgQNQUAVH36jH1ArsHO2btSsB10ba8RUZlcwXR-e5aQsY6M6rAHYtGrTW4bqVjooTSdYN34XHi0XSDEdpB6Rm8wOjQ61HyDAxInymFRjplJ2QxMVzJP6_C0tAXTKNiTJpu0Ngz3h5OaWeHD_llfmWbDhoCAdMqXy9xNumxI5l14lKe57"/>
+                    <div class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container font-label-caps px-3 py-1 rounded-sm font-bold text-[10px] tracking-wider select-none shadow-md shadow-black/20" data-translate-key="card-new">NEW ARRIVAL</div>
+                    <div onclick="openInspectionModal('2023 Tesla Model Y')" class="absolute bottom-4 left-4 bg-surface/80 hover:bg-primary hover:text-on-primary backdrop-blur-md text-primary border border-outline/30 px-3 py-1.5 rounded-lg flex items-center gap-1.5 cursor-pointer text-xs font-label-caps font-bold transition-all shadow-lg select-none">
+                        <span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span> <span data-translate-key="inspection-view">View Inspection Report</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-display-lg text-headline-lg mb-2 text-glow-hover transition-all" data-translate-key="car-3-title">2023 Tesla Model Y</h3>
+                    <div class="flex flex-wrap gap-2 mb-6 select-none">
+                        <span class="bg-surface-container-highest text-on-surface text-xs font-bold uppercase px-3 py-1 rounded-sm" data-translate-key="car-3-mileage">3,500 KM</span>
+                        <span class="bg-surface-container-highest text-on-surface text-xs font-bold uppercase px-3 py-1 rounded-sm" data-translate-key="car-3-fuel">EV</span>
+                        <span class="bg-surface-container-highest text-on-surface text-xs font-bold uppercase px-3 py-1 rounded-sm" data-translate-key="car-3-trans">AWD</span>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-outline-variant/30 pt-6">
+                        <div>
+                            <p class="text-primary font-body-lg font-bold tabular-nums tracking-wide text-lg" data-translate-key="car-3-price">Rs.&nbsp;1,45,00,000</p>
+                            <p onclick="openEMICalculator('2023 Tesla Model Y', 14500000)" class="text-xs text-on-surface-variant font-label-caps mt-1 hover:text-primary cursor-pointer transition-colors select-none flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[12px]" data-icon="calculate">calculate</span>
+                                <span data-translate-key="car-3-emi">EMI from Rs.&nbsp;2,10,000</span>
+                            </p>
+                        </div>
+                        <button onclick="openEMICalculator('2023 Tesla Model Y', 14500000)" class="bg-surface-container-high hover:bg-primary hover:text-on-primary p-3 rounded-full transition-all duration-300 shadow-md hover:shadow-primary-container/20">
+                            <span class="material-symbols-outlined font-bold text-sm block" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Results Found Container -->
+        <div id="no-results-container" class="hidden glass-panel p-16 rounded-xl text-center border border-outline-variant/30 my-8 max-w-xl mx-auto opacity-0 transition-opacity duration-300">
+            <span class="material-symbols-outlined text-primary text-6xl mb-4" data-icon="search_off">search_off</span>
+            <p class="text-lg font-bold text-on-surface mb-4" data-translate-key="no-results">No vehicles found matching your criteria. Try adjusting your filters.</p>
+            <button onclick="resetFilters()" class="turbo-button bg-primary-container hover:bg-primary text-on-primary-container px-6 py-2.5 rounded-lg font-label-caps font-bold transition-all shadow-md select-none">
+                <span data-translate-key="btn-reset">Reset Filters</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-12 md:py-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-primary/5 -skew-y-3 origin-left z-0"></div>
+    <div class="max-w-container-max mx-auto px-gutter relative z-10">
+        <h2 id="why-title" class="font-display-lg text-display-lg-mobile md:text-display-lg mb-16 text-center" data-translate-key="why-title">Uncompromising <span class="text-primary text-glow">Standards</span></h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Inspection Card -->
+            <div onclick="openInspectionModal('All Fleet')" class="group flex flex-col items-center text-center cursor-pointer p-6 rounded-xl hover:bg-surface-container-low/30 border border-transparent hover:border-outline-variant/10 transition-all select-none">
+                <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-8 border border-primary/20 shadow-[0_0_30px_rgba(255,181,158,0.15)] group-hover:scale-105 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-primary text-4xl" data-icon="verified">verified</span>
+                </div>
+                <h4 class="font-display-lg text-headline-lg mb-4" data-translate-key="why-1-title">150-Point Inspection</h4>
+                <p class="text-on-surface-variant font-body-md" data-translate-key="why-1-desc">Every vehicle undergoes a rigorous mechanical and aesthetics audit by our master technicians.</p>
+            </div>
+            
+            <!-- Financing Card -->
+            <div onclick="openEMICalculator('Premium Vehicle', 7500000)" class="group flex flex-col items-center text-center cursor-pointer p-6 rounded-xl hover:bg-surface-container-low/30 border border-transparent hover:border-outline-variant/10 transition-all select-none">
+                <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-8 border border-primary/20 shadow-[0_0_30px_rgba(255,181,158,0.15)] group-hover:scale-105 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-primary text-4xl" data-icon="payments">payments</span>
+                </div>
+                <h4 class="font-display-lg text-headline-lg mb-4" data-translate-key="why-2-title">Flexible Financing</h4>
+                <p class="text-on-surface-variant font-body-md" data-translate-key="why-2-desc">Seamless loan processing through our partner banks with competitive interest rates for premium vehicles.</p>
+            </div>
+            
+            <!-- Warranty Card -->
+            <div class="group flex flex-col items-center text-center p-6 rounded-xl border border-transparent transition-all select-none">
+                <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-8 border border-primary/20 shadow-[0_0_30px_rgba(255,181,158,0.15)] group-hover:scale-105 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-primary text-4xl" data-icon="security_update_good">security_update_good</span>
+                </div>
+                <h4 class="font-display-lg text-headline-lg mb-4" data-translate-key="why-3-title">Full Service Warranty</h4>
+                <p class="text-on-surface-variant font-body-md" data-translate-key="why-3-desc">Drive with total peace of mind with our exclusive 1-year comprehensive mechanical warranty.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-12 md:py-20 border-t border-outline-variant/30">
+    <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-gutter">
+        <div class="col-span-1">
+            <h3 class="font-display-lg text-headline-lg text-on-surface mb-6">RAAZ AUTO</h3>
+            <p class="text-on-surface-variant font-body-md mb-8" data-translate-key="footer-desc">Redefining the reconditioned car market in Kathmandu with transparency and precision.</p>
+            
+            <!-- Beautiful Social SVGs -->
+            <div class="flex gap-4">
+                <!-- Facebook -->
+                <a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary group hover:shadow-lg hover:shadow-primary/20 transition-all duration-300" href="#" aria-label="Facebook">
+                    <svg class="w-5 h-5 text-on-surface-variant group-hover:text-on-primary transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 8H7v3h2v9h3v-9h2.72l.42-3H12V6.5A1 1 0 0 1 13 5.5h2.5V2H13c-2.76 0-5 2.24-5 5v1z"/>
+                    </svg>
+                </a>
+                <!-- Instagram -->
+                <a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary group hover:shadow-lg hover:shadow-primary/20 transition-all duration-300" href="#" aria-label="Instagram">
+                    <svg class="w-5 h-5 text-on-surface-variant group-hover:text-on-primary transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div>
+            <h4 class="font-label-caps text-label-caps text-primary mb-6" data-translate-key="footer-collection">THE COLLECTION</h4>
+            <ul class="space-y-4">
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#" data-translate-key="footer-suv">Luxury SUVs</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#" data-translate-key="footer-sedan">Premium Sedans</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#" data-translate-key="footer-ev">Electric Vehicles</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#" data-translate-key="footer-offroad">Off-Road Specialists</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4 class="font-label-caps text-label-caps text-primary mb-6" data-translate-key="footer-services">SERVICES</h4>
+            <ul class="space-y-4">
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#" data-translate-key="footer-val">Valuation Service</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#" data-translate-key="footer-calc">Finance Calculator</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#" data-translate-key="footer-sell">Sell Your Vehicle</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#" data-translate-key="footer-centers">Service Centers</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4 class="font-label-caps text-label-caps text-primary mb-6" data-translate-key="footer-locations">LOCATIONS</h4>
+            <ul class="space-y-4">
+                <li class="text-on-surface-variant" data-translate-key="footer-loc1">Main Showroom, Tinkune, Kathmandu</li>
+                <li class="text-on-surface-variant" data-translate-key="footer-loc2">Service Center, Lalitpur</li>
+                <li class="text-on-surface-variant">+977 1 4400000</li>
+                <li class="text-on-surface-variant">info@raazauto.com</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="max-w-container-max mx-auto px-gutter mt-20 pt-8 border-t border-outline-variant/10 text-center">
+        <p class="font-body-md text-label-caps text-on-surface-variant/50" data-translate-key="footer-copyright">© 2026 RAAZ AUTO. PRECISION ENGINEERED IN KATHMANDU.</p>
+    </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a class="fixed bottom-24 right-8 z-[100] bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group md:bottom-8" href="https://wa.me/9779800000000" aria-label="WhatsApp Concierge">
+    <!-- WhatsApp Brand SVG -->
+    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12.012 2C6.48 2 2 6.48 2 12.012c0 1.918.52 3.71 1.4 5.273L2 22l4.902-1.316a9.89 9.89 0 0 0 5.11 1.328c5.533 0 10.012-4.48 10.012-10.012S17.545 2 12.012 2zm6.2 13.914c-.26.74-1.272 1.348-1.745 1.413-.472.065-.968.106-2.9-.684-2.477-1.01-4.077-3.524-4.2-3.686-.124-.163-.984-1.307-.984-2.494 0-1.187.62-1.77.842-2.008.222-.238.486-.3.648-.3h.466c.162 0 .373.01.53.385.176.417.6 1.468.653 1.577.054.11.09.237.018.384-.07.148-.108.238-.217.367-.11.128-.228.286-.325.385-.108.11-.223.23-.096.448.127.218.566.93 1.21 1.503.832.74 1.53.968 1.748 1.077.218.11.346.09.475-.054.127-.144.55-.644.697-.863.147-.218.293-.18.498-.105.205.074 1.3.613 1.523.725.223.11.37.165.425.26.054.095.054.55-.205 1.29z"/>
+    </svg>
+    <span class="absolute right-full mr-4 bg-surface-container-high border border-outline-variant/30 text-on-surface px-4 py-2 rounded-lg font-label-caps opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:block text-xs font-bold" data-translate-key="chat-label">Chat with Concierge</span>
+</a>
+
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface-container/90 backdrop-blur-lg border-t border-outline-variant/20 shadow-[0px_-8px_24px_rgba(0,0,0,0.5)] h-16 flex justify-around items-center px-4 rounded-t-xl select-none">
+    <a class="flex flex-col items-center justify-center text-primary font-bold transition-transform active:translate-y-[-2px] hover:text-primary" href="#">
+        <span class="material-symbols-outlined" data-icon="home">home</span>
+        <span class="font-body-md text-[10px] font-label-caps" data-translate-key="nav-home">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:translate-y-[-2px]" href="#" onclick="scrollToFeatured()">
+        <span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+        <span class="font-body-md text-[10px] font-label-caps" data-translate-key="nav-browse">Browse</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:translate-y-[-2px]" href="#">
+        <span class="material-symbols-outlined" data-icon="add_box">add_box</span>
+        <span class="font-body-md text-[10px] font-label-caps" data-translate-key="nav-sell">Sell</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:translate-y-[-2px]" href="https://wa.me/9779800000000">
+        <span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+        <span class="font-body-md text-[10px] font-label-caps" data-translate-key="nav-concierge">Concierge</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:translate-y-[-2px]" href="#">
+        <span class="material-symbols-outlined" data-icon="person">person</span>
+        <span class="font-body-md text-[10px] font-label-caps">Profile</span>
+    </a>
+</nav>
+
+<!-- Interactive EMI Calculator Modal -->
+<div id="emi-calculator-modal" class="fixed inset-0 z-[150] bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+    <div class="glass-panel w-full max-w-md rounded-xl p-6 border border-outline-variant/30 text-on-surface flex flex-col relative shadow-2xl animate-scale-up">
+        <!-- Close Button -->
+        <button onclick="closeEMICalculator()" class="absolute top-4 right-4 text-on-surface-variant hover:text-white transition-colors">
+            <span class="material-symbols-outlined" data-icon="close">close</span>
+        </button>
+        
+        <!-- Header -->
+        <div class="mb-6">
+            <h3 class="font-display-lg text-headline-lg text-primary flex items-center gap-2 mb-1" data-translate-key="calculator-title">
+                <span class="material-symbols-outlined text-lg" data-icon="calculate">calculate</span> EMI Calculator
+            </h3>
+            <p id="emi-vehicle-name" class="text-sm font-bold text-on-surface-variant uppercase tracking-wider">Premium Vehicle</p>
+            <p id="emi-vehicle-price-display" class="text-lg font-bold text-white tabular-nums mt-1 font-body-lg">Rs. 0</p>
+        </div>
+        
+        <!-- Inputs -->
+        <div class="space-y-6 mb-6">
+            <!-- Down Payment -->
+            <div>
+                <div class="flex justify-between items-center text-xs font-label-caps text-primary mb-2">
+                    <span data-translate-key="calc-downpayment">Down Payment</span>
+                    <span id="emi-down-val" class="font-bold text-white tabular-nums">30% (Rs. 0)</span>
+                </div>
+                <input id="emi-down-slider" type="range" min="10" max="90" step="5" value="30" oninput="calculateEMI()" class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary"/>
+            </div>
+            
+            <!-- Tenure -->
+            <div>
+                <div class="flex justify-between items-center text-xs font-label-caps text-primary mb-2">
+                    <span data-translate-key="calc-tenure">Tenure</span>
+                    <span id="emi-tenure-val" class="font-bold text-white tabular-nums">5 Years</span>
+                </div>
+                <input id="emi-tenure-slider" type="range" min="1" max="7" step="1" value="5" oninput="calculateEMI()" class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary"/>
+            </div>
+            
+            <!-- Interest Rate -->
+            <div>
+                <div class="flex justify-between items-center text-xs font-label-caps text-primary mb-2">
+                    <span data-translate-key="calc-interest">Interest Rate</span>
+                    <span id="emi-interest-val" class="font-bold text-white tabular-nums">11.5%</span>
+                </div>
+                <input id="emi-interest-slider" type="range" min="8" max="18" step="0.5" value="11.5" oninput="calculateEMI()" class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary"/>
+            </div>
+        </div>
+        
+        <!-- Result -->
+        <div class="bg-surface-container-lowest/80 border border-outline-variant/20 rounded-lg p-5 text-center mb-6 shadow-inner">
+            <p class="text-xs font-label-caps text-on-surface-variant mb-1" data-translate-key="calc-monthly">Estimated Monthly EMI</p>
+            <p id="emi-result-display" class="text-primary font-display-lg text-headline-xl font-bold tabular-nums text-glow">Rs. 0</p>
+        </div>
+        
+        <!-- CTA -->
+        <button onclick="submitEMILoan()" class="turbo-button bg-primary-container text-on-primary-container w-full py-4 rounded-lg font-display-lg text-headline-lg font-bold shadow-lg shadow-primary-container/20 flex items-center justify-center gap-2 hover:bg-primary transition-all">
+            <span class="material-symbols-outlined text-lg" data-icon="payments">payments</span> <span data-translate-key="calc-btn">Apply for Finance</span>
+        </button>
+    </div>
+</div>
+
+<!-- 150-Point Inspection Modal -->
+<div id="inspection-modal" class="fixed inset-0 z-[150] bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+    <div class="glass-panel w-full max-w-xl rounded-xl p-6 border border-outline-variant/30 text-on-surface flex flex-col relative shadow-2xl max-h-[85vh] overflow-y-auto animate-scale-up">
+        <!-- Close Button -->
+        <button onclick="closeInspectionModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-white transition-colors z-10">
+            <span class="material-symbols-outlined" data-icon="close">close</span>
+        </button>
+        
+        <!-- Header -->
+        <div class="text-center mb-8 border-b border-outline-variant/20 pb-6 relative">
+            <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 border border-primary/20 shadow-[0_0_20px_rgba(255,181,158,0.15)]">
+                <span class="material-symbols-outlined text-primary text-3xl" data-icon="verified">verified</span>
+            </div>
+            <h3 class="font-display-lg text-headline-xl text-primary font-bold tracking-tight mb-1" data-translate-key="inspect-title">150-Point Inspection Report</h3>
+            <p id="inspect-vehicle-name" class="text-sm font-bold text-on-surface-variant uppercase tracking-wider mb-2">Vehicle Audit Details</p>
+            <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary text-[10px] font-label-caps px-3 py-1 rounded-full font-bold">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                <span data-translate-key="inspect-sub">Certified Quality Audit Report</span>
+            </div>
+        </div>
+        
+        <!-- Checklist categories -->
+        <div class="space-y-4 mb-8">
+            <!-- Engine -->
+            <div class="bg-surface-container-low/50 border border-outline-variant/10 rounded-lg p-4 flex justify-between items-start gap-4">
+                <div class="flex gap-3">
+                    <span class="text-primary font-bold text-lg leading-none mt-0.5">🔩</span>
+                    <div>
+                        <p class="font-bold text-white text-sm" data-translate-key="inspect-engine">Engine & Drivetrain</p>
+                        <p class="text-xs text-on-surface-variant mt-0.5" data-translate-key="why-1-desc">Rigorous check of engine core components and operational efficiency.</p>
+                    </div>
+                </div>
+                <span class="bg-green-500/10 text-green-400 border border-green-500/20 text-[10px] font-label-caps font-bold px-2 py-0.5 rounded">PASS</span>
+            </div>
+            
+            <!-- Exterior -->
+            <div class="bg-surface-container-low/50 border border-outline-variant/10 rounded-lg p-4 flex justify-between items-start gap-4">
+                <div class="flex gap-3">
+                    <span class="text-primary font-bold text-lg leading-none mt-0.5">🎨</span>
+                    <div>
+                        <p class="font-bold text-white text-sm" data-translate-key="inspect-exterior">Exterior & Bodywork</p>
+                        <p class="text-xs text-on-surface-variant mt-0.5">Checked panel integrity, scratches, paint density, and alignments.</p>
+                    </div>
+                </div>
+                <span class="bg-green-500/10 text-green-400 border border-green-500/20 text-[10px] font-label-caps font-bold px-2 py-0.5 rounded">PASS</span>
+            </div>
+
+            <!-- Suspension -->
+            <div class="bg-surface-container-low/50 border border-outline-variant/10 rounded-lg p-4 flex justify-between items-start gap-4">
+                <div class="flex gap-3">
+                    <span class="text-primary font-bold text-lg leading-none mt-0.5">🚗</span>
+                    <div>
+                        <p class="font-bold text-white text-sm" data-translate-key="inspect-suspension">Suspension & Steering</p>
+                        <p class="text-xs text-on-surface-variant mt-0.5">Shock audit, ball joints, steering linkages, rack stability.</p>
+                    </div>
+                </div>
+                <span class="bg-green-500/10 text-green-400 border border-green-500/20 text-[10px] font-label-caps font-bold px-2 py-0.5 rounded">PASS</span>
+            </div>
+
+            <!-- Electronics -->
+            <div class="bg-surface-container-low/50 border border-outline-variant/10 rounded-lg p-4 flex justify-between items-start gap-4">
+                <div class="flex gap-3">
+                    <span class="text-primary font-bold text-lg leading-none mt-0.5">🔌</span>
+                    <div>
+                        <p class="font-bold text-white text-sm" data-translate-key="inspect-electronics">Diagnostics & Electronics</p>
+                        <p class="text-xs text-on-surface-variant mt-0.5">ECU fault check, battery charge profile, sensor feedback loops.</p>
+                    </div>
+                </div>
+                <span class="bg-green-500/10 text-green-400 border border-green-500/20 text-[10px] font-label-caps font-bold px-2 py-0.5 rounded">PASS</span>
+            </div>
+
+            <!-- Interior -->
+            <div class="bg-surface-container-low/50 border border-outline-variant/10 rounded-lg p-4 flex justify-between items-start gap-4">
+                <div class="flex gap-3">
+                    <span class="text-primary font-bold text-lg leading-none mt-0.5">💺</span>
+                    <div>
+                        <p class="font-bold text-white text-sm" data-translate-key="inspect-interior">Interior Features</p>
+                        <p class="text-xs text-on-surface-variant mt-0.5">AC compressor flow, console button response, safety configurations.</p>
+                    </div>
+                </div>
+                <span class="bg-green-500/10 text-green-400 border border-green-500/20 text-[10px] font-label-caps font-bold px-2 py-0.5 rounded">PASS</span>
+            </div>
+        </div>
+        
+        <!-- Diagnostic Summary Footer -->
+        <div class="border-t border-outline-variant/20 pt-6 flex flex-col sm:flex-row justify-between text-xs text-on-surface-variant gap-4 select-none">
+            <div>
+                <p class="font-bold text-white font-label-caps" data-translate-key="inspect-technician">Verified by Chief Inspector S. Adhikari</p>
+                <p class="text-[10px]" data-translate-key="inspect-location">Lalitpur Service Center</p>
+            </div>
+            <div class="text-left sm:text-right">
+                <p class="font-bold text-white font-label-caps" data-translate-key="inspect-date">Date of Inspection</p>
+                <p class="text-[10px] tabular-nums">2026-05-24</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Translation Database
+    const translations = {
+      en: {
+        "nav-home": "Home",
+        "nav-browse": "Browse",
+        "nav-sell": "Sell",
+        "nav-concierge": "Concierge",
+        "hero-badge": "Trusted, 150-point inspected vehicles for the modern Nepali driver. Experience luxury engineering without compromise.",
+        "hero-title": "Find Your Perfect <span class=\"text-primary text-glow font-extrabold\">Reconditioned</span> Vehicle in Kathmandu",
+        "btn-browse": "Browse Cars",
+        "btn-sell": "Sell Your Car",
+        "filter-brand": "Brand",
+        "filter-all-brands": "All Brands",
+        "filter-price": "Price Range (NPR)",
+        "filter-any-price": "Any Price",
+        "filter-fuel": "Fuel Type",
+        "filter-all-fuels": "All Fuels",
+        "btn-search": "Search",
+        "cat-suv": "SUV",
+        "cat-sedan": "SEDAN",
+        "cat-ev": "EV",
+        "cat-pickup": "PICKUP",
+        "featured-title": "Featured Collection",
+        "featured-sub": "Hand-selected luxury for the discerning driver",
+        "view-all": "View All",
+        "why-title": "Uncompromising <span class=\"text-primary text-glow\">Standards</span>",
+        "why-1-title": "150-Point Inspection",
+        "why-1-desc": "Every vehicle undergoes a rigorous mechanical and aesthetics audit by our master technicians.",
+        "why-2-title": "Flexible Financing",
+        "why-2-desc": "Seamless loan processing through our partner banks with competitive interest rates for premium vehicles.",
+        "why-3-title": "Full Service Warranty",
+        "why-3-desc": "Drive with total peace of mind with our exclusive 1-year comprehensive mechanical warranty.",
+        "footer-desc": "Redefining the reconditioned car market in Kathmandu with transparency and precision.",
+        "footer-collection": "THE COLLECTION",
+        "footer-suv": "Luxury SUVs",
+        "footer-sedan": "Premium Sedans",
+        "footer-ev": "Electric Vehicles",
+        "footer-offroad": "Off-Road Specialists",
+        "footer-services": "SERVICES",
+        "footer-val": "Valuation Service",
+        "footer-calc": "Finance Calculator",
+        "footer-sell": "Sell Your Vehicle",
+        "footer-centers": "Service Centers",
+        "footer-locations": "LOCATIONS",
+        "footer-loc1": "Main Showroom, Tinkune, Kathmandu",
+        "footer-loc2": "Service Center, Lalitpur",
+        "footer-copyright": "© 2026 RAAZ AUTO. PRECISION ENGINEERED IN KATHMANDU.",
+        "chat-label": "Chat with Concierge",
+        "card-featured": "FEATURED",
+        "card-new": "NEW ARRIVAL",
+        "inspection-view": "View Inspection Report",
+        "calculator-title": "EMI Calculator",
+        "calc-downpayment": "Down Payment",
+        "calc-tenure": "Tenure",
+        "calc-interest": "Interest Rate",
+        "calc-monthly": "Estimated Monthly EMI",
+        "calc-btn": "Apply for Finance",
+        "inspect-title": "150-Point Inspection Report",
+        "inspect-sub": "Certified Quality Audit Report",
+        "inspect-passed": "Passed Checked Items",
+        "inspect-engine": "Engine & Drivetrain",
+        "inspect-exterior": "Exterior & Bodywork",
+        "inspect-suspension": "Suspension & Steering",
+        "inspect-electronics": "Diagnostics & Electronics",
+        "inspect-interior": "Interior Features",
+        "inspect-technician": "Verified by Chief Inspector S. Adhikari",
+        "inspect-location": "Lalitpur Service Center",
+        "inspect-date": "Date of Inspection",
+        "no-results": "No vehicles found matching your criteria. Try adjusting your filters.",
+        "btn-reset": "Reset Filters",
+        
+        "car-1-title": "2021 Hyundai Tucson",
+        "car-1-mileage": "24,000 KM",
+        "car-1-fuel": "Diesel",
+        "car-1-trans": "Automatic",
+        "car-1-price": "Rs.&nbsp;85,50,000",
+        "car-1-emi": "EMI from Rs.&nbsp;1,20,000",
+        
+        "car-2-title": "2019 Toyota Hilux",
+        "car-2-mileage": "42,000 KM",
+        "car-2-fuel": "Diesel",
+        "car-2-trans": "Manual",
+        "car-2-price": "Rs.&nbsp;92,00,000",
+        "car-2-emi": "EMI from Rs.&nbsp;1,45,000",
+        
+        "car-3-title": "2023 Tesla Model Y",
+        "car-3-mileage": "3,500 KM",
+        "car-3-fuel": "EV",
+        "car-3-trans": "AWD",
+        "car-3-price": "Rs.&nbsp;1,45,00,000",
+        "car-3-emi": "EMI from Rs.&nbsp;2,10,000"
+      },
+      ne: {
+        "nav-home": "गृहपृष्ठ",
+        "nav-browse": "खोज्नुहोस्",
+        "nav-sell": "बिक्री गर्नुहोस्",
+        "nav-concierge": "सहायता",
+        "hero-badge": "आधुनिक नेपाली चालकका लागि विश्वसनीय, १५०-बुँदा जाँच गरिएका सवारी साधनहरू। सम्झौता बिना विलासी इन्जिनियरिङको अनुभव गर्नुहोस्।",
+        "hero-title": "काठमाडौंमा तपाईंको लागि उपयुक्त <span class=\"text-primary text-glow font-extrabold\">रिकन्डिसन</span> सवारी साधन फेला पार्नुहोस्",
+        "btn-browse": "सवारी साधन हेर्नुहोस्",
+        "btn-sell": "सवारी बिक्री गर्नुहोस्",
+        "filter-brand": "ब्रान्ड",
+        "filter-all-brands": "सबै ब्रान्डहरू",
+        "filter-price": "मूल्य दायरा (NPR)",
+        "filter-any-price": "जुनसुकै मूल्य",
+        "filter-fuel": "इन्धन प्रकार",
+        "filter-all-fuels": "सबै इन्धनहरू",
+        "btn-search": "खोज्नुहोस्",
+        "cat-suv": "एसयूभी",
+        "cat-sedan": "सेडान",
+        "cat-ev": "ईभी",
+        "cat-pickup": "पिकअप",
+        "featured-title": "उत्कृष्ट संकलन",
+        "featured-sub": "बुझ्ने चालकका लागि छानिएका विलासी सवारीहरू",
+        "view-all": "सबै हेर्नुहोस्",
+        "why-title": "सम्झौताबिहीन <span class=\"text-primary text-glow\">मापदण्डहरू</span>",
+        "why-1-title": "१५०-बुँदा जाँच",
+        "why-1-desc": "प्रत्येक सवारी साधन हाम्रो दक्ष प्राविधिकहरूद्वारा कडा मेकानिकल र सौन्दर्य परीक्षणबाट गुज्रिन्छ।",
+        "why-2-title": "लचिलो वित्तीय व्यवस्था",
+        "why-2-desc": "प्रिमियम सवारी साधनहरूको लागि प्रतिस्पर्धी ब्याज दरमा हाम्रा साझेदार बैंकहरू मार्फत सहज ऋण प्रक्रिया।",
+        "why-3-title": "पूर्ण सेवा वारेन्टी",
+        "why-3-desc": "हाम्रो विशेष १-वर्षे व्यापक मेकानिकल वारेन्टीको साथ पूर्ण मानसिक शान्तिका साथ ड्राइभ गर्नुहोस्।",
+        "footer-desc": "पारदर्शिता र शुद्धताका साथ काठमाडौंमा रिकन्डिसन कार बजारलाई पुनर्गठित गर्दै।",
+        "footer-collection": "संकलन",
+        "footer-suv": "विलासी एसयूभीहरू",
+        "footer-sedan": "प्रिमियम सेडानहरू",
+        "footer-ev": "विद्युतीय सवारीहरू",
+        "footer-offroad": "अफ-रोड विशेषज्ञ",
+        "footer-services": "सेवाहरू",
+        "footer-val": "मूल्याङ्कन सेवा",
+        "footer-calc": "वित्तीय क्यालकुलेटर",
+        "footer-sell": "सवारी बिक्री गर्नुहोस्",
+        "footer-centers": "सेवा केन्द्रहरू",
+        "footer-locations": "स्थानहरू",
+        "footer-loc1": "मुख्य शोरूम, तीनकुने, काठमाडौं",
+        "footer-loc2": "सेवा केन्द्र, ललितपुर",
+        "footer-copyright": "© २०२६ नेपाल मोटर्स। काठमाडौंमा निर्मित।",
+        "chat-label": "सहायकसँग कुराकानी",
+        "card-featured": "विशेष",
+        "card-new": "भर्खरै आएको",
+        "inspection-view": "जाँच रिपोर्ट हेर्नुहोस्",
+        "calculator-title": "ईएमआई क्यालकुलेटर",
+        "calc-downpayment": "डाउन पेमेन्ट (अग्रिम भुक्तानी)",
+        "calc-tenure": "अवधि",
+        "calc-interest": "ब्याज दर",
+        "calc-monthly": "अनुमानित मासिक ईएमआई",
+        "calc-btn": "ऋणको लागि आवेदन दिनुहोस्",
+        "inspect-title": "१५०-बुँदा जाँच रिपोर्ट",
+        "inspect-sub": "प्रमाणित गुणस्तर अडिट रिपोर्ट",
+        "inspect-passed": "उत्तीर्ण गरिएका जाँचहरू",
+        "inspect-engine": "इन्जिन र ड्राइभट्रेन",
+        "inspect-exterior": "बाहिरी र बडीवर्क",
+        "inspect-suspension": "सस्पेन्सन र स्टेयरिङ",
+        "inspect-electronics": "इलेक्ट्रोनिक्स र डायग्नोस्टिक्स",
+        "inspect-interior": "भित्री सुविधाहरू",
+        "inspect-technician": "प्रमाणित गर्ने मुख्य निरीक्षक: एस. अधिकारी",
+        "inspect-location": "ललितपुर सेवा केन्द्र",
+        "inspect-date": "जाँच गरिएको मिति",
+        "no-results": "तपाईंको मापदण्डसँग मिल्ने सवारी साधन भेटिएन। कृपया फिल्टर परिवर्तन गर्नुहोस्।",
+        "btn-reset": "पुनःसेट गर्नुहोस्",
+        
+        "car-1-title": "२०२१ हुण्डाई टक्सन",
+        "car-1-mileage": "२४,००० किमी",
+        "car-1-fuel": "डिजेल",
+        "car-1-trans": "अटोमेटिक",
+        "car-1-price": "रु.&nbsp;८५,५०,०००",
+        "car-1-emi": "मासिक ईएमआई रु.&nbsp;१,२०,००० बाट",
+        
+        "car-2-title": "२०१९ टोयोटा हाइलक्स",
+        "car-2-mileage": "४२,००० किमी",
+        "car-2-fuel": "डिजेल",
+        "car-2-trans": "म्यानुअल",
+        "car-2-price": "रु.&nbsp;९२,००,०००",
+        "car-2-emi": "मासिक ईएमआई रु.&nbsp;१,४५,००० बाट",
+        
+        "car-3-title": "२०२३ टेस्ला मोडल वाई",
+        "car-3-mileage": "३,५०० किमी",
+        "car-3-fuel": "ईभी",
+        "car-3-trans": "एडब्लूडी",
+        "car-3-price": "रु.&nbsp;१,४५,००,०००",
+        "car-3-emi": "मासिक ईएमआई रु.&nbsp;२,१०,००० बाट"
+      }
+    };
+
+    let currentLanguage = 'en';
+
+    // Toggle Language
+    function toggleLanguage() {
+        currentLanguage = currentLanguage === 'en' ? 'ne' : 'en';
+        document.body.className = `bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary lang-${currentLanguage} transition-colors duration-300`;
+        
+        const btn = document.getElementById('lang-toggle-btn');
+        btn.innerText = currentLanguage === 'en' ? 'नेपाली' : 'ENGLISH';
+        
+        // Translate all data-translate-key nodes
+        const transNodes = document.querySelectorAll('[data-translate-key]');
+        transNodes.forEach(node => {
+            const key = node.getAttribute('data-translate-key');
+            if (translations[currentLanguage][key]) {
+                node.innerHTML = translations[currentLanguage][key];
+            }
+        });
+        
+        // Translate filter values to match dropdown items if needed
+        const selectFields = ['filter-brand-select', 'filter-brand-mobile', 'filter-price-select', 'filter-price-mobile', 'filter-fuel-select', 'filter-fuel-mobile'];
+        selectFields.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                // Auto translate options inside selects
+                for (let i = 0; i < el.options.length; i++) {
+                    const opt = el.options[i];
+                    if (opt.text === 'All Brands' || opt.text === 'सबै ब्रान्डहरू') {
+                        opt.text = currentLanguage === 'en' ? 'All Brands' : 'सबै ब्रान्डहरू';
+                    } else if (opt.text === 'Any Price' || opt.text === 'जुनसुकै मूल्य') {
+                        opt.text = currentLanguage === 'en' ? 'Any Price' : 'जुनसुकै मूल्य';
+                    } else if (opt.text === 'All Fuels' || opt.text === 'सबै इन्धनहरू') {
+                        opt.text = currentLanguage === 'en' ? 'All Fuels' : 'सबै इन्धनहरू';
+                    } else if (opt.text === 'Rs. 20L - 50L' || opt.text === 'रु. २०L - ५०L') {
+                        opt.text = currentLanguage === 'en' ? 'Rs. 20L - 50L' : 'रु. २०L - ५०L';
+                    } else if (opt.text === 'Rs. 50L - 1Cr' || opt.text === 'रु. ५०L - १Cr') {
+                        opt.text = currentLanguage === 'en' ? 'Rs. 50L - 1Cr' : 'रु. ५०L - १Cr';
+                    } else if (opt.text === 'Above 1Cr' || opt.text === '१Cr भन्दा माथि') {
+                        opt.text = currentLanguage === 'en' ? 'Above 1Cr' : '१Cr भन्दा माथि';
+                    }
+                }
+            }
+        });
+    }
+
+    // Number Formatting Helpers
+    function formatNPRValue(val) {
+        let str = Math.round(val).toString();
+        let lastThree = str.substring(str.length - 3);
+        let otherNumbers = str.substring(0, str.length - 3);
+        if (otherNumbers !== '') {
+            lastThree = ',' + lastThree;
+        }
+        let res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+        return res;
+    }
+
+    const nepaliDigits = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+    function toNepaliDigits(numStr) {
+        return numStr.toString().split('').map(char => {
+            if (char >= '0' && char <= '9') {
+                return nepaliDigits[parseInt(char)];
+            }
+            return char;
+        }).join('');
+    }
+
+    function formatCurrency(amount) {
+        const formatted = formatNPRValue(amount);
+        if (currentLanguage === 'ne') {
+            return `रु.&nbsp;${toNepaliDigits(formatted)}`;
+        }
+        return `Rs.&nbsp;${formatted}`;
+    }
+
+    // EMI Calculator Logic
+    let calculatorPrice = 0;
+    let calculatorVehicleName = "";
+
+    function openEMICalculator(vehicleName, price) {
+        calculatorVehicleName = vehicleName;
+        calculatorPrice = price;
+        
+        document.getElementById('emi-vehicle-name').innerText = vehicleName;
+        document.getElementById('emi-vehicle-price-display').innerHTML = formatCurrency(price);
+        
+        // Reset inputs
+        document.getElementById('emi-down-slider').value = 30;
+        document.getElementById('emi-tenure-slider').value = 5;
+        document.getElementById('emi-interest-slider').value = 11.5;
+        
+        const modal = document.getElementById('emi-calculator-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.style.opacity = '1';
+        }, 10);
+        
+        calculateEMI();
+    }
+
+    function closeEMICalculator() {
+        const modal = document.getElementById('emi-calculator-modal');
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    }
+
+    function calculateEMI() {
+        const downPct = parseInt(document.getElementById('emi-down-slider').value);
+        const tenureYears = parseInt(document.getElementById('emi-tenure-slider').value);
+        const interestRate = parseFloat(document.getElementById('emi-interest-slider').value);
+        
+        const downPayment = (downPct / 100) * calculatorPrice;
+        const principal = calculatorPrice - downPayment;
+        
+        // Monthly calculation
+        const monthlyRate = (interestRate / 12) / 100;
+        const totalMonths = tenureYears * 12;
+        
+        let emi = 0;
+        if (monthlyRate > 0) {
+            emi = principal * (monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+        } else {
+            emi = principal / totalMonths;
+        }
+        
+        // Update label values
+        document.getElementById('emi-down-val').innerHTML = `${downPct}% (${formatCurrency(downPayment)})`;
+        document.getElementById('emi-tenure-val').innerText = currentLanguage === 'en' ? `${tenureYears} Years` : `${toNepaliDigits(tenureYears)} वर्ष`;
+        document.getElementById('emi-interest-val').innerText = currentLanguage === 'en' ? `${interestRate}%` : `${toNepaliDigits(interestRate)}%`;
+        
+        document.getElementById('emi-result-display').innerHTML = formatCurrency(emi);
+    }
+
+    function submitEMILoan() {
+        alert(currentLanguage === 'en' ? 'EMI Application Submitted! Our financial manager will contact you shortly.' : 'ईएमआई आवेदन दर्ता भयो! हाम्रा वित्तीय प्रतिनिधिले छिट्टै सम्पर्क गर्नुहुनेछ।');
+        closeEMICalculator();
+    }
+
+    // 150-Point Inspection Modal
+    function openInspectionModal(vehicleName) {
+        document.getElementById('inspect-vehicle-name').innerText = vehicleName;
+        const modal = document.getElementById('inspection-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.style.opacity = '1';
+        }, 10);
+    }
+
+    function closeInspectionModal() {
+        const modal = document.getElementById('inspection-modal');
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    }
+
+    // Parallax & Dynamic scroll logic
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroBg = document.getElementById('hero-bg-img');
+        if (heroBg) {
+            heroBg.style.transform = `translateY(${scrolled * 0.35}px) scale(1.05)`;
+        }
+    });
+
+    // Mobile Navigation Drawer Toggle
+    function toggleMobileNav() {
+        const drawer = document.getElementById('mobile-nav-drawer');
+        if (drawer.classList.contains('hidden')) {
+            drawer.classList.remove('hidden');
+            setTimeout(() => {
+                drawer.style.opacity = '1';
+            }, 10);
+        } else {
+            drawer.style.opacity = '0';
+            setTimeout(() => {
+                drawer.classList.add('hidden');
+            }, 300);
+        }
+    }
+
+    // Scroll helpers
+    function scrollToFeatured() {
+        document.getElementById('featured-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function focusSearch() {
+        scrollToFeatured();
+        setTimeout(() => {
+            document.getElementById('filter-brand-select').focus();
+        }, 800);
+    }
+
+    // Mobile Filters Toggle
+    function toggleMobileFilter() {
+        const drawer = document.getElementById('mobile-filter-drawer');
+        if (drawer.classList.contains('hidden')) {
+            drawer.classList.remove('hidden');
+            drawer.classList.add('flex');
+        } else {
+            drawer.classList.add('hidden');
+            drawer.classList.remove('flex');
+        }
+    }
+
+    // Dynamic Filter Engine
+    function filterByCategory(category) {
+        resetFilters();
+        const cards = document.querySelectorAll('.vehicle-card');
+        let matchedCount = 0;
+        
+        cards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            if (cardCat === category) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, 50);
+                matchedCount++;
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+        scrollToFeatured();
+    }
+
+    function filterVehicles() {
+        const brandVal = document.getElementById('filter-brand-select').value;
+        const priceVal = document.getElementById('filter-price-select').value;
+        const fuelVal = document.getElementById('filter-fuel-select').value;
+        executeFilter(brandVal, priceVal, fuelVal);
+    }
+
+    function applyMobileFilters() {
+        const brandVal = document.getElementById('filter-brand-mobile').value;
+        const priceVal = document.getElementById('filter-price-mobile').value;
+        const fuelVal = document.getElementById('filter-fuel-mobile').value;
+        executeFilter(brandVal, priceVal, fuelVal);
+        toggleMobileFilter();
+    }
+
+    function executeFilter(brandVal, priceVal, fuelVal) {
+        let matchedCount = 0;
+        const cards = document.querySelectorAll('.vehicle-card');
+        
+        cards.forEach(card => {
+            const brand = card.getAttribute('data-brand');
+            const price = parseInt(card.getAttribute('data-price'));
+            const fuel = card.getAttribute('data-fuel');
+            
+            let brandMatch = (brandVal === 'All Brands' || brandVal === 'सबै ब्रान्डहरू' || brand === brandVal);
+            let fuelMatch = (fuelVal === 'All Fuels' || fuelVal === 'सबै इन्धनहरू' || fuel === fuelVal);
+            
+            let priceMatch = false;
+            if (priceVal === 'Any Price' || priceVal === 'जुनसुकै मूल्य') {
+                priceMatch = true;
+            } else if (priceVal === 'Rs. 20L - 50L' || priceVal === 'रु. २०L - ५०L') {
+                priceMatch = (price >= 2000000 && price <= 5000000);
+            } else if (priceVal === 'Rs. 50L - 1Cr' || priceVal === 'रु. ५०L - १Cr') {
+                priceMatch = (price >= 5000000 && price <= 10000000);
+            } else if (priceVal === 'Above 1Cr' || priceVal === '१Cr भन्दा माथि') {
+                priceMatch = (price > 10000000);
+            }
+            
+            if (brandMatch && fuelMatch && priceMatch) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, 50);
+                matchedCount++;
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+        
+        const noResultsContainer = document.getElementById('no-results-container');
+        if (matchedCount === 0) {
+            setTimeout(() => {
+                noResultsContainer.classList.remove('hidden');
+                noResultsContainer.style.opacity = '1';
+            }, 300);
+        } else {
+            noResultsContainer.classList.add('hidden');
+            noResultsContainer.style.opacity = '0';
+        }
+    }
+
+    function resetFilters() {
+        document.getElementById('filter-brand-select').selectedIndex = 0;
+        document.getElementById('filter-price-select').selectedIndex = 0;
+        document.getElementById('filter-fuel-select').selectedIndex = 0;
+        
+        document.getElementById('filter-brand-mobile').selectedIndex = 0;
+        document.getElementById('filter-price-mobile').selectedIndex = 0;
+        document.getElementById('filter-fuel-mobile').selectedIndex = 0;
+        
+        const cards = document.querySelectorAll('.vehicle-card');
+        cards.forEach(card => {
+            card.style.display = 'block';
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+            }, 50);
+        });
+        
+        const noResultsContainer = document.getElementById('no-results-container');
+        noResultsContainer.classList.add('hidden');
+        noResultsContainer.style.opacity = '0';
+    }
+</script>
+</body>
+</html>
