@@ -23,6 +23,8 @@ const formatNPR = (num) => {
 export const Home = () => {
     const navigate = useNavigate();
     const [vehicles, setVehicles] = useState([]);
+    const [allBrands, setAllBrands] = useState([]);
+    const [allCategories, setAllCategories] = useState([]);
     const [searchParams, setSearchParams] = useState({
         brand: '',
         category: '',
@@ -32,7 +34,13 @@ export const Home = () => {
     useEffect(() => {
         fetch('/api/vehicles')
             .then(res => res.json())
-            .then(data => setVehicles(data.filter(v => v.featured)));
+            .then(data => {
+                setVehicles(data.filter(v => v.featured));
+                // Extract unique brands from all vehicles
+                setAllBrands([...new Set(data.map(v => v.brand))]);
+                // Extract unique categories from all vehicles
+                setAllCategories([...new Set(data.map(v => v.category))]);
+            });
     }, []);
 
     const handleSearchSubmit = (e) => {
@@ -79,10 +87,9 @@ export const Home = () => {
                                     class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2.5 text-xs text-white border-glow-focus"
                                 >
                                     <option value="">All Brands</option>
-                                    <option value="Hyundai">Hyundai</option>
-                                    <option value="Toyota">Toyota</option>
-                                    <option value="Tesla">Tesla</option>
-                                    <option value="Suzuki">Suzuki</option>
+                                    {allBrands.map(brand => (
+                                        <option key={brand} value={brand}>{brand}</option>
+                                    ))}
                                 </select>
                             </div>
                             <div class="flex-1">
@@ -93,9 +100,9 @@ export const Home = () => {
                                     class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2.5 text-xs text-white border-glow-focus"
                                 >
                                     <option value="">All Categories</option>
-                                    <option value="SUV">SUV</option>
-                                    <option value="EV">EV</option>
-                                    <option value="Pickup">Pickup</option>
+                                    {allCategories.map(category => (
+                                        <option key={category} value={category}>{category}</option>
+                                    ))}
                                 </select>
                             </div>
                             <div class="flex-1">
@@ -147,6 +154,78 @@ export const Home = () => {
                 </div>
                 <div class="text-center mt-12">
                     <Link to="/listings" class="bg-surface border border-white/5 hover:border-white/10 text-white font-display text-[10px] font-bold tracking-widest uppercase px-6 py-3 rounded-lg transition-all inline-block shadow-lg">Browse Full Inventory</Link>
+                </div>
+            </section>
+
+            {/* Testimonials Section */}
+            <section class="max-w-7xl mx-auto px-6 md:px-12 py-12 mb-12">
+                <div class="text-center mb-12">
+                    <span class="text-[10px] font-bold text-primary-container tracking-widest uppercase font-display">Client Reviews</span>
+                    <h2 class="font-display text-2xl md:text-3xl font-extrabold text-white mt-2">What Our Customers Say</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass-panel p-6 rounded-2xl border border-white/5 shadow-lg relative">
+                        <span class="material-symbols-outlined text-4xl text-primary-container/20 absolute top-4 right-4">format_quote</span>
+                        <div class="flex items-center gap-1 mb-4 text-amber-400 text-sm">
+                            <span class="material-symbols-outlined fill-current">star</span>
+                            <span class="material-symbols-outlined fill-current">star</span>
+                            <span class="material-symbols-outlined fill-current">star</span>
+                            <span class="material-symbols-outlined fill-current">star</span>
+                            <span class="material-symbols-outlined fill-current">star</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm italic mb-6">
+                            "The process of buying my Hyundai Tucson was incredibly smooth. They were transparent about the car's condition and the 150-point inspection gave me absolute peace of mind."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="h-10 w-10 rounded-full bg-surface-container flex items-center justify-center text-white font-bold text-sm">B</div>
+                            <div>
+                                <h4 class="text-white text-xs font-bold font-display uppercase tracking-wider">Binod Bhandari</h4>
+                                <p class="text-[9px] text-on-surface-variant font-mono">Bought a Hyundai Tucson</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-panel p-6 rounded-2xl border border-white/5 shadow-lg relative">
+                        <span class="material-symbols-outlined text-4xl text-primary-container/20 absolute top-4 right-4">format_quote</span>
+                        <div class="flex items-center gap-1 mb-4 text-amber-400 text-sm">
+                            <span class="material-symbols-outlined fill-current">star</span>
+                            <span class="material-symbols-outlined fill-current">star</span>
+                            <span class="material-symbols-outlined fill-current">star</span>
+                            <span class="material-symbols-outlined fill-current">star</span>
+                            <span class="material-symbols-outlined fill-current">star</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm italic mb-6">
+                            "Sold my Toyota Hilux here at a great valuation. The appraisal was fair and fast, and they handled all the paperwork. Highly recommend RAAZ Auto!"
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="h-10 w-10 rounded-full bg-surface-container flex items-center justify-center text-white font-bold text-sm">S</div>
+                            <div>
+                                <h4 class="text-white text-xs font-bold font-display uppercase tracking-wider">Sunita Gurung</h4>
+                                <p class="text-[9px] text-on-surface-variant font-mono">Sold a Toyota Hilux</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl border border-white/5 shadow-lg relative">
+                        <span class="material-symbols-outlined text-4xl text-primary-container/20 absolute top-4 right-4">format_quote</span>
+                        <div class="flex items-center gap-1 mb-4 text-amber-400 text-sm">
+                            <span class="material-symbols-outlined fill-current">star</span>
+                            <span class="material-symbols-outlined fill-current">star</span>
+                            <span class="material-symbols-outlined fill-current">star</span>
+                            <span class="material-symbols-outlined fill-current">star</span>
+                            <span class="material-symbols-outlined fill-current">star</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm italic mb-6">
+                            "I traded in my old car for a Suzuki Jimny. The exchange process was seamless and the customer service is top-notch. I'm loving my new SUV."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="h-10 w-10 rounded-full bg-surface-container flex items-center justify-center text-white font-bold text-sm">P</div>
+                            <div>
+                                <h4 class="text-white text-xs font-bold font-display uppercase tracking-wider">Pradeep Gyawali</h4>
+                                <p class="text-[9px] text-on-surface-variant font-mono">Exchanged for Suzuki Jimny</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -462,6 +541,7 @@ export const Detail = () => {
     const [activeImg, setActiveImg] = useState(0);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         fetch(`/api/vehicles/${id}`)
             .then(res => res.json())
             .then(data => setVehicle(data));
@@ -1458,6 +1538,12 @@ export const AdminDashboard = () => {
             vehicleData.img = vehicleData.images[0];
         }
         
+        // Parse features string into array
+        if (vehicleData.featuresString !== undefined) {
+            vehicleData.features = vehicleData.featuresString.split(',').map(f => f.trim()).filter(f => f !== '');
+            delete vehicleData.featuresString;
+        }
+        
         const headers = { ...getAuthHeaders(), 'Content-Type': 'application/json' };
         const method = vehicleData.id ? 'PUT' : 'POST';
         const url = vehicleData.id ? `/api/vehicles/${vehicleData.id}` : '/api/vehicles';
@@ -1596,7 +1682,6 @@ export const AdminDashboard = () => {
                             { id: 'vehicles', name: 'Vehicle CRUD', icon: 'directions_car' },
                             { id: 'inventory', name: 'Stock Inventory', icon: 'inventory_2' },
                             { id: 'inquiries', name: 'Inquiry Resolution', icon: 'forum' },
-                            { id: 'sales', name: 'Sales Ledger', icon: 'receipt_long' },
                             { id: 'users', name: 'Staff accounts', icon: 'manage_accounts', adminOnly: true },
                             { id: 'settings', name: 'Platform Settings', icon: 'settings' }
                         ].map(t => {
@@ -1709,7 +1794,7 @@ export const AdminDashboard = () => {
                                             brand: '', name: '', category: 'SUV', year: 2021, price: 5000000, emi: 80000, km: 20000,
                                             fuel: 'Petrol', transmission: 'Automatic', color: 'Polar White', img: '', images: [], imageFiles: [], status: 'In Stock',
                                             specs: { engine: '2000 cc', power: '150 bhp', torque: '220 Nm', groundClearance: '180 mm' },
-                                            description: ''
+                                            description: '', featuresString: ''
                                         })}
                                         class="bg-primary-container hover:bg-opacity-95 text-white font-display text-xs font-bold px-4 py-2.5 rounded-lg tracking-widest uppercase transition-all shadow-lg"
                                     >
@@ -1765,7 +1850,7 @@ export const AdminDashboard = () => {
                                                     <td class="p-4 text-center">
                                                         <div class="flex items-center justify-center gap-2 text-on-surface-variant">
                                                             {user.role !== 'staff' && (
-                                                                <button onClick={() => setModalVehicle({...v, images: v.images || (v.img ? [v.img] : []), imageFiles: []})} class="hover:text-primary transition-colors p-1" title="Edit"><span class="material-symbols-outlined text-base">edit</span></button>
+                                                                <button onClick={() => setModalVehicle({...v, images: v.images || (v.img ? [v.img] : []), imageFiles: [], featuresString: (v.features || []).join(', ')})} class="hover:text-primary transition-colors p-1" title="Edit"><span class="material-symbols-outlined text-base">edit</span></button>
                                                             )}
                                                             {user.role === 'admin' && (
                                                                 <button onClick={() => deleteVehicle(v.id)} class="hover:text-red-500 transition-colors p-1" title="Delete"><span class="material-symbols-outlined text-base">delete</span></button>
@@ -2078,7 +2163,7 @@ export const AdminDashboard = () => {
                                     </select>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
                                 <div>
                                     <label class="block text-[9px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Year</label>
                                     <input type="number" required value={modalVehicle.year} onChange={e=>setModalVehicle({...modalVehicle, year: parseInt(e.target.value)})} class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-white border-glow-focus" />
@@ -2086,10 +2171,6 @@ export const AdminDashboard = () => {
                                 <div>
                                     <label class="block text-[9px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Price (NPR)</label>
                                     <input type="number" required value={modalVehicle.price} onChange={e=>setModalVehicle({...modalVehicle, price: parseInt(e.target.value)})} class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-white border-glow-focus" />
-                                </div>
-                                <div>
-                                    <label class="block text-[9px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">EMI / month</label>
-                                    <input type="number" required value={modalVehicle.emi} onChange={e=>setModalVehicle({...modalVehicle, emi: parseInt(e.target.value)})} class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-white border-glow-focus" />
                                 </div>
                                 <div>
                                     <label class="block text-[9px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Kilometers</label>
@@ -2109,9 +2190,10 @@ export const AdminDashboard = () => {
                                 <div>
                                     <label class="block text-[9px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Transmission</label>
                                     <select value={modalVehicle.transmission} onChange={e=>setModalVehicle({...modalVehicle, transmission: e.target.value})} class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-white border-glow-focus">
-                                        <option value="Automatic">Automatic</option>
-                                        <option value="Manual">Manual</option>
-                                        <option value="AWD">AWD</option>
+                                        <option value="4WD Automatic">4WD Automatic</option>
+                                        <option value="2WD Auto">2WD Auto</option>
+                                        <option value="4WD manual">4WD manual</option>
+                                        <option value="2WD Manual">2WD Manual</option>
                                     </select>
                                 </div>
                                 <div>
@@ -2213,18 +2295,10 @@ export const AdminDashboard = () => {
                                 </div>
                                 <p class="text-[8px] text-on-surface-variant/60 mt-2 tracking-wider">Accepted: JPG, PNG, WEBP, GIF — Max 10MB per image. First image is the main listing photo.</p>
                             </div>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-[9px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Engine (cc)</label>
                                     <input type="text" required value={modalVehicle.specs.engine} onChange={e=>setModalVehicle({...modalVehicle, specs: {...modalVehicle.specs, engine: e.target.value}})} class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-white border-glow-focus" />
-                                </div>
-                                <div>
-                                    <label class="block text-[9px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Power</label>
-                                    <input type="text" required value={modalVehicle.specs.power} onChange={e=>setModalVehicle({...modalVehicle, specs: {...modalVehicle.specs, power: e.target.value}})} class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-white border-glow-focus" />
-                                </div>
-                                <div>
-                                    <label class="block text-[9px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Torque</label>
-                                    <input type="text" required value={modalVehicle.specs.torque} onChange={e=>setModalVehicle({...modalVehicle, specs: {...modalVehicle.specs, torque: e.target.value}})} class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-white border-glow-focus" />
                                 </div>
                                 <div>
                                     <label class="block text-[9px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Ground Clearance</label>
@@ -2234,6 +2308,10 @@ export const AdminDashboard = () => {
                             <div class="pt-4">
                                 <label class="block text-[9px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Additional Details</label>
                                 <textarea rows="3" value={modalVehicle.description} onChange={e=>setModalVehicle({...modalVehicle, description: e.target.value})} class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-white border-glow-focus resize-none" placeholder="Provide any additional details or description..."></textarea>
+                            </div>
+                            <div class="pt-4">
+                                <label class="block text-[9px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Premium Features (Comma Separated)</label>
+                                <textarea rows="2" value={modalVehicle.featuresString} onChange={e=>setModalVehicle({...modalVehicle, featuresString: e.target.value})} class="w-full bg-surface border border-white/5 rounded-lg px-3 py-2 text-white border-glow-focus resize-none" placeholder="e.g. Inspected Engine, Certified Gearbox, AC..."></textarea>
                             </div>
                             <div class="flex justify-between items-center pt-4">
                                 <div class="flex items-center gap-4">

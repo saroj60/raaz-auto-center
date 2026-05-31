@@ -1,283 +1,33 @@
 {
   "vehicles": [
     {
+      "brand": "HYUNDAI",
+      "name": "GRAND I10 NIOS SPORTZ ",
+      "category": "SUV",
+      "year": 2021,
+      "price": 3050000,
+      "emi": 80000,
+      "km": 32000,
+      "fuel": "Petrol",
+      "transmission": "2WD Manual",
+      "color": "Dark Blue",
+      "img": "/uploads/vehicle-1780231847779-899905129.jpeg",
+      "images": [
+        "/uploads/vehicle-1780231847779-899905129.jpeg",
+        "/uploads/vehicle-1780231847782-600342960.jpeg",
+        "/uploads/vehicle-1780231847785-964175765.jpeg",
+        "/uploads/vehicle-1780231847786-431032181.jpeg"
+      ],
+      "status": "In Stock",
+      "specs": {
+        "engine": "1200 cc",
+        "power": "150 bhp",
+        "torque": "220 Nm",
+        "groundClearance": "170 mm"
+      },
+      "description": "Power Windows, Power Steering, Steering wheel mounted controls, Airbags, Air Condition, Touch Screen, Fog Lights, Music System, Back Sensor and many more.",
+      "featured": true,
       "id": 1,
-      "name": "Tucson",
-      "brand": "Hyundai",
-      "category": "SUV",
-      "price": 8550000,
-      "year": 2021,
-      "km": 24000,
-      "fuel": "Diesel",
-      "transmission": "Automatic",
-      "color": "Polar White",
-      "img": "bright_luxury_car.png",
-      "specs": {
-        "engine": "1997 cc",
-        "power": "182 bhp",
-        "torque": "400 Nm",
-        "groundClearance": "172 mm",
-        "seats": 5,
-        "gearBox": "8-Speed Auto"
-      },
-      "features": [
-        "Panoramic Sunroof",
-        "6 Airbags",
-        "ADAS Lane Assist",
-        "Heated Seats",
-        "360 Camera",
-        "Wireless Charge"
-      ],
-      "emi": 120000,
-      "featured": true,
-      "status": "In Stock"
-    },
-    {
-      "id": 2,
-      "name": "Hilux",
-      "brand": "Toyota",
-      "category": "Pickup",
-      "price": 9200000,
-      "year": 2019,
-      "km": 42000,
-      "fuel": "Diesel",
-      "transmission": "Manual",
-      "color": "Attitude Black Metallic",
-      "img": "bright_luxury_car.png",
-      "specs": {
-        "engine": "2755 cc",
-        "power": "201 bhp",
-        "torque": "420 Nm",
-        "groundClearance": "293 mm",
-        "seats": 5,
-        "gearBox": "6-Speed Manual"
-      },
-      "features": [
-        "Active Traction Control",
-        "7 Airbags",
-        "Differential Lock",
-        "Dual-Zone climate control",
-        "Rear View Camera",
-        "Underbody Armor"
-      ],
-      "emi": 145000,
-      "featured": true,
-      "status": "In Stock"
-    },
-    {
-      "id": 3,
-      "name": "Model Y",
-      "brand": "Tesla",
-      "category": "EV",
-      "price": 14500000,
-      "year": 2023,
-      "km": 3500,
-      "fuel": "Electric",
-      "transmission": "AWD",
-      "color": "Midnight Silver Metallic",
-      "img": "bright_luxury_car.png",
-      "specs": {
-        "engine": "Dual Electric Motor",
-        "power": "384 bhp",
-        "torque": "510 Nm",
-        "groundClearance": "167 mm",
-        "seats": 5,
-        "gearBox": "Single Speed"
-      },
-      "features": [
-        "Autopilot Capability",
-        "Full Glass Roof",
-        "15-inch Touchscreen",
-        "Sentry Security Mode",
-        "HEPA cabin filter",
-        "Premium Audio"
-      ],
-      "emi": 210000,
-      "featured": true,
-      "status": "In Stock"
-    },
-    {
-      "id": 4,
-      "name": "Sportage",
-      "brand": "Kia",
-      "category": "SUV",
-      "price": 6800000,
-      "year": 2020,
-      "km": 31000,
-      "fuel": "Petrol",
-      "transmission": "Automatic",
-      "color": "Fiery Red",
-      "img": "bright_luxury_car.png",
-      "specs": {
-        "engine": "1999 cc",
-        "power": "154 bhp",
-        "torque": "192 Nm",
-        "groundClearance": "172 mm",
-        "seats": 5,
-        "gearBox": "6-Speed Automatic"
-      },
-      "features": [
-        "Panoramic Sunroof",
-        "Blindspot Collision warning",
-        "Smart Power Tailgate",
-        "8-inch touchscreen",
-        "Harman Kardon speaker"
-      ],
-      "emi": 95000,
-      "featured": false,
-      "status": "In Stock"
-    },
-    {
-      "id": 5,
-      "name": "Jimny",
-      "brand": "Suzuki",
-      "category": "Pickup",
-      "price": 4800000,
-      "year": 2022,
-      "km": 12000,
-      "fuel": "Petrol",
-      "transmission": "Manual",
-      "color": "Kinetic Yellow",
-      "img": "bright_luxury_car.png",
-      "specs": {
-        "engine": "1462 cc",
-        "power": "101 bhp",
-        "torque": "130 Nm",
-        "groundClearance": "210 mm",
-        "seats": 4,
-        "gearBox": "5-Speed Manual"
-      },
-      "features": [
-        "AllGrip Pro 4WD system",
-        "Hill descent control",
-        "High-beam assist",
-        "Retro body styling",
-        "Washable cargo zone"
-      ],
-      "emi": 72000,
-      "featured": false,
-      "status": "In Stock"
-    },
-    {
-      "id": 6,
-      "name": "Land Cruiser",
-      "brand": "Toyota",
-      "category": "SUV",
-      "price": 29500000,
-      "year": 2021,
-      "km": 15000,
-      "fuel": "Diesel",
-      "transmission": "Automatic",
-      "color": "Attitude Black",
-      "img": "bright_luxury_car.png",
-      "specs": {
-        "engine": "3346 cc",
-        "power": "304 bhp",
-        "torque": "700 Nm",
-        "groundClearance": "235 mm",
-        "seats": 7,
-        "gearBox": "10-Speed Automatic"
-      },
-      "features": [
-        "Multi-Terrain Select 4WD",
-        "Crawl Control",
-        "4-Zone air conditioning",
-        "JBL 14-Speaker system",
-        "Head-up display",
-        "Air suspension"
-      ],
-      "emi": 380000,
-      "featured": false,
-      "status": "In Stock"
-    },
-    {
-      "brand": "Toyota",
-      "name": "Hilux",
-      "category": "SUV",
-      "year": 2021,
-      "price": 5000000,
-      "emi": 80000,
-      "km": 20000,
-      "fuel": "Petrol",
-      "transmission": "Automatic",
-      "color": "Polar White",
-      "img": "/uploads/vehicle-1779844657261-630057337.png",
-      "images": [
-        "/uploads/vehicle-1779844657261-630057337.png",
-        "/uploads/vehicle-1779844657272-627650004.png"
-      ],
-      "status": "In Stock",
-      "specs": {
-        "engine": "2000 cc",
-        "power": "150 bhp",
-        "torque": "220 Nm",
-        "groundClearance": "180 mm"
-      },
-      "description": "",
-      "id": 7,
-      "features": [
-        "Inspected Engine",
-        "Certified Gearbox",
-        "Clear Title",
-        "AC",
-        "Safety Airbags"
-      ]
-    },
-    {
-      "brand": "hyundai c",
-      "name": "creta sx",
-      "category": "SUV",
-      "year": 2021,
-      "price": 5000000,
-      "emi": 80000,
-      "km": 20000,
-      "fuel": "Petrol",
-      "transmission": "Automatic",
-      "color": "Polar White",
-      "img": "",
-      "images": [],
-      "status": "In Stock",
-      "specs": {
-        "engine": "2000 cc",
-        "power": "150 bhp",
-        "torque": "220 Nm",
-        "groundClearance": "180 mm"
-      },
-      "description": "",
-      "id": 8,
-      "features": [
-        "Inspected Engine",
-        "Certified Gearbox",
-        "Clear Title",
-        "AC",
-        "Safety Airbags"
-      ]
-    },
-    {
-      "brand": "Hyundai",
-      "name": "Creta",
-      "category": "SUV",
-      "year": 2021,
-      "price": 5000000,
-      "emi": 80000,
-      "km": 20000,
-      "fuel": "Petrol",
-      "transmission": "Automatic",
-      "color": "Polar White",
-      "img": "/uploads/vehicle-1779930579828-585738419.png",
-      "images": [
-        "/uploads/vehicle-1779930579828-585738419.png"
-      ],
-      "status": "In Stock",
-      "specs": {
-        "engine": "2000 cc",
-        "power": "150 bhp",
-        "torque": "220 Nm",
-        "groundClearance": "180 mm"
-      },
-      "description": "",
-      "featured": true,
-      "id": 9,
       "features": [
         "Inspected Engine",
         "Certified Gearbox",
@@ -397,7 +147,8 @@
     "SUV",
     "Sedan",
     "EV",
-    "Pickup"
+    "Pickup",
+    "Hatchback"
   ],
   "settings": {
     "name": "RAAZ AUTO Center",
@@ -407,11 +158,72 @@
     "email": "info@raazauto.com",
     "facebook": "https://facebook.com/raazautocenter",
     "instagram": "https://instagram.com/raazauto",
+    "tiktok": "https://tiktok.com/@raazauto",
     "maps": "https://www.google.com/maps/place/Raaz+Auto+Center/@27.6854976,85.2943327,17z/data=!4m15!1m8!3m7!1s0x39eb19001b6b2985:0x101b7ca48f211c12!2sRaaz+Auto+Center!8m2!3d27.6856074!4d85.2943569!10e5!16s%2Fg%2F11y9qgl5f8!3m5!1s0x39eb19001b6b2985:0x101b7ca48f211c12!8m2!3d27.6856074!4d85.2943569!16s%2Fg%2F11y9qgl5f8?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D",
     "seoTitle": "RAAZ AUTO Center | Premium Reconditioned Vehicles in Kathmandu",
     "seoDesc": "Find trusted, certified, and fully inspected pre-owned premium cars and SUVs at Kathmandu's leading reconditioned marketplace."
   },
   "activity_logs": [
+    {
+      "text": "Raaz updated vehicle details for: 2021 HYUNDAI GRAND I10 NIOS SPORTZ ",
+      "date": "2026-05-31 18:47"
+    },
+    {
+      "text": "Raaz updated vehicle details for: 2021 HYUNDAI GRAND I10 NIOS SPORTZ ",
+      "date": "2026-05-31 18:42"
+    },
+    {
+      "text": "Raaz added new vehicle listing: 2021 HYUNDAI GRAND I10 NIOS SPORTZ ",
+      "date": "2026-05-31 18:35"
+    },
+    {
+      "text": "Raaz uploaded 4 vehicle image(s).",
+      "date": "2026-05-31 18:35"
+    },
+    {
+      "text": "Raaz deleted vehicle: 2021 Hyundai Creta",
+      "date": "2026-05-31 18:31"
+    },
+    {
+      "text": "Raaz deleted vehicle: 2021 hyundai c creta sx",
+      "date": "2026-05-31 18:31"
+    },
+    {
+      "text": "Raaz deleted vehicle: 2021 Toyota Hilux",
+      "date": "2026-05-31 18:31"
+    },
+    {
+      "text": "Raaz deleted vehicle: 2021 Toyota Land Cruiser",
+      "date": "2026-05-31 18:31"
+    },
+    {
+      "text": "Raaz deleted vehicle: 2022 Suzuki Jimny",
+      "date": "2026-05-31 18:31"
+    },
+    {
+      "text": "Raaz deleted vehicle: 2020 Kia Sportage",
+      "date": "2026-05-31 18:31"
+    },
+    {
+      "text": "Raaz deleted vehicle: 2023 Tesla Model Y",
+      "date": "2026-05-31 18:31"
+    },
+    {
+      "text": "Raaz deleted vehicle: 2019 Toyota Hilux",
+      "date": "2026-05-31 18:31"
+    },
+    {
+      "text": "Raaz deleted vehicle: 2021 Hyundai Tucson",
+      "date": "2026-05-31 18:31"
+    },
+    {
+      "text": "Raaz logged in to administration console.",
+      "date": "2026-05-31 18:30"
+    },
+    {
+      "text": "Raaz logged in to administration console.",
+      "date": "2026-05-29 07:33"
+    },
     {
       "text": "New lead inquiry logged by saroj for 2021 Hyundai Creta",
       "date": "2026-05-28 06:55"

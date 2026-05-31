@@ -195,7 +195,7 @@ app.post('/api/vehicles', verifyToken, requireRole(['admin', 'manager']), (req, 
     
     const newId = data.vehicles.length > 0 ? Math.max(...data.vehicles.map(v => v.id)) + 1 : 1;
     newCar.id = newId;
-    newCar.features = newCar.features || ["Inspected Engine", "Certified Gearbox", "Clear Title", "AC", "Safety Airbags"];
+    newCar.features = newCar.features || [];
     
     data.vehicles.push(newCar);
     writeDB(data);
