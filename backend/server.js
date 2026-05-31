@@ -49,7 +49,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Serve uploaded images as static files
-app.use('/uploads', express.static(uploadsDir));
+app.use('/api/uploads', express.static(uploadsDir));
+app.use('/uploads', express.static(uploadsDir)); // Keep for backwards compatibility
 
 // Database Access helpers
 function readDB() {
@@ -442,7 +443,7 @@ app.post('/api/upload', verifyToken, requireRole(['admin', 'manager']), upload.a
         return res.status(400).json({ error: 'No image files were uploaded.' });
     }
 
-    const urls = req.files.map(f => `/uploads/${f.filename}`);
+    const urls = req.files.map(f => `/api/uploads/${f.filename}`);
     addActivityLog(`${req.user.name} uploaded ${req.files.length} vehicle image(s).`);
     res.json({ success: true, urls });
 });

@@ -11,12 +11,12 @@
       "fuel": "Petrol",
       "transmission": "2WD Manual",
       "color": "Dark Blue",
-      "img": "/uploads/vehicle-1780231847779-899905129.jpeg",
+      "img": "/api/uploads/vehicle-1780231847779-899905129.jpeg",
       "images": [
-        "/uploads/vehicle-1780231847779-899905129.jpeg",
-        "/uploads/vehicle-1780231847782-600342960.jpeg",
-        "/uploads/vehicle-1780231847785-964175765.jpeg",
-        "/uploads/vehicle-1780231847786-431032181.jpeg"
+        "/api/uploads/vehicle-1780231847779-899905129.jpeg",
+        "/api/uploads/vehicle-1780231847782-600342960.jpeg",
+        "/api/uploads/vehicle-1780231847785-964175765.jpeg",
+        "/api/uploads/vehicle-1780231847786-431032181.jpeg"
       ],
       "status": "In Stock",
       "specs": {
