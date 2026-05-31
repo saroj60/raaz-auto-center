@@ -1087,7 +1087,7 @@ export const Contact = () => {
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [msg, setMsg] = useState('');
-    const [settings, setSettings] = useState({ name: 'RAAZ AUTO Center', address: 'Balkhu, Kathmandu, Nepal', phone: '+977 9851075048', email: 'info@raazauto.com', maps: '' });
+    const [settings, setSettings] = useState({ name: 'RAAZ AUTO Center', address: 'Balkhu, Kathmandu, Nepal', phone: '+977 9851075048', email: 'contact@raazautocenter.com', maps: '' });
 
     useEffect(() => {
         fetch('/api/settings')
